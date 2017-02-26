@@ -130,7 +130,6 @@
     <None Include="DcParqueaderoModel.edmx.diagram">
       <DependentUpon>DcParqueaderoModel.edmx</DependentUpon>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DcParqueaderoModel.Context.tt">
