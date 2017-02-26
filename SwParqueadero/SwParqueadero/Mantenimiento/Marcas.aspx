@@ -16,7 +16,8 @@
                             <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Ingrese Marca" />
                         </div>
                         <div class="panel-footer">
-                            <asp:Button Text="Guardar" ID="btnGuardar" runat="server" CssClass="btn btn-primary" />
+                            <asp:Button Text="Guardar" ID="btnGuardar" runat="server" 
+                                CssClass="btn btn-primary" OnClick="btnGuardar_Click" />
                             <asp:Button Text="Cancelar" ID="btbCancelar" runat="server" CssClass="btn btn-danger" />
                         </div>
                     </div>
@@ -27,8 +28,9 @@
                             <h3 class="panel-title">Listado de Marcas</h3>
                         </div>
                         <div class="panel-body">
-                            <asp:GridView AutoGenerateColumns="false" runat="server" ID="grdListaProveedores"
-                                CssClass="table table-striped table-hover" OnRowCommand="grdListaProveedores_RowCommand">
+                            <asp:GridView AutoGenerateColumns="false" runat="server" ID="gvdatos"
+                                CssClass="table table-striped table-hover" 
+                                OnRowCommand="gvdatos_RowCommand" >
                                 <Columns>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
