@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwParqueadero.Negocio", "Sw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwParqueadero.AccesoDatos", "SwParqueadero.AccesoDatos\SwParqueadero.AccesoDatos.csproj", "{47968C8A-DEAB-493E-9089-9284964920BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwParqueadero.Comun", "SwParqueadero.Comun\SwParqueadero.Comun.csproj", "{0364BC87-0369-4B7D-BD89-0E314B9CDB7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{47968C8A-DEAB-493E-9089-9284964920BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47968C8A-DEAB-493E-9089-9284964920BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47968C8A-DEAB-493E-9089-9284964920BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0364BC87-0369-4B7D-BD89-0E314B9CDB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0364BC87-0369-4B7D-BD89-0E314B9CDB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0364BC87-0369-4B7D-BD89-0E314B9CDB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0364BC87-0369-4B7D-BD89-0E314B9CDB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
