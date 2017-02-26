@@ -112,15 +112,45 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\css_login\animate.css" />
+    <Content Include="Content\Styles\css_login\blueimp-gallery.min.css" />
+    <Content Include="Content\Styles\css_login\bootstrap.css" />
+    <Content Include="Content\Styles\css_login\bootstrap.min.css" />
+    <Content Include="Content\Styles\css_login\font-awesome.min.css" />
+    <Content Include="Content\Styles\css_login\set.css" />
+    <Content Include="Content\Styles\css_login\style.css" />
+    <Content Include="Content\Styles\css_users\ajax-loader.gif" />
+    <Content Include="Content\Styles\css_users\animate.css" />
+    <Content Include="Content\Styles\css_users\bootstrap.css" />
+    <Content Include="Content\Styles\css_users\font-awesome.min.css" />
+    <Content Include="Content\Styles\css_users\freeze.css" />
+    <Content Include="Content\Styles\css_users\slick.css" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Styles\images\people.png" />
+    <Content Include="Content\Styles\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Styles\fonts\FontAwesome.otf" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Login\Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\js_login\jquery.blueimp-gallery.min.js" />
+    <Content Include="Scripts\js_login\jquery.js" />
+    <Content Include="Scripts\js_login\script.js" />
+    <Content Include="Scripts\js_login\touchSwipe.min.js" />
+    <Content Include="Scripts\js_login\wow.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -190,6 +220,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
