@@ -76,6 +76,15 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <asp:LinkButton Text="Registrarse" ID="lnkRegistrar" runat="server" PostBackUrl="~/Login/RegistroUsuario.aspx" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         </div>

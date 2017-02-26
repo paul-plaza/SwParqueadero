@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mantenimiento\LogicaLogin.cs" />
     <Compile Include="Mantenimiento\LogicaMarca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
