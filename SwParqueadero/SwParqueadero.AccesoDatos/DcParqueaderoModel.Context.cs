@@ -25,7 +25,6 @@ namespace SwParqueadero.AccesoDatos
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TBL_ASIGNACION_PARQUEADERO> TBL_ASIGNACION_PARQUEADERO { get; set; }
         public virtual DbSet<TBL_DIA_ASIGNACION> TBL_DIA_ASIGNACION { get; set; }
         public virtual DbSet<TBL_DIAS> TBL_DIAS { get; set; }

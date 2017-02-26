@@ -9,7 +9,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
     {
         private DbParqueoEntities dc = new DbParqueoEntities();
 
-        public static List<TBL_MARCA> Lista()
+        public List<TBL_MARCA> Lista()
         {
             return dc.TBL_MARCA.ToList();
         }

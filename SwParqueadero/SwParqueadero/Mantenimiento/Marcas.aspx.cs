@@ -11,6 +11,14 @@ namespace SwParqueadero.Mantenimiento
 {
     public partial class Marcas : System.Web.UI.Page
     {
+        #region Declaracion Clases
+        LogicaMarca logicaMarca = new LogicaMarca();
+        #endregion
+
+        #region Declaracion Variables
+
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +30,7 @@ namespace SwParqueadero.Mantenimiento
 
         private void cargarGrid()
         {
-            gvdatos.DataSource = LogicaMarca.Lista();
+            gvdatos.DataSource = logicaMarca.Lista();
             gvdatos.DataBind();
 
         }
