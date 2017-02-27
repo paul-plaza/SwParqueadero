@@ -54,6 +54,8 @@
     <Compile Include="Mantenimiento\LogicaLogin.cs" />
     <Compile Include="Mantenimiento\LogicaMarca.cs" />
     <Compile Include="Mantenimiento\LogicaModelo.cs" />
+    <Compile Include="Mantenimiento\LogicaTipoUsuario.cs" />
+    <Compile Include="Mantenimiento\LogicaUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
