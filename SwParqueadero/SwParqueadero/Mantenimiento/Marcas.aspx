@@ -9,15 +9,22 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div id="formValidar" class="col-md-4">
+                <div class="col-md-4">
                     <div class="panel panel-default" data-toggle="validator">
                         <div class="panel-body ">
+                            <asp:ValidationSummary runat="server" ID="ValidationSummary1"
+                                DisplayMode="BulletList"
+                                ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2">Descripción</span>
                                 <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Ingrese Marca"
                                     MaxLength="50" aria-describedby="basic-addon2" />
                                 <asp:HiddenField runat="server" ID="hfCodigo" Value="0" />
+
                             </div>
+                            <asp:RequiredFieldValidator ID="rfDescripcion" runat="server"
+                                ControlToValidate="txtDescripcion" Display="None"
+                                SetFocusOnError="true" ErrorMessage="Campo Requerido">*</asp:RequiredFieldValidator>
                         </div>
                         <div class="panel-footer text-right">
                             <asp:Button Text="Guardar" ID="btnGuardar" runat="server"
@@ -50,7 +57,7 @@
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
-                                                    CssClass="btn btn-info btn-sm"  ValidationGroup="gisad"
+                                                    CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
                                                     CommandName="M" CommandArgument='<%# Bind("MAR_CODIGO") %>' />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
