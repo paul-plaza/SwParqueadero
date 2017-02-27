@@ -22,9 +22,6 @@ namespace SwParqueadero
                             "~/Scripts/WebForms/TreeView.js",
                             "~/Scripts/WebForms/WebParts.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/Utilidades").IncludeDirectory("~/Scripts/Utilidades","*.js"));
-
-
             // El orden es muy importante para el funcionamiento de estos archivos ya que tienen dependencias explícitas
             bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjax.js",
