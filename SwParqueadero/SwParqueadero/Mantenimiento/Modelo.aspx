@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="Marcas.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Marcas" %>
+    CodeBehind="Modelo.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Modelo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <hr />
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h2 class="panel-title"><em>Marcas de Vehiculos</em></h2>
+            <h2 class="panel-title"><em>Modelos de Vehiculos</em></h2>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -21,6 +21,12 @@
                                 <asp:RequiredFieldValidator ID="rfDescripcion" runat="server"
                                     ControlToValidate="txtDescripcion" Display="None"
                                     SetFocusOnError="true" ErrorMessage="Campo Requerido">*</asp:RequiredFieldValidator>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <asp:DropDownList ID="ddlMarcas" CssClass="btn btn-default dropdown-toggle" runat="server">
+                                    </asp:DropDownList>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-footer text-right">
@@ -38,11 +44,12 @@
                                 <div class="col-md-12 text-right">
                                     <asp:Panel ID="pnl_defbotonbuscar" runat="server" CssClass="form-inline col-md-12"
                                         DefaultButton="btnBuscar">
-                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"  class="form-control"></asp:TextBox>
-                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success" 
+                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"
+                                            class="form-control"></asp:TextBox>
+                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success"
                                             CausesValidation="false" runat="server" OnClick="btnBuscar_Click" />
                                         <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
-                                            Text="Todos" ToolTip="Mostrar Todos" 
+                                            Text="Todos" ToolTip="Mostrar Todos"
                                             OnClick="btn_BuscarTodosActivo_Click" />
                                     </asp:Panel>
                                 </div>
@@ -60,18 +67,18 @@
                                                 Descripción
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("MAR_DESCRIPCION") %>' Font-Size="XX-Small"
-                                                    ToolTip='<%# Bind("MAR_DESCRIPCION") %>' runat="server" />
+                                                <asp:Label ID="lblNombre" Text='<%# Bind("MOD_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Bind("MOD_DESCRIPCION") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
                                                     CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
-                                                    CommandName="M" CommandArgument='<%# Bind("MAR_CODIGO") %>' />
+                                                    CommandName="M" CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
-                                                    CommandArgument='<%# Bind("MAR_CODIGO") %>' ValidationGroup="gisad" />
+                                                    CommandArgument='<%# Bind("MOD_CODIGO") %>' ValidationGroup="gisad" />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
@@ -97,3 +104,4 @@
     </div>
     <asp:HiddenField runat="server" ID="hfCodigo" Value="0" />
 </asp:Content>
+
