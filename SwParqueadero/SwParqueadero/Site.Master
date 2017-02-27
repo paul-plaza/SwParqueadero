@@ -62,7 +62,7 @@
         <div class="container body-content">
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
-                <script src="../Scripts/Utilidades/JsUtilidades.js" type="text/javascript"></script>
+                    <script src="../Scripts/Utilidades/JsUtilidades.js" type="text/javascript"></script>
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </ContentTemplate>
