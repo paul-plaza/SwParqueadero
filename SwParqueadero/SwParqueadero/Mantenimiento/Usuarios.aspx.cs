@@ -16,6 +16,7 @@ namespace SwParqueadero.Mantenimiento
         #region Declaracion Clases
         LogicaUsuario logicaUsuario = new LogicaUsuario();
         LogicaTipoUsuario logicaTipoUsuario = new LogicaTipoUsuario();
+        CUtilitarios cUtilitarios = new CUtilitarios();
         #endregion
 
 
@@ -63,6 +64,7 @@ namespace SwParqueadero.Mantenimiento
             item.USU_CORREO = txtCorreo.Text.Trim();
             item.USU_CONTACTO = txtContacto.Text.Trim().ToUpper();
             item.USU_ESTADO = true;
+            item.USU_PASSWORD = cUtilitarios.Encriptar(txtCedula.Text);
             item.TIPU_CODIGO = Convert.ToInt32(ddlTipoUsuario.SelectedValue);
             
             
@@ -116,7 +118,7 @@ namespace SwParqueadero.Mantenimiento
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ELIMINAR))
                 {
-                    logicaTipoUsuario.Eliminar(Convert.ToInt32(e.CommandArgument));
+                    logicaUsuario.Eliminar(Convert.ToInt32(e.CommandArgument));
                     cargarGrid();
                 }
             }

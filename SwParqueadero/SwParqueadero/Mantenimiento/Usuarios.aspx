@@ -158,6 +158,8 @@
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("USU_CODIGO") %>' ValidationGroup="gisad" />
+                                                <asp:Button Text="text" runat="server" />
+
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
