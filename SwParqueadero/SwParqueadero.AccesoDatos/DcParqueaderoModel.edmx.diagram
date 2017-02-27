@@ -33,7 +33,7 @@
         <AssociationConnector Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" ManuallyRouted="false" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO" ManuallyRouted="false" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_USUARIO" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_USUARIO" Width="1.5" PointX="2.875" PointY="4.125" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" />
         </Diagram>

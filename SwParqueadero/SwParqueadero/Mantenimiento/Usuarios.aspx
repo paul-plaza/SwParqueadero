@@ -155,11 +155,14 @@
                                                 <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
                                                     CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
                                                     CommandName="M" CommandArgument='<%# Bind("USU_CODIGO") %>' />
+                                                glyphicon glyphicon-remove
+                                                <asp:LinkButton Text="text" runat="server" />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("USU_CODIGO") %>' ValidationGroup="gisad" />
-                                                <asp:Button Text="text" runat="server" />
 
+                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" />
+                                                
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
