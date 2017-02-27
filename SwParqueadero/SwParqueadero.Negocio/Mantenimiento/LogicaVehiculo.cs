@@ -5,29 +5,30 @@ using SwParqueadero.AccesoDatos;
 
 namespace SwParqueadero.Negocio.Mantenimiento
 {
-    public class LogicaModelo
+    public class LogicaVehiculo
     {
         private DbParqueoEntities dc = new DbParqueoEntities();
 
-        /// <summary>
-        /// Obtiene una lista de MODELOs 
-        /// </summary>
-        /// <returns>List<TBL_MODELO></returns>
-        public List<TBL_MODELO> Lista()
+        public List<TBL_VEHICULO> Lista()
         {
-            return dc.TBL_MODELO.ToList();
+            return dc.TBL_VEHICULO.ToList();
         }
 
-        public List<TBL_MODELO> ListaPorDescripcion(string texto)
+        public List<TBL_VEHICULO> ListaPorUsuario(int codigo)
         {
-            return dc.TBL_MODELO.Where(aux => aux.MOD_DESCRIPCION.Contains(texto)).ToList();
+            return dc.TBL_VEHICULO.Where(aux => aux.USU_CODIGO.Equals(codigo)).ToList();
+        }
+
+        public List<TBL_VEHICULO> ListaPorPlaca(string texto)
+        {
+            return dc.TBL_VEHICULO.Where(aux => aux.VEH_PLACA.Contains(texto)).ToList();
         }
 
         private int secuencial()
         {
             try
             {
-                return dc.TBL_MODELO.Max(aux => aux.MOD_CODIGO + 1);
+                return dc.TBL_VEHICULO.Max(aux => aux.MOD_CODIGO + 1);
             }
             catch
             {
@@ -35,11 +36,11 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public TBL_MODELO ItemPorCodigo(int codigo)
+        public TBL_VEHICULO ItemPorCodigo(int codigo)
         {
             try
             {
-                return dc.TBL_MODELO.FirstOrDefault(aux => aux.MOD_CODIGO.Equals(codigo));
+                return dc.TBL_VEHICULO.FirstOrDefault(aux => aux.MOD_CODIGO.Equals(codigo));
             }
             catch (Exception ex)
             {
@@ -47,12 +48,12 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public void Guardar(TBL_MODELO item)
+        public void Guardar(TBL_VEHICULO item)
         {
             try
             {
                 item.MOD_CODIGO = secuencial();
-                dc.TBL_MODELO.Add(item);
+                dc.TBL_VEHICULO.Add(item);
                 dc.SaveChanges();
             }
             catch (Exception ex)
@@ -61,7 +62,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public void Modificar(TBL_MODELO item)
+        public void Modificar(TBL_VEHICULO item)
         {
             try
             {
@@ -77,8 +78,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-
-                dc.TBL_MODELO.Remove(dc.TBL_MODELO.First(aux => aux.MOD_CODIGO.Equals(codigo)));
+                dc.TBL_VEHICULO.Remove(dc.TBL_VEHICULO.First(aux => aux.MOD_CODIGO.Equals(codigo)));
                 dc.SaveChanges();
             }
             catch (Exception ex)

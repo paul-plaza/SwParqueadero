@@ -70,7 +70,7 @@
                                                     CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
                                                     CommandName="M" CommandArgument='<%# Bind("MAR_CODIGO") %>' />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
                                                     CommandArgument='<%# Bind("MAR_CODIGO") %>' ValidationGroup="gisad" />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
