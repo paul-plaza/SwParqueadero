@@ -88,9 +88,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon8">Tipo Usuario</span>
-                                    <asp:DropDownList runat="server" CssClass="form-control">
-                                        <asp:ListItem Text="Admini" />
-                                        <asp:ListItem Text="Profesor" />
+                                    <asp:DropDownList runat="server" CssClass="form-control"  ID="ddlTipoUsuario">
+                                        
                                     </asp:DropDownList>
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"

@@ -26,7 +26,7 @@
                         </div>
                         <div class="panel-footer text-right">
                             <asp:Button Text="Guardar" ID="btnGuardar" runat="server"
-                                CssClass="btn btn-default"/>
+                                CssClass="btn btn-default" OnClick="btnGuardar_Click"/>
                             <asp:Button Text="Cancelar" ID="btbCancelar" runat="server" CssClass="btn btn-primary" />
                         </div>
                     </div>
@@ -39,32 +39,31 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <%--<asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
-                                    CssClass="table table-striped table-hover"
-                                    OnRowCommand="gvdatos_RowCommand">
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
+                                    CssClass="table table-striped table-hover" OnRowCommand="gvdatos_RowCommand">
                                     <Columns>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
                                                 Descripción
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("MAR_DESCRIPCION") %>' Font-Size="XX-Small"
-                                                    ToolTip='<%# Bind("MAR_DESCRIPCION") %>' runat="server" />
+                                                <asp:Label ID="lblNombre" Text='<%# Bind("TIPU_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Bind("TIPU_DESCRIPCION") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
                                                     CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
-                                                    CommandName="M" CommandArgument='<%# Bind("MAR_CODIGO") %>' />
+                                                    CommandName="M" CommandArgument='<%# Bind("TIPU_CODIGO") %>' />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
-                                                    CommandArgument='<%# Bind("MAR_CODIGO") %>' ValidationGroup="gisad" />
+                                                    CommandArgument='<%# Bind("TIPU_CODIGO") %>' ValidationGroup="gisad" />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
                                     </Columns>
-                                </asp:GridView>--%>
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>
