@@ -23,7 +23,8 @@ namespace SwParqueadero.AccesoDatos
         public int USU_CODIGO { get; set; }
         public bool VEH_ESTADO { get; set; }
     
-        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
         public virtual TBL_MODELO TBL_MODELO { get; set; }
+        public virtual TBL_USUARIO TBL_USUARIO { get; set; }
+        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
     }
 }

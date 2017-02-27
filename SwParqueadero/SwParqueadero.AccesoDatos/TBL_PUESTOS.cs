@@ -29,7 +29,7 @@ namespace SwParqueadero.AccesoDatos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_ASIGNACION_PARQUEADERO> TBL_ASIGNACION_PARQUEADERO { get; set; }
-        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
         public virtual TBL_PARQUEADERO TBL_PARQUEADERO { get; set; }
+        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
     }
 }

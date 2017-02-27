@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style type="text/css">
+        .GridView1 th
+        {
+            text-align: center !important;
+            background-color: #337AB7;
+            color: White;
+        }
+    </style>
     <hr />
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -101,8 +109,8 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 
-                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
-                                    CssClass="table table-striped table-hover" OnRowCommand="gvdatos_RowCommand"
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos" CellSpacing="-1"
+                                    CssClass="table table-condensed table-hover GridView1" OnRowCommand="gvdatos_RowCommand"
                                     >
                                     <Columns>
                                         <asp:TemplateField>
@@ -152,19 +160,17 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
-                                                    CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
+                                                <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server" Font-Size="10pt" Style="text-decoration:none; color:yellowgreen"
+                                                    CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar" ValidationGroup="gisad"
                                                     CommandName="M" CommandArgument='<%# Bind("USU_CODIGO") %>' />
-                                                glyphicon glyphicon-remove
-                                                <asp:LinkButton Text="text" runat="server" />
-                                                <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
+                                                <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove" ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration:none; color:red"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("USU_CODIGO") %>' ValidationGroup="gisad" />
 
-                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" />
+                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reeviar Password" Font-Size="10pt" Style="text-decoration:none; color:blue"/>
                                                 
                                             </ItemTemplate>
-                                            <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
+                                            <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>

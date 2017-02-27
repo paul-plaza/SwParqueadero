@@ -18,6 +18,7 @@ namespace SwParqueadero.AccesoDatos
         public TBL_USUARIO()
         {
             this.TBL_SOLICITUD = new HashSet<TBL_SOLICITUD>();
+            this.TBL_VEHICULO = new HashSet<TBL_VEHICULO>();
         }
     
         public int USU_CODIGO { get; set; }
@@ -33,5 +34,7 @@ namespace SwParqueadero.AccesoDatos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_SOLICITUD> TBL_SOLICITUD { get; set; }
         public virtual TBL_TIPO_USUARIO TBL_TIPO_USUARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_VEHICULO> TBL_VEHICULO { get; set; }
     }
 }

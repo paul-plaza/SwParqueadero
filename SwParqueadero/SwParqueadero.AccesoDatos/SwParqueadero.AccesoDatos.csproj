@@ -74,6 +74,15 @@
     <Compile Include="SP_ESTUDIANTE_Result.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_ASIGNACION_PARQUEADERO.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>

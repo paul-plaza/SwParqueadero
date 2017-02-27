@@ -18,6 +18,7 @@ namespace SwParqueadero.AccesoDatos
         public TBL_DIMENSION()
         {
             this.TBL_PUESTOS = new HashSet<TBL_PUESTOS>();
+            this.TBL_VEHICULO = new HashSet<TBL_VEHICULO>();
         }
     
         public int DIM_CODIGO { get; set; }
@@ -25,8 +26,9 @@ namespace SwParqueadero.AccesoDatos
         public decimal DIM_LARGO { get; set; }
         public decimal DIM_ANCHO { get; set; }
     
-        public virtual TBL_VEHICULO TBL_VEHICULO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_PUESTOS> TBL_PUESTOS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_VEHICULO> TBL_VEHICULO { get; set; }
     }
 }
