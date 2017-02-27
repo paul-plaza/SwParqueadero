@@ -24,7 +24,7 @@ namespace SwParqueadero.Mantenimiento
         {
             if (!IsPostBack)
             {
-
+                limpiarControles();
                 cargarGrid();
             }
         }
@@ -36,9 +36,8 @@ namespace SwParqueadero.Mantenimiento
 
         }
 
-        private TBL_MARCA cargaEntidad()
+        private TBL_MARCA cargaEntidad(TBL_MARCA item)
         {
-            TBL_MARCA item = new TBL_MARCA();
             item.MAR_DESCRIPCION = txtDescripcion.Text.Trim().ToUpper();
             return item;
         }
@@ -48,11 +47,15 @@ namespace SwParqueadero.Mantenimiento
             txtDescripcion.Text = string.Empty;
             hfCodigo.Value = CConstantes.Constantes.VALOR_POR_DEFECTO;
             txtDescripcion.Focus();
+            divMensaje.Attributes.Add("Style", "display:none");
+            lblMensaje.Text = string.Empty;
         }
         protected void gvdatos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
             {
+                divMensaje.Attributes.Add("Style", "display:none");
+                lblMensaje.Text = string.Empty;
                 if (e.CommandName.Equals(CConstantes.Constantes.MODIFICAR))
                 {
                     TBL_MARCA item = logicaMarca.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
@@ -67,8 +70,8 @@ namespace SwParqueadero.Mantenimiento
             }
             catch (Exception ex)
             {
-
-                throw;
+                divMensaje.Attributes.Add("Style", "display:block");
+                lblMensaje.Text = ex.Message;
             }
         }
 
@@ -78,25 +81,45 @@ namespace SwParqueadero.Mantenimiento
             {
                 try
                 {
+                    TBL_MARCA item = new TBL_MARCA();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                        logicaMarca.Guardar(cargaEntidad());
+                        logicaMarca.Guardar(cargaEntidad(item));
                     }
                     else
                     {
-                        TBL_MARCA item = logicaMarca.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
-                        item = cargaEntidad();
+
+                        item = logicaMarca.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
+                        item = cargaEntidad(item);
                         logicaMarca.Modificar(item);
                     }
                     cargarGrid();
+                    limpiarControles();
                 }
                 catch (Exception ex)
                 {
-
-                    throw;
+                    divMensaje.Attributes.Add("Style", "display:block");
+                    lblMensaje.Text = ex.Message;
                 }
-                limpiarControles();
             }
+        }
+
+        protected void gvdatos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvdatos.PageIndex = e.NewPageIndex;
+            cargarGrid();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            gvdatos.DataSource = logicaMarca.ListaPorDescripcion(txt_BuscarActivo.Text.Trim().ToUpper());
+            gvdatos.DataBind();
+
+        }
+
+        protected void btn_BuscarTodosActivo_Click(object sender, EventArgs e)
+        {
+            cargarGrid();
         }
     }
 }

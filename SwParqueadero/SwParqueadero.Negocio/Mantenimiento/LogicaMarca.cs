@@ -18,6 +18,11 @@ namespace SwParqueadero.Negocio.Mantenimiento
             return dc.TBL_MARCA.ToList();
         }
 
+        public List<TBL_MARCA> ListaPorDescripcion(string texto)
+        {
+            return dc.TBL_MARCA.Where(aux=>aux.MAR_DESCRIPCION.Contains(texto)).ToList();
+        }
+
         private int secuencial()
         {
             try
@@ -72,7 +77,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                
+
                 dc.TBL_MARCA.Remove(dc.TBL_MARCA.First(aux => aux.MAR_CODIGO.Equals(codigo)));
                 dc.SaveChanges();
             }
