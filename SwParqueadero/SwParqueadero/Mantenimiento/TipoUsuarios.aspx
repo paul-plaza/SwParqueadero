@@ -10,9 +10,7 @@
                 <div class="col-md-4">
                     <div class="panel panel-default" data-toggle="validator">
                         <div class="panel-body ">
-                            <asp:ValidationSummary runat="server" ID="ValidationSummary1"
-                                DisplayMode="BulletList"
-                                ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
+                           
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2">Descripción</span>
                                 <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Ingrese tipo usuario"
@@ -27,15 +25,12 @@
                         <div class="panel-footer text-right">
                             <asp:Button Text="Guardar" ID="btnGuardar" runat="server"
                                 CssClass="btn btn-default" OnClick="btnGuardar_Click"/>
-                            <asp:Button Text="Cancelar" ID="btbCancelar" runat="server" CssClass="btn btn-primary" />
+                            <asp:Button Text="Cancelar" ID="btnCancelar" runat="server" CssClass="btn btn-primary" />
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Listado de Tipos de Usuarios</h3>
-                        </div>
+                    <div class="panel panel-default">
 
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -66,6 +61,18 @@
                                 </asp:GridView>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-md-12">
+                    <asp:ValidationSummary runat="server" ID="ValidationSummary1"
+                        DisplayMode="BulletList"
+                        ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
+                    <div id="divMensaje" runat="server" style="display: none" class="alert alert-danger">
+                        <strong>Advertencia!</strong>
+                        <asp:Label ID="lblMensaje" runat="server" />
                     </div>
                 </div>
             </div>

@@ -25,6 +25,8 @@ namespace SwParqueadero.Comun
             /// <c>Valor: E</c>
             /// </summary>
             public static string VALOR_POR_DEFECTO = "0";
+
+            
         }
 
     }

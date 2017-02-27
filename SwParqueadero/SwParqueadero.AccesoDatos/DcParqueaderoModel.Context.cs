@@ -12,6 +12,8 @@ namespace SwParqueadero.AccesoDatos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbParqueoEntities : DbContext
     {
@@ -39,7 +41,25 @@ namespace SwParqueadero.AccesoDatos
         public virtual DbSet<TBL_REQUISITOS> TBL_REQUISITOS { get; set; }
         public virtual DbSet<TBL_SOLICITUD> TBL_SOLICITUD { get; set; }
         public virtual DbSet<TBL_TIPO_USUARIO> TBL_TIPO_USUARIO { get; set; }
-        public virtual DbSet<TBL_USUARIO> TBL_USUARIO { get; set; }
         public virtual DbSet<TBL_VEHICULO> TBL_VEHICULO { get; set; }
+        public virtual DbSet<TBL_USUARIO> TBL_USUARIO { get; set; }
+    
+        public virtual ObjectResult<SP_DOCENTE_Result> SP_DOCENTE(string pCEDULA)
+        {
+            var pCEDULAParameter = pCEDULA != null ?
+                new ObjectParameter("PCEDULA", pCEDULA) :
+                new ObjectParameter("PCEDULA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_DOCENTE_Result>("SP_DOCENTE", pCEDULAParameter);
+        }
+    
+        public virtual ObjectResult<SP_ESTUDIANTE_Result> SP_ESTUDIANTE(string pCEDULA)
+        {
+            var pCEDULAParameter = pCEDULA != null ?
+                new ObjectParameter("PCEDULA", pCEDULA) :
+                new ObjectParameter("PCEDULA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ESTUDIANTE_Result>("SP_ESTUDIANTE", pCEDULAParameter);
+        }
     }
 }

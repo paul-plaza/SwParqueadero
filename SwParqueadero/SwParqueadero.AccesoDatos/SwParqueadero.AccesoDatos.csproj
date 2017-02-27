@@ -68,6 +68,12 @@
       <DependentUpon>DcParqueaderoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SP_DOCENTE_Result.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ESTUDIANTE_Result.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_ASIGNACION_PARQUEADERO.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>

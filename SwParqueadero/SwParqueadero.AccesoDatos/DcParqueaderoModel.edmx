@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbParqueoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbParqueoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
           <Key>
             <PropertyRef Name="ASI_CODIGO" />
@@ -52,7 +52,7 @@
             <PropertyRef Name="MAR_CODIGO" />
           </Key>
           <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
-          <Property Name="MAR_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAR_DESCRIPCION" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_MODELO">
           <Key>
@@ -145,9 +145,12 @@
           <Property Name="USU_CODIGO" Type="int" Nullable="false" />
           <Property Name="USU_NOMBRES" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="USU_APELLIDOS" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="USU_ESTADO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_ESTADO" Type="bit" Nullable="false" />
           <Property Name="TIPU_CODIGO" Type="int" Nullable="false" />
           <Property Name="USU_CEDULA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_CORREO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_CONTACTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_VEHICULO">
           <Key>
@@ -342,6 +345,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_DOCENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PCEDULA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_ESTUDIANTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PCEDULA" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DbParqueoModelStoreContainer">
           <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="Self.TBL_ASIGNACION_PARQUEADERO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="Self.TBL_DIA_ASIGNACION" Schema="dbo" store:Type="Tables" />
@@ -420,8 +429,7 @@
             <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbParqueoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -482,7 +490,7 @@
             <PropertyRef Name="MAR_CODIGO" />
           </Key>
           <Property Name="MAR_CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="MAR_DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAR_DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBL_MODELO" Relationship="Self.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MARCA" ToRole="TBL_MODELO" />
         </EntityType>
         <EntityType Name="TBL_MODELO">
@@ -574,7 +582,7 @@
           <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_ASIGNACION_PARQUEADERO" />
           <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_OBSERVACION_SOLICITUD" />
           <NavigationProperty Name="TBL_REQUISITOS" Relationship="Self.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_REQUISITOS" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="Self.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_SOLICITUD" ToRole="TBL_USUARIO" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_SOLICITUD" ToRole="TBL_USUARIO" />
         </EntityType>
         <EntityType Name="TBL_TIPO_USUARIO">
           <Key>
@@ -582,20 +590,7 @@
           </Key>
           <Property Name="TIPU_CODIGO" Type="Int32" Nullable="false" />
           <Property Name="TIPU_DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="Self.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_TIPO_USUARIO" ToRole="TBL_USUARIO" />
-        </EntityType>
-        <EntityType Name="TBL_USUARIO">
-          <Key>
-            <PropertyRef Name="USU_CODIGO" />
-          </Key>
-          <Property Name="USU_CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="USU_NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USU_APELLIDOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="USU_ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TIPU_CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="USU_CEDULA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="Self.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_SOLICITUD" />
-          <NavigationProperty Name="TBL_TIPO_USUARIO" Relationship="Self.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_TIPO_USUARIO" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_TIPO_USUARIO" ToRole="TBL_USUARIO" />
         </EntityType>
         <EntityType Name="TBL_VEHICULO">
           <Key>
@@ -768,30 +763,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
-          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="0..1" />
-          <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_USUARIO">
-              <PropertyRef Name="USU_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_SOLICITUD">
-              <PropertyRef Name="USU_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
-          <End Role="TBL_TIPO_USUARIO" Type="Self.TBL_TIPO_USUARIO" Multiplicity="1" />
-          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_TIPO_USUARIO">
-              <PropertyRef Name="TIPU_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_USUARIO">
-              <PropertyRef Name="TIPU_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DbParqueoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="Self.TBL_ASIGNACION_PARQUEADERO" />
           <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="Self.TBL_DIA_ASIGNACION" />
@@ -807,7 +778,6 @@
           <EntitySet Name="TBL_REQUISITOS" EntityType="Self.TBL_REQUISITOS" />
           <EntitySet Name="TBL_SOLICITUD" EntityType="Self.TBL_SOLICITUD" />
           <EntitySet Name="TBL_TIPO_USUARIO" EntityType="Self.TBL_TIPO_USUARIO" />
-          <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" />
           <EntitySet Name="TBL_VEHICULO" EntityType="Self.TBL_VEHICULO" />
           <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" Association="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
             <End Role="TBL_JORNADA" EntitySet="TBL_JORNADA" />
@@ -861,15 +831,87 @@
             <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
             <End Role="TBL_REQUISITOS" EntitySet="TBL_REQUISITOS" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="Self.FK_TBL_SOLICITUD_TBL_USUARIO">
+          <FunctionImport Name="SP_DOCENTE" ReturnType="Collection(DbParqueoModel.SP_DOCENTE_Result)">
+          <Parameter Name="PCEDULA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ESTUDIANTE" ReturnType="Collection(DbParqueoModel.SP_ESTUDIANTE_Result)">
+          <Parameter Name="PCEDULA" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="TBL_USUARIO" EntityType="DbParqueoModel.TBL_USUARIO" />
+          <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO">
             <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
             <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="Self.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+          <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
             <End Role="TBL_TIPO_USUARIO" EntitySet="TBL_TIPO_USUARIO" />
             <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
           </AssociationSet>
         </EntityContainer>
+        <ComplexType Name="SP_DOCENTE_Result">
+          <Property Type="String" Name="DTPCEDULAC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="DTPNOMBREC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DTPAPELLIC" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DTPAPELLIC2" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="DTPFECHNAF" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DTPEMAILC" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="DTPTELEFOCELC" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_ESTUDIANTE_Result">
+          <Property Type="String" Name="CRRDESCRIPC" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DTPCEDULAC" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="NOMBRES" Nullable="true" MaxLength="112" />
+          <Property Type="String" Name="DTPEMAILC" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="NVLCODIGOI" Nullable="true" />
+          <Property Type="String" Name="MDLDESCRIPC" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="MTRFECHAD" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="CRRCODIGOI" Nullable="false" />
+          <Property Type="String" Name="INSGRUPOESP" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="MTRPARALELO" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="MTRAÑOING" Nullable="true" MaxLength="6" />
+          <Property Type="Int32" Name="TPECODIGOI" Nullable="false" />
+          <Property Type="String" Name="DTPTELEFOCELC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="DTPTELEFOC" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="TBL_USUARIO">
+          <Key>
+            <PropertyRef Name="USU_CODIGO" />
+          </Key>
+          <Property Name="USU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="USU_NOMBRES" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_APELLIDOS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="TIPU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="USU_CEDULA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_CONTACTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_SOLICITUD" />
+          <NavigationProperty Name="TBL_TIPO_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_TIPO_USUARIO" />
+        </EntityType>
+        <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
+          <End Type="DbParqueoModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="0..1" />
+          <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_SOLICITUD">
+              <PropertyRef Name="USU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+          <End Type="DbParqueoModel.TBL_TIPO_USUARIO" Role="TBL_TIPO_USUARIO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_TIPO_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1023,18 +1065,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_USUARIO">
-            <EntityTypeMapping TypeName="DbParqueoModel.TBL_USUARIO">
-              <MappingFragment StoreEntitySet="TBL_USUARIO">
-                <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
-                <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
-                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
-                <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
-                <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
-                <ScalarProperty Name="USU_CEDULA" ColumnName="USU_CEDULA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_VEHICULO">
             <EntityTypeMapping TypeName="DbParqueoModel.TBL_VEHICULO">
               <MappingFragment StoreEntitySet="TBL_VEHICULO">
@@ -1046,6 +1076,54 @@
                 <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
                 <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
                 <ScalarProperty Name="VEH_ESTADO" ColumnName="VEH_ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_DOCENTE" FunctionName="DbParqueoModel.Store.SP_DOCENTE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbParqueoModel.SP_DOCENTE_Result">
+                <ScalarProperty Name="DTPCEDULAC" ColumnName="DTPCEDULAC" />
+                <ScalarProperty Name="DTPNOMBREC" ColumnName="DTPNOMBREC" />
+                <ScalarProperty Name="DTPAPELLIC" ColumnName="DTPAPELLIC" />
+                <ScalarProperty Name="DTPAPELLIC2" ColumnName="DTPAPELLIC2" />
+                <ScalarProperty Name="DTPFECHNAF" ColumnName="DTPFECHNAF" />
+                <ScalarProperty Name="DTPEMAILC" ColumnName="DTPEMAILC" />
+                <ScalarProperty Name="DTPTELEFOCELC" ColumnName="DTPTELEFOCELC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ESTUDIANTE" FunctionName="DbParqueoModel.Store.SP_ESTUDIANTE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbParqueoModel.SP_ESTUDIANTE_Result">
+                <ScalarProperty Name="CRRDESCRIPC" ColumnName="CRRDESCRIPC" />
+                <ScalarProperty Name="DTPCEDULAC" ColumnName="DTPCEDULAC" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="DTPEMAILC" ColumnName="DTPEMAILC" />
+                <ScalarProperty Name="NVLCODIGOI" ColumnName="NVLCODIGOI" />
+                <ScalarProperty Name="MDLDESCRIPC" ColumnName="MDLDESCRIPC" />
+                <ScalarProperty Name="MTRFECHAD" ColumnName="MTRFECHAD" />
+                <ScalarProperty Name="CRRCODIGOI" ColumnName="CRRCODIGOI" />
+                <ScalarProperty Name="INSGRUPOESP" ColumnName="INSGRUPOESP" />
+                <ScalarProperty Name="MTRPARALELO" ColumnName="MTRPARALELO" />
+                <ScalarProperty Name="MTRAÑOING" ColumnName="MTRAÑOING" />
+                <ScalarProperty Name="TPECODIGOI" ColumnName="TPECODIGOI" />
+                <ScalarProperty Name="DTPTELEFOCELC" ColumnName="DTPTELEFOCELC" />
+                <ScalarProperty Name="DTPTELEFOC" ColumnName="DTPTELEFOC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TBL_USUARIO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_USUARIO">
+              <MappingFragment StoreEntitySet="TBL_USUARIO">
+                <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
+                <ScalarProperty Name="USU_CONTACTO" ColumnName="USU_CONTACTO" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="USU_CEDULA" ColumnName="USU_CEDULA" />
+                <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
+                <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
+                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+                <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
+                <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -38,9 +38,8 @@ namespace SwParqueadero.Mantenimiento
             txtDescripcion.Focus();
         }
 
-        private TBL_TIPO_USUARIO cargaEntidad()
+        private TBL_TIPO_USUARIO cargaEntidad(TBL_TIPO_USUARIO item)
         {
-            TBL_TIPO_USUARIO item = new TBL_TIPO_USUARIO();
             item.TIPU_DESCRIPCION = txtDescripcion.Text.Trim().ToUpper();
             return item;
         }
@@ -74,14 +73,15 @@ namespace SwParqueadero.Mantenimiento
             {
                 try
                 {
+                    TBL_TIPO_USUARIO item = new TBL_TIPO_USUARIO();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                        logicaTipoUsuario.Guardar(cargaEntidad());
+                        logicaTipoUsuario.Guardar(cargaEntidad(item));
                     }
                     else
                     {
-                        TBL_TIPO_USUARIO item = logicaTipoUsuario.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
-                        item = cargaEntidad();
+                        item = logicaTipoUsuario.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
+                        item = cargaEntidad(item);
                         logicaTipoUsuario.Modificar(item);
                     }
                     cargarGrid();

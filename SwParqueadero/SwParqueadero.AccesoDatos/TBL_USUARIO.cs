@@ -23,9 +23,12 @@ namespace SwParqueadero.AccesoDatos
         public int USU_CODIGO { get; set; }
         public string USU_NOMBRES { get; set; }
         public string USU_APELLIDOS { get; set; }
-        public string USU_ESTADO { get; set; }
+        public bool USU_ESTADO { get; set; }
         public int TIPU_CODIGO { get; set; }
         public string USU_CEDULA { get; set; }
+        public string USU_CORREO { get; set; }
+        public string USU_CONTACTO { get; set; }
+        public string USU_PASSWORD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_SOLICITUD> TBL_SOLICITUD { get; set; }

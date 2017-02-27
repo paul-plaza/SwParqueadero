@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="DbParqueoModel.TBL_REQUISITOS" Width="1.5" PointX="7.5" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_SOLICITUD" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_USUARIO" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_VEHICULO" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" ManuallyRouted="false" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" ManuallyRouted="false" />
@@ -34,9 +33,10 @@
         <AssociationConnector Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" ManuallyRouted="false" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO" ManuallyRouted="false" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" ManuallyRouted="false" />
-        <AssociationConnector Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" ManuallyRouted="false" />
-        <AssociationConnector Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_USUARIO" Width="1.5" PointX="3" PointY="4.375" />
+        <AssociationConnector Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" />
+        <AssociationConnector Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

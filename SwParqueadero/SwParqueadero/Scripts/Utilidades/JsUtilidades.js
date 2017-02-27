@@ -8,6 +8,12 @@ function CrearEventos() {
         $('input[type=text]').each(function () {
             $(this).val('');
         });
+        $('input[type=number]').each(function () {
+            $(this).val('');
+        });
+        $('input[type=email]').each(function () {
+            $(this).val('');
+        });
         $('#MainContent_hfCodigo').attr('value', "0");
         return false;
     });
