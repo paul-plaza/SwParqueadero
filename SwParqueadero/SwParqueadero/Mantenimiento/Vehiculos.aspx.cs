@@ -10,11 +10,12 @@ using SwParqueadero.Negocio.Mantenimiento;
 
 namespace SwParqueadero.Mantenimiento
 {
-    public partial class Modelo : System.Web.UI.Page
+    public partial class Vehiculos : System.Web.UI.Page
     {
         #region Declaracion Clases
+        LogicaVehiculo logicaVehiculo = new LogicaVehiculo();
         LogicaModelo logicaModelo = new LogicaModelo();
-        LogicaMarca logicaMarca = new LogicaMarca();
+        LogicaDimensiones logicaDimensiones = new LogicaDimensiones();
         #endregion
 
         #region Declaracion Variables
@@ -26,38 +27,51 @@ namespace SwParqueadero.Mantenimiento
             if (!IsPostBack)
             {
                 limpiarControles();
-                cargarDDL();
+                cargarDDLModelo();
+                cargarDDLTamanio();
                 cargarGrid();
             }
         }
 
         private void cargarGrid()
         {
-            gvdatos.DataSource = logicaModelo.Lista();
+            gvdatos.DataSource = logicaVehiculo.Lista();
             gvdatos.DataBind();
 
         }
 
-        private void cargarDDL()
+        private void cargarDDLModelo()
         {
-            ddlMarcas.DataSource = logicaMarca.Lista();
-            ddlMarcas.DataTextField = "MAR_DESCRIPCION";
-            ddlMarcas.DataValueField = "MAR_CODIGO";
-            ddlMarcas.DataBind();
+            ddlModelo.DataSource = logicaModelo.Lista();
+            ddlModelo.DataTextField = "MOD_DESCRIPCION";
+            ddlModelo.DataValueField = "MOD_CODIGO";
+            ddlModelo.DataBind();
         }
 
-        private TBL_MODELO cargaEntidad(TBL_MODELO item)
+        private void cargarDDLTamanio()
         {
-            item.MOD_DESCRIPCION = txtDescripcion.Text.Trim().ToUpper();
-            item.MAR_CODIGO = Convert.ToInt32(ddlMarcas.SelectedValue);
+            ddlDimensiones.DataSource = logicaDimensiones.Lista();
+            ddlDimensiones.DataTextField = "DIM_DESCRIPCION";
+            ddlDimensiones.DataValueField = "DIM_CODIGO";
+            ddlDimensiones.DataBind();
+        }
+
+        private TBL_VEHICULO cargaEntidad(TBL_VEHICULO item)
+        {
+            item.VEH_PLACA = txtPlaca.Text.Trim().ToUpper();
+            item.DIM_CODIGO = Convert.ToInt32(ddlDimensiones.SelectedValue);
+            item.MOD_CODIGO = Convert.ToInt32(ddlModelo.SelectedValue);
+            item.USU_CODIGO = Convert.ToInt32(hfCodigo.Value);
+            item.VEH_OBSERVACION = txtObservaciones.Text.Trim().ToUpper();
+            
             return item;
         }
 
         private void limpiarControles()
         {
-            txtDescripcion.Text = string.Empty;
+            txtPlaca.Text = string.Empty;
             hfCodigo.Value = CConstantes.Constantes.VALOR_POR_DEFECTO;
-            txtDescripcion.Focus();
+            txtPlaca.Focus();
             divMensaje.Attributes.Add("Style", "display:none");
             lblMensaje.Text = string.Empty;
         }
@@ -71,8 +85,8 @@ namespace SwParqueadero.Mantenimiento
                 {
                     TBL_MODELO item = logicaModelo.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
                     hfCodigo.Value = item.MOD_CODIGO.ToString();
-                    txtDescripcion.Text = item.MOD_DESCRIPCION;
-                    ddlMarcas.SelectedValue = item.MAR_CODIGO.ToString();
+                    txtPlaca.Text = item.MOD_DESCRIPCION;
+                    ddlModelo.SelectedValue = item.MAR_CODIGO.ToString();
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ELIMINAR))
                 {
@@ -89,21 +103,21 @@ namespace SwParqueadero.Mantenimiento
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text))
+            if (!string.IsNullOrEmpty(txtPlaca.Text))
             {
                 try
                 {
-                    TBL_MODELO item = new TBL_MODELO();
+                    TBL_VEHICULO item = new TBL_VEHICULO();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                        logicaModelo.Guardar(cargaEntidad(item));
+                        logicaVehiculo.Guardar(cargaEntidad(item));
                     }
                     else
                     {
 
-                        item = logicaModelo.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
+                        item = logicaVehiculo.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
                         item = cargaEntidad(item);
-                        logicaModelo.Modificar(item);
+                        logicaVehiculo.Modificar(item);
                     }
                     limpiarControles();
                     cargarGrid();
@@ -136,7 +150,12 @@ namespace SwParqueadero.Mantenimiento
 
         protected void lkRefrescar_Click(object sender, EventArgs e)
         {
-            cargarDDL();
+            cargarDDLModelo();
+        }
+
+        protected void lkRefrescarDimensiones_Click(object sender, EventArgs e)
+        {
+            cargarDDLTamanio();
         }
     }
 }

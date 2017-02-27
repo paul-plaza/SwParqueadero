@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon2">Descripción</span>
-                                    <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Ingrese Marca"
+                                    <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control" placeholder="Ingrese Modelo"
                                         MaxLength="50" aria-describedby="basic-addon2" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="rfDescripcion" runat="server"
@@ -24,8 +24,15 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <asp:DropDownList ID="ddlMarcas" CssClass="btn btn-default dropdown-toggle" runat="server">
+                                    <span class="input-group-addon" id="basic-addon1">Marcas</span>
+                                    <asp:DropDownList ID="ddlMarcas" CssClass="btn btn-default dropdown-toggle col-md-12"
+                                        aria-describedby="basic-addon1" runat="server">
                                     </asp:DropDownList>
+                                    <span class="input-group-addon" id="basic-addon3">
+                                        <asp:LinkButton ID="lkRefrescar" class="glyphicon glyphicon-refresh" Style="text-decoration: none"
+                                            runat="server" OnClick="lkRefrescar_Click" CausesValidation="false" /></span>
+
+
                                 </div>
                             </div>
                         </div>
@@ -72,13 +79,22 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Marca
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDescripcion" Text='<%# Bind("TBL_MARCA.MAR_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Bind("TBL_MARCA.MAR_DESCRIPCION") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
                                             <ItemTemplate>
                                                 <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
-                                                    CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
+                                                    CssClass="btn btn-info btn-sm"
                                                     CommandName="M" CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                                 <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
-                                                    CommandArgument='<%# Bind("MOD_CODIGO") %>' ValidationGroup="gisad" />
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
+                                                    CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
