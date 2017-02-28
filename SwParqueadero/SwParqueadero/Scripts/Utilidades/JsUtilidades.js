@@ -18,10 +18,6 @@ function CrearEventos() {
         $('#MainContent_hfCodigoUsuario').attr('value', "0");
         return false;
     });
-
-   
-
-
 }
 
 var prm = Sys.WebForms.PageRequestManager.getInstance();

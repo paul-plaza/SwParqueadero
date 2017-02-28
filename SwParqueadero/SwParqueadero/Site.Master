@@ -76,6 +76,9 @@
                                 <li><a href="../Mantenimiento/Modelo.aspx">Modelos</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="../Mantenimiento/Vehiculos.aspx">Vehiculos</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../Mantenimiento/Parqueadero.aspx">Parqueadero</a></li>
+                                <li><a href="../Mantenimiento/Puestos.aspx">Puestos</a></li>
                             </ul>
                         </li>
                     </ul>

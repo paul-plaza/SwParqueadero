@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SwParqueadero.AccesoDatos;
 using SwParqueadero.Comun;
 using SwParqueadero.Negocio.Mantenimiento;
+using System.Web.UI.HtmlControls;
 
 namespace SwParqueadero.Mantenimiento
 {
@@ -26,6 +27,8 @@ namespace SwParqueadero.Mantenimiento
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            aFile.Enabled = false;
+            
             if (!IsPostBack)
             {
                 limpiarControles();
@@ -38,6 +41,7 @@ namespace SwParqueadero.Mantenimiento
                     txtIdentificacion.Text = usuario.USU_CEDULA;
                     txtNombres.Text = usuario.USU_APELLIDOS + " " + usuario.USU_NOMBRES;
                     hfCodigoUsuario.Value = usuario.USU_CODIGO.ToString();
+                    txt_Buscar.Focus();
                 }
             }
         }
@@ -89,6 +93,8 @@ namespace SwParqueadero.Mantenimiento
             txtPlaca.Text = string.Empty;
             hfCodigo.Value = CConstantes.Constantes.VALOR_POR_DEFECTO;
             txtPlaca.Focus();
+            txtObservaciones.Text = string.Empty;
+            aFile.Enabled = false;
             divMensaje.Attributes.Add("Style", "display:none");
             lblMensaje.Text = string.Empty;
         }
@@ -112,11 +118,14 @@ namespace SwParqueadero.Mantenimiento
                     hfCodigoUsuario.Value = usuario.USU_CODIGO.ToString();
                     txtObservaciones.Text = item.VEH_OBSERVACION;
                     Session[CConstantes.ConstantesSesion.VEHICULO] = item;
+                    aFile.Enabled = true;
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ELIMINAR))
                 {
                     logicaVehiculo.Eliminar(Convert.ToInt32(e.CommandArgument));
+                    limpiarControles();
                     cargarGrid(item.USU_CODIGO);
+                    aFile.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -164,11 +173,24 @@ namespace SwParqueadero.Mantenimiento
         {
             TBL_USUARIO item = new TBL_USUARIO();
             item = logicaUsuario.ItemPorCedula(txt_Buscar.Text.Trim().ToUpper());
-            txtIdentificacion.Text = item.USU_CEDULA;
-            txtNombres.Text = item.USU_APELLIDOS + " " + item.USU_NOMBRES;
-            hfCodigoUsuario.Value = item.USU_CODIGO.ToString();
-            txtPlaca.Focus();
-            cargarGrid(item.USU_CODIGO);
+            if (item != null)
+            {
+                txtIdentificacion.Text = item.USU_CEDULA;
+                txtNombres.Text = item.USU_APELLIDOS + " " + item.USU_NOMBRES;
+                hfCodigoUsuario.Value = item.USU_CODIGO.ToString();
+                txtPlaca.Focus();
+                cargarGrid(item.USU_CODIGO);
+            }
+            else
+            {
+                txtIdentificacion.Text = string.Empty;
+                hfCodigoUsuario.Value = CConstantes.Constantes.VALOR_POR_DEFECTO;
+                txtNombres.Text = string.Empty;
+                cargarGrid(0);
+                limpiarControles();
+                divMensaje.Attributes.Add("Style", "display:block");
+                lblMensaje.Text = CConstantes.ConstantesMensajesValidaciones.MENSAJE_REGISTRO_NO_EXISTE;
+            }
         }
 
         protected void lkRefrescar_Click(object sender, EventArgs e)
@@ -196,8 +218,8 @@ namespace SwParqueadero.Mantenimiento
             if (Session[CConstantes.ConstantesSesion.VEHICULO] != null)
             {
                 TBL_VEHICULO item = (TBL_VEHICULO)Session[CConstantes.ConstantesSesion.VEHICULO];
-                
-                aFile.SaveAs(Server.MapPath("~/Archivos/Vehiculos") +@"\"+ item.VEH_PLACA + e.ContentType);
+                aFile.SaveAs(Server.MapPath("~/Archivos/Vehiculos") + @"\" + item.VEH_PLACA + ".png");
+                cargarGrid(item.USU_CODIGO);
             }
         }
 
@@ -205,7 +227,12 @@ namespace SwParqueadero.Mantenimiento
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                
+                HtmlImage img = (HtmlImage)e.Row.FindControl("myImg");
+                if (img != null)
+                {
+                    TBL_VEHICULO item = (TBL_VEHICULO)e.Row.DataItem;
+                    img.Src = "../Archivos/Vehiculos/" + item.VEH_PLACA + ".png";
+                }
             }
         }
     }
