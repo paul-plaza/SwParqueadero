@@ -93,18 +93,18 @@ namespace SwParqueadero.Comun
 
         }
 
-        public bool EnviarCorreoGenerico(string _InfoCompania, List<string> correoDestinatario, string ruta)//, Tbl_Tipo_Transaccion _infoMail)
+        public bool EnviarCorreoGenerico(TBL_EMPRESA _InfoCompania, List<string> correoDestinatario, EEmail Mail, string Ruta)
         {
             MailMessage msg = new MailMessage();
-            msg.From = new MailAddress(_InfoCompania.EMP_CORREO,_InfoCompania.EMP_NOMBRE, System.Text.Encoding.UTF8);
+            msg.From = new MailAddress(_InfoCompania.EMP_CORREO, _InfoCompania.EMP_NOMBRE, System.Text.Encoding.UTF8);
             msg.Subject = "Credenciales";//_infoMail.TIPT_SUBJET;
             msg.SubjectEncoding = Encoding.UTF8;
             foreach (string item in correoDestinatario)
             {
-                    msg.To.Add(item);
+                msg.To.Add(item);
             }
             string mail = leerArchivo(Ruta);
-            
+
             mail = mail.Replace("@INTROCABECERA", Mail.IntroCabecera);
             mail = mail.Replace("@SUBTITULO", Mail.Subtitulo);
             mail = mail.Replace("@RESUMEN", Mail.Resumen);
@@ -114,7 +114,7 @@ namespace SwParqueadero.Comun
             msg.BodyEncoding = System.Text.Encoding.UTF8;
             msg.IsBodyHtml = true;
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential(_InfoCompania.EMP_CORREO,_InfoCompania.EMP_PASSWORD);
+            client.Credentials = new System.Net.NetworkCredential(_InfoCompania.EMP_CORREO, _InfoCompania.EMP_PASSWORD);
             client.Port = Convert.ToInt32(_InfoCompania.EMP_PUERTO);
             client.Host = _InfoCompania.EMP_SMTP;
             client.EnableSsl = true;
