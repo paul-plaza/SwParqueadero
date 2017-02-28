@@ -22,11 +22,18 @@ namespace SwParqueadero.Comun
             public static string ELIMINAR = "E";
 
             /// <summary>
+            /// <c>Valor:C</c>
+            /// </summary>
+            public static string ENVIAR_CORREO = "c";
+
+            /// <summary>
             /// <c>Valor: E</c>
             /// </summary>
             public static string VALOR_POR_DEFECTO = "0";
 
-            
+            public static string MENSAJE_CORREO_NO_ENVIADO = "MENSAJE CORREO NO ENVIADO";
+
+            public static string PLANTILLA_MAIL = "~/Plantilla_Mail.html";
         }
 
     }
