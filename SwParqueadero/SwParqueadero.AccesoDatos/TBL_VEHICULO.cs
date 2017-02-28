@@ -17,14 +17,13 @@ namespace SwParqueadero.AccesoDatos
         public int VEH_CODIGO { get; set; }
         public string VEH_OBSERVACION { get; set; }
         public string VEH_PLACA { get; set; }
-        public string VEH_FOTO { get; set; }
         public int MOD_CODIGO { get; set; }
         public int DIM_CODIGO { get; set; }
         public int USU_CODIGO { get; set; }
         public bool VEH_ESTADO { get; set; }
     
+        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
         public virtual TBL_MODELO TBL_MODELO { get; set; }
         public virtual TBL_USUARIO TBL_USUARIO { get; set; }
-        public virtual TBL_DIMENSION TBL_DIMENSION { get; set; }
     }
 }

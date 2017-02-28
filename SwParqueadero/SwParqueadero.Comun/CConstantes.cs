@@ -53,6 +53,13 @@ namespace SwParqueadero.Comun
             public static string MENSAJE_ARCHIVO_NO_SUBIDO = "Archivo no fue subido";
 
             public static string MENSAJE_ARCHIVO_NO_VALIDO = "Archivo con extension no valida";
+
+            public static string MENSAJE_SELECCIONAR_ITEM = "Debe seleccionar un resgistro para subir el archivo!";
+        }
+
+        public class ConstantesSesion
+        {
+            public static string VEHICULO = "VEHICULO";
         }
 
     }

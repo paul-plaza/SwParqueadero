@@ -112,15 +112,6 @@ namespace SwParqueadero.Mantenimiento {
         protected global::System.Web.UI.WebControls.LinkButton lkRefrescarDimensiones;
         
         /// <summary>
-        /// Control fuImagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuImagen;
-        
-        /// <summary>
         /// Control txtObservaciones.
         /// </summary>
         /// <remarks>
@@ -182,6 +173,15 @@ namespace SwParqueadero.Mantenimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvdatos;
+        
+        /// <summary>
+        /// Control aFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AjaxFileUpload aFile;
         
         /// <summary>
         /// Control ValidationSummary1.

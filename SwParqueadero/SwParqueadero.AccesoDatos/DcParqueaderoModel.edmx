@@ -4,635 +4,190 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DbParqueoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="DbParqueoModelStoreContainer">
-    <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="DbParqueoModel.Store.TBL_ASIGNACION_PARQUEADERO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="DbParqueoModel.Store.TBL_DIA_ASIGNACION" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_DIAS" EntityType="DbParqueoModel.Store.TBL_DIAS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_JORNADA" EntityType="DbParqueoModel.Store.TBL_JORNADA" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_MARCA" EntityType="DbParqueoModel.Store.TBL_MARCA" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_MODELO" EntityType="DbParqueoModel.Store.TBL_MODELO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="DbParqueoModel.Store.TBL_OBSERVACION_SOLICITUD" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_OBSERVACIONES" EntityType="DbParqueoModel.Store.TBL_OBSERVACIONES" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_PARQUEADERO" EntityType="DbParqueoModel.Store.TBL_PARQUEADERO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_PUESTOS" EntityType="DbParqueoModel.Store.TBL_PUESTOS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_REQUISITOS" EntityType="DbParqueoModel.Store.TBL_REQUISITOS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_SOLICITUD" EntityType="DbParqueoModel.Store.TBL_SOLICITUD" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_TIPO_USUARIO" EntityType="DbParqueoModel.Store.TBL_TIPO_USUARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_VEHICULO" EntityType="DbParqueoModel.Store.TBL_VEHICULO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_USUARIO" EntityType="DbParqueoModel.Store.TBL_USUARIO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="DbParqueoModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_DIMENSION" EntityType="DbParqueoModel.Store.TBL_DIMENSION" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TBL_EMPRESA" EntityType="DbParqueoModel.Store.TBL_EMPRESA" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" Association="DbParqueoModel.Store.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
-      <End Role="TBL_JORNADA" EntitySet="TBL_JORNADA" />
-      <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" Association="DbParqueoModel.Store.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
-      <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
-      <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" Association="DbParqueoModel.Store.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
-      <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-      <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" Association="DbParqueoModel.Store.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
-      <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
-      <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS" Association="DbParqueoModel.Store.FK_TBL_DIA_ASIGNACION_TBL_DIAS">
-      <End Role="TBL_DIAS" EntitySet="TBL_DIAS" />
-      <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_MODELO_TBL_MARCA" Association="DbParqueoModel.Store.FK_TBL_MODELO_TBL_MARCA">
-      <End Role="TBL_MARCA" EntitySet="TBL_MARCA" />
-      <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_VEHICULO_TBL_MODELO" Association="DbParqueoModel.Store.FK_TBL_VEHICULO_TBL_MODELO">
-      <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
-      <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" Association="DbParqueoModel.Store.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-      <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
-      <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" Association="DbParqueoModel.Store.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
-      <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-      <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_PUESTOS_TBL_PARQUEADERO" Association="DbParqueoModel.Store.FK_TBL_PUESTOS_TBL_PARQUEADERO">
-      <End Role="TBL_PARQUEADERO" EntitySet="TBL_PARQUEADERO" />
-      <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_REQUISITOS_TBL_SOLICITUD" Association="DbParqueoModel.Store.FK_TBL_REQUISITOS_TBL_SOLICITUD">
-      <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-      <End Role="TBL_REQUISITOS" EntitySet="TBL_REQUISITOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="DbParqueoModel.Store.FK_TBL_SOLICITUD_TBL_USUARIO">
-      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
-      <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="DbParqueoModel.Store.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
-      <End Role="TBL_TIPO_USUARIO" EntitySet="TBL_TIPO_USUARIO" />
-      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_VEHICULO_TBL_USUARIO" Association="DbParqueoModel.Store.FK_TBL_VEHICULO_TBL_USUARIO">
-      <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
-      <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_PUESTOS_TBL_DIMENSION" Association="DbParqueoModel.Store.FK_TBL_PUESTOS_TBL_DIMENSION">
-      <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
-      <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_VEHICULO_TBL_DIMENSION" Association="DbParqueoModel.Store.FK_TBL_VEHICULO_TBL_DIMENSION">
-      <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
-      <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
-    <Key>
-      <PropertyRef Name="ASI_CODIGO" />
-    </Key>
-    <Property Name="ASI_CODIGO" Type="int" Nullable="false" />
-    <Property Name="ASI_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="JOR_CODIGO" Type="int" Nullable="false" />
-    <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
-    <Property Name="PUE_CODIGO" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_DIA_ASIGNACION">
-    <Key>
-      <PropertyRef Name="ADIA_CODIGO" />
-    </Key>
-    <Property Name="ADIA_CODIGO" Type="int" Nullable="false" />
-    <Property Name="DIA_CODIGO" Type="int" Nullable="false" />
-    <Property Name="ASI_CODIGO" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_DIAS">
-    <Key>
-      <PropertyRef Name="DIA_CODIGO" />
-    </Key>
-    <Property Name="DIA_CODIGO" Type="int" Nullable="false" />
-    <Property Name="DIA_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="15" />
-  </EntityType>
-  <EntityType Name="TBL_JORNADA">
-    <Key>
-      <PropertyRef Name="JOR_CODIGO" />
-    </Key>
-    <Property Name="JOR_CODIGO" Type="int" Nullable="false" />
-    <Property Name="JOR_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="JOR_HORA" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TBL_MARCA">
-    <Key>
-      <PropertyRef Name="MAR_CODIGO" />
-    </Key>
-    <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
-    <Property Name="MAR_DESCRIPCION" Type="varchar" Nullable="true" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TBL_MODELO">
-    <Key>
-      <PropertyRef Name="MOD_CODIGO" />
-    </Key>
-    <Property Name="MOD_CODIGO" Type="int" Nullable="false" />
-    <Property Name="MOD_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_OBSERVACION_SOLICITUD">
-    <Key>
-      <PropertyRef Name="OBDOL_CODIGI" />
-    </Key>
-    <Property Name="OBDOL_CODIGI" Type="int" Nullable="false" />
-    <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
-    <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_OBSERVACIONES">
-    <Key>
-      <PropertyRef Name="OBS_CODIGO" />
-    </Key>
-    <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
-    <Property Name="OBS_DESCRIPCION" Type="varchar" Nullable="true" MaxLength="150" />
-    <Property Name="OBS_USU" Type="varchar" Nullable="true" MaxLength="150" />
-  </EntityType>
-  <EntityType Name="TBL_PARQUEADERO">
-    <Key>
-      <PropertyRef Name="PAR_CODIGO" />
-    </Key>
-    <Property Name="PAR_CODIGO" Type="int" Nullable="false" />
-    <Property Name="PAR_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="PAR_DIRECCION" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="PAR_ENCARGADO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="PAR_CONTACTO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="PAR_PUESTOS" Type="int" Nullable="false" />
-    <Property Name="PAR_CONTACTO2" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="PAR_TELEFONO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="PAR_TELEFONO2" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="PAR_TELEFONO_ENCARGADO" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TBL_PUESTOS">
-    <Key>
-      <PropertyRef Name="PUE_CODIGO" />
-    </Key>
-    <Property Name="PUE_CODIGO" Type="int" Nullable="false" />
-    <Property Name="PUE_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
-    <Property Name="PAR_CODIGO" Type="int" Nullable="false" />
-    <Property Name="PUE_ESTADO_MATUTINA" Type="bit" Nullable="false" />
-    <Property Name="PUE_ESTADO_NOCTURNO" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_REQUISITOS">
-    <Key>
-      <PropertyRef Name="REQ_CODIGO" />
-    </Key>
-    <Property Name="REQ_CODIGO" Type="int" Nullable="false" />
-    <Property Name="REQ_FACTURA" Type="bit" Nullable="false" />
-    <Property Name="REQ_LICENCIA" Type="bit" Nullable="false" />
-    <Property Name="REQ_CARNET_CONADIS" Type="bit" Nullable="false" />
-    <Property Name="REQ_MATRICULA_VEHICULAR" Type="bit" Nullable="false" />
-    <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
-    <Property Name="REQ_FACTURA_IMAGEN" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="REQ_LICENCIA_IMAGEN" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="REQ_CARNET_CONADIS_IMAGEN" Type="varchar" Nullable="false" MaxLength="150" />
-    <Property Name="REQ_MATRICULA_IMAGEN" Type="varchar" Nullable="false" MaxLength="150" />
-  </EntityType>
-  <EntityType Name="TBL_SOLICITUD">
-    <Key>
-      <PropertyRef Name="SOL_CODIGO" />
-    </Key>
-    <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
-    <Property Name="SOL_FECHA_INICIO" Type="datetime" Nullable="true" />
-    <Property Name="SOL_FECHA_APROBACION" Type="datetime" Nullable="true" />
-    <Property Name="USU_CODIGO" Type="int" Nullable="true" />
-    <Property Name="PER_DESCRIPCION" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="SOL_APROBADO" Type="bit" Nullable="true" />
-    <Property Name="SOL_BANDEJA" Type="char" Nullable="true" MaxLength="1" />
-  </EntityType>
-  <EntityType Name="TBL_TIPO_USUARIO">
-    <Key>
-      <PropertyRef Name="TIPU_CODIGO" />
-    </Key>
-    <Property Name="TIPU_CODIGO" Type="int" Nullable="false" />
-    <Property Name="TIPU_DESCRIPCION" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TBL_VEHICULO">
-    <Key>
-      <PropertyRef Name="VEH_CODIGO" />
-    </Key>
-    <Property Name="VEH_CODIGO" Type="int" Nullable="false" />
-    <Property Name="VEH_OBSERVACION" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="VEH_PLACA" Type="varchar" Nullable="false" MaxLength="10" />
-    <Property Name="VEH_FOTO" Type="varchar" Nullable="true" MaxLength="200" />
-    <Property Name="MOD_CODIGO" Type="int" Nullable="false" />
-    <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
-    <Property Name="USU_CODIGO" Type="int" Nullable="false" />
-    <Property Name="VEH_ESTADO" Type="bit" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TBL_USUARIO">
-    <Key>
-      <PropertyRef Name="USU_CODIGO" />
-    </Key>
-    <Property Name="USU_CODIGO" Type="int" Nullable="false" />
-    <Property Name="USU_NOMBRES" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="USU_APELLIDOS" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="USU_ESTADO" Type="bit" Nullable="false" />
-    <Property Name="TIPU_CODIGO" Type="int" Nullable="false" />
-    <Property Name="USU_CEDULA" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="USU_CORREO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="USU_CONTACTO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="USU_PASSWORD" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" Nullable="true" />
-    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="TBL_DIMENSION">
-    <Key>
-      <PropertyRef Name="DIM_CODIGO" />
-    </Key>
-    <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
-    <Property Name="DIM_DESCRIPCION" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="DIM_LARGO" Type="decimal" Nullable="false" Precision="4" Scale="2" />
-    <Property Name="DIM_ANCHO" Type="decimal" Nullable="false" Precision="4" Scale="2" />
-  </EntityType>
-  <EntityType Name="TBL_EMPRESA">
-    <Key>
-      <PropertyRef Name="EMP_CODIGO" />
-    </Key>
-    <Property Name="EMP_CODIGO" Type="int" Nullable="false" />
-    <Property Name="EMP_NOMBRE" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="EMP_CORREO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="EMP_SMTP" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="EMP_PUERTO" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="EMP_PASSWORD" Type="varchar" Nullable="true" MaxLength="50" />
-  </EntityType>
-  <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
-    <End Role="TBL_JORNADA" Type="DbParqueoModel.Store.TBL_JORNADA" Multiplicity="1" />
-    <End Role="TBL_ASIGNACION_PARQUEADERO" Type="DbParqueoModel.Store.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_JORNADA">
-        <PropertyRef Name="JOR_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
-        <PropertyRef Name="JOR_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
-    <End Role="TBL_PUESTOS" Type="DbParqueoModel.Store.TBL_PUESTOS" Multiplicity="1" />
-    <End Role="TBL_ASIGNACION_PARQUEADERO" Type="DbParqueoModel.Store.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_PUESTOS">
-        <PropertyRef Name="PUE_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
-        <PropertyRef Name="PUE_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
-    <End Role="TBL_SOLICITUD" Type="DbParqueoModel.Store.TBL_SOLICITUD" Multiplicity="1" />
-    <End Role="TBL_ASIGNACION_PARQUEADERO" Type="DbParqueoModel.Store.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_SOLICITUD">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
-    <End Role="TBL_ASIGNACION_PARQUEADERO" Type="DbParqueoModel.Store.TBL_ASIGNACION_PARQUEADERO" Multiplicity="1" />
-    <End Role="TBL_DIA_ASIGNACION" Type="DbParqueoModel.Store.TBL_DIA_ASIGNACION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_ASIGNACION_PARQUEADERO">
-        <PropertyRef Name="ASI_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_DIA_ASIGNACION">
-        <PropertyRef Name="ASI_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS">
-    <End Role="TBL_DIAS" Type="DbParqueoModel.Store.TBL_DIAS" Multiplicity="1" />
-    <End Role="TBL_DIA_ASIGNACION" Type="DbParqueoModel.Store.TBL_DIA_ASIGNACION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_DIAS">
-        <PropertyRef Name="DIA_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_DIA_ASIGNACION">
-        <PropertyRef Name="DIA_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_MODELO_TBL_MARCA">
-    <End Role="TBL_MARCA" Type="DbParqueoModel.Store.TBL_MARCA" Multiplicity="1" />
-    <End Role="TBL_MODELO" Type="DbParqueoModel.Store.TBL_MODELO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_MARCA">
-        <PropertyRef Name="MAR_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_MODELO">
-        <PropertyRef Name="MAR_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_VEHICULO_TBL_MODELO">
-    <End Role="TBL_MODELO" Type="DbParqueoModel.Store.TBL_MODELO" Multiplicity="1" />
-    <End Role="TBL_VEHICULO" Type="DbParqueoModel.Store.TBL_VEHICULO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_MODELO">
-        <PropertyRef Name="MOD_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_VEHICULO">
-        <PropertyRef Name="MOD_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-    <End Role="TBL_OBSERVACIONES" Type="DbParqueoModel.Store.TBL_OBSERVACIONES" Multiplicity="1" />
-    <End Role="TBL_OBSERVACION_SOLICITUD" Type="DbParqueoModel.Store.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_OBSERVACIONES">
-        <PropertyRef Name="OBS_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_OBSERVACION_SOLICITUD">
-        <PropertyRef Name="OBS_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
-    <End Role="TBL_SOLICITUD" Type="DbParqueoModel.Store.TBL_SOLICITUD" Multiplicity="1" />
-    <End Role="TBL_OBSERVACION_SOLICITUD" Type="DbParqueoModel.Store.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_SOLICITUD">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_OBSERVACION_SOLICITUD">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_PUESTOS_TBL_PARQUEADERO">
-    <End Role="TBL_PARQUEADERO" Type="DbParqueoModel.Store.TBL_PARQUEADERO" Multiplicity="1" />
-    <End Role="TBL_PUESTOS" Type="DbParqueoModel.Store.TBL_PUESTOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_PARQUEADERO">
-        <PropertyRef Name="PAR_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_PUESTOS">
-        <PropertyRef Name="PAR_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_REQUISITOS_TBL_SOLICITUD">
-    <End Role="TBL_SOLICITUD" Type="DbParqueoModel.Store.TBL_SOLICITUD" Multiplicity="1" />
-    <End Role="TBL_REQUISITOS" Type="DbParqueoModel.Store.TBL_REQUISITOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_SOLICITUD">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_REQUISITOS">
-        <PropertyRef Name="SOL_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
-    <End Role="TBL_USUARIO" Type="DbParqueoModel.Store.TBL_USUARIO" Multiplicity="0..1" />
-    <End Role="TBL_SOLICITUD" Type="DbParqueoModel.Store.TBL_SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_USUARIO">
-        <PropertyRef Name="USU_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_SOLICITUD">
-        <PropertyRef Name="USU_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
-    <End Role="TBL_TIPO_USUARIO" Type="DbParqueoModel.Store.TBL_TIPO_USUARIO" Multiplicity="1" />
-    <End Role="TBL_USUARIO" Type="DbParqueoModel.Store.TBL_USUARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_TIPO_USUARIO">
-        <PropertyRef Name="TIPU_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_USUARIO">
-        <PropertyRef Name="TIPU_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_VEHICULO_TBL_USUARIO">
-    <End Role="TBL_USUARIO" Type="DbParqueoModel.Store.TBL_USUARIO" Multiplicity="1" />
-    <End Role="TBL_VEHICULO" Type="DbParqueoModel.Store.TBL_VEHICULO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_USUARIO">
-        <PropertyRef Name="USU_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_VEHICULO">
-        <PropertyRef Name="USU_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_PUESTOS_TBL_DIMENSION">
-    <End Role="TBL_DIMENSION" Type="DbParqueoModel.Store.TBL_DIMENSION" Multiplicity="1" />
-    <End Role="TBL_PUESTOS" Type="DbParqueoModel.Store.TBL_PUESTOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_DIMENSION">
-        <PropertyRef Name="DIM_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_PUESTOS">
-        <PropertyRef Name="DIM_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_VEHICULO_TBL_DIMENSION">
-    <End Role="TBL_DIMENSION" Type="DbParqueoModel.Store.TBL_DIMENSION" Multiplicity="1" />
-    <End Role="TBL_VEHICULO" Type="DbParqueoModel.Store.TBL_VEHICULO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_DIMENSION">
-        <PropertyRef Name="DIM_CODIGO" />
-      </Principal>
-      <Dependent Role="TBL_VEHICULO">
-        <PropertyRef Name="DIM_CODIGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="DbParqueoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    <Schema Namespace="DbParqueoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
           <Key>
             <PropertyRef Name="ASI_CODIGO" />
           </Key>
-          <Property Name="ASI_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="ASI_DESCRIPCION" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="JOR_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="SOL_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="PUE_CODIGO" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="TBL_JORNADA" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_JORNADA" />
-          <NavigationProperty Name="TBL_PUESTOS" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_PUESTOS" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_SOLICITUD" />
-          <NavigationProperty Name="TBL_DIA_ASIGNACION" Relationship="Self.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_DIA_ASIGNACION" />
+          <Property Name="ASI_CODIGO" Type="int" Nullable="false" />
+          <Property Name="ASI_DESCRIPCION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="JOR_CODIGO" Type="int" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
+          <Property Name="PUE_CODIGO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_DIA_ASIGNACION">
           <Key>
             <PropertyRef Name="ADIA_CODIGO" />
           </Key>
-          <Property Name="ADIA_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="DIA_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="ASI_CODIGO" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="Self.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" FromRole="TBL_DIA_ASIGNACION" ToRole="TBL_ASIGNACION_PARQUEADERO" />
-          <NavigationProperty Name="TBL_DIAS" Relationship="Self.FK_TBL_DIA_ASIGNACION_TBL_DIAS" FromRole="TBL_DIA_ASIGNACION" ToRole="TBL_DIAS" />
+          <Property Name="ADIA_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DIA_CODIGO" Type="int" Nullable="false" />
+          <Property Name="ASI_CODIGO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_DIAS">
           <Key>
             <PropertyRef Name="DIA_CODIGO" />
           </Key>
-          <Property Name="DIA_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="DIA_DESCRIPCION" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_DIA_ASIGNACION" Relationship="Self.FK_TBL_DIA_ASIGNACION_TBL_DIAS" FromRole="TBL_DIAS" ToRole="TBL_DIA_ASIGNACION" />
+          <Property Name="DIA_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DIA_DESCRIPCION" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_DIMENSION">
+          <Key>
+            <PropertyRef Name="DIM_CODIGO" />
+          </Key>
+          <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DIM_DESCRIPCION" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DIM_LARGO" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="DIM_ANCHO" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_EMPRESA">
+          <Key>
+            <PropertyRef Name="EMP_CODIGO" />
+          </Key>
+          <Property Name="EMP_CODIGO" Type="int" Nullable="false" />
+          <Property Name="EMP_NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMP_CORREO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMP_SMTP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMP_PUERTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMP_PASSWORD" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_JORNADA">
           <Key>
             <PropertyRef Name="JOR_CODIGO" />
           </Key>
-          <Property Name="JOR_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="JOR_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="JOR_HORA" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" FromRole="TBL_JORNADA" ToRole="TBL_ASIGNACION_PARQUEADERO" />
+          <Property Name="JOR_CODIGO" Type="int" Nullable="false" />
+          <Property Name="JOR_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="JOR_HORA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_MARCA">
           <Key>
             <PropertyRef Name="MAR_CODIGO" />
           </Key>
-          <Property Name="MAR_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="MAR_DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_MODELO" Relationship="Self.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MARCA" ToRole="TBL_MODELO" />
+          <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
+          <Property Name="MAR_DESCRIPCION" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_MODELO">
           <Key>
             <PropertyRef Name="MOD_CODIGO" />
           </Key>
-          <Property Name="MOD_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="MOD_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="MAR_CODIGO" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="TBL_MARCA" Relationship="Self.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MODELO" ToRole="TBL_MARCA" />
-          <NavigationProperty Name="TBL_VEHICULO" Relationship="Self.FK_TBL_VEHICULO_TBL_MODELO" FromRole="TBL_MODELO" ToRole="TBL_VEHICULO" />
+          <Property Name="MOD_CODIGO" Type="int" Nullable="false" />
+          <Property Name="MOD_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_OBSERVACION_SOLICITUD">
           <Key>
             <PropertyRef Name="OBDOL_CODIGI" />
           </Key>
-          <Property Name="OBDOL_CODIGI" Nullable="false" Type="Int32" />
-          <Property Name="OBS_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="SOL_CODIGO" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="TBL_OBSERVACIONES" Relationship="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_OBSERVACIONES" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_SOLICITUD" />
+          <Property Name="OBDOL_CODIGI" Type="int" Nullable="false" />
+          <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_OBSERVACIONES">
           <Key>
             <PropertyRef Name="OBS_CODIGO" />
           </Key>
-          <Property Name="OBS_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="OBS_DESCRIPCION" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="OBS_USU" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACIONES" ToRole="TBL_OBSERVACION_SOLICITUD" />
+          <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
+          <Property Name="OBS_DESCRIPCION" Type="varchar" MaxLength="150" />
+          <Property Name="OBS_USU" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="TBL_PARQUEADERO">
           <Key>
             <PropertyRef Name="PAR_CODIGO" />
           </Key>
-          <Property Name="PAR_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="PAR_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_DIRECCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_ENCARGADO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_CONTACTO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_PUESTOS" Nullable="false" Type="Int32" />
-          <Property Name="PAR_CONTACTO2" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_TELEFONO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_TELEFONO2" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="PAR_TELEFONO_ENCARGADO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_PUESTOS" Relationship="Self.FK_TBL_PUESTOS_TBL_PARQUEADERO" FromRole="TBL_PARQUEADERO" ToRole="TBL_PUESTOS" />
+          <Property Name="PAR_CODIGO" Type="int" Nullable="false" />
+          <Property Name="PAR_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAR_DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAR_ENCARGADO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAR_CONTACTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAR_PUESTOS" Type="int" Nullable="false" />
+          <Property Name="PAR_CONTACTO2" Type="varchar" MaxLength="50" />
+          <Property Name="PAR_TELEFONO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PAR_TELEFONO2" Type="varchar" MaxLength="50" />
+          <Property Name="PAR_TELEFONO_ENCARGADO" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_PUESTOS">
           <Key>
             <PropertyRef Name="PUE_CODIGO" />
           </Key>
-          <Property Name="PUE_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="PUE_NOMBRE" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="DIM_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="PAR_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="PUE_ESTADO_MATUTINA" Nullable="false" Type="Boolean" />
-          <Property Name="PUE_ESTADO_NOCTURNO" Nullable="false" Type="Boolean" />
-          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" FromRole="TBL_PUESTOS" ToRole="TBL_ASIGNACION_PARQUEADERO" />
-          <NavigationProperty Name="TBL_PARQUEADERO" Relationship="Self.FK_TBL_PUESTOS_TBL_PARQUEADERO" FromRole="TBL_PUESTOS" ToRole="TBL_PARQUEADERO" />
-          <NavigationProperty Name="TBL_DIMENSION" Relationship="DbParqueoModel.FK_TBL_PUESTOS_TBL_DIMENSION" FromRole="TBL_PUESTOS" ToRole="TBL_DIMENSION" />
+          <Property Name="PUE_CODIGO" Type="int" Nullable="false" />
+          <Property Name="PUE_NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
+          <Property Name="PAR_CODIGO" Type="int" Nullable="false" />
+          <Property Name="PUE_ESTADO_MATUTINA" Type="bit" Nullable="false" />
+          <Property Name="PUE_ESTADO_NOCTURNO" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_REQUISITOS">
           <Key>
             <PropertyRef Name="REQ_CODIGO" />
           </Key>
-          <Property Name="REQ_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="REQ_FACTURA" Nullable="false" Type="Boolean" />
-          <Property Name="REQ_LICENCIA" Nullable="false" Type="Boolean" />
-          <Property Name="REQ_CARNET_CONADIS" Nullable="false" Type="Boolean" />
-          <Property Name="REQ_MATRICULA_VEHICULAR" Nullable="false" Type="Boolean" />
-          <Property Name="SOL_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="REQ_FACTURA_IMAGEN" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="REQ_LICENCIA_IMAGEN" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="REQ_CARNET_CONADIS_IMAGEN" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="REQ_MATRICULA_IMAGEN" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="Self.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_REQUISITOS" ToRole="TBL_SOLICITUD" />
+          <Property Name="REQ_CODIGO" Type="int" Nullable="false" />
+          <Property Name="REQ_FACTURA" Type="bit" Nullable="false" />
+          <Property Name="REQ_LICENCIA" Type="bit" Nullable="false" />
+          <Property Name="REQ_CARNET_CONADIS" Type="bit" Nullable="false" />
+          <Property Name="REQ_MATRICULA_VEHICULAR" Type="bit" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
+          <Property Name="REQ_FACTURA_IMAGEN" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="REQ_LICENCIA_IMAGEN" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="REQ_CARNET_CONADIS_IMAGEN" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="REQ_MATRICULA_IMAGEN" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_SOLICITUD">
           <Key>
             <PropertyRef Name="SOL_CODIGO" />
           </Key>
-          <Property Name="SOL_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="SOL_FECHA_INICIO" Precision="3" Type="DateTime" />
-          <Property Name="SOL_FECHA_APROBACION" Precision="3" Type="DateTime" />
-          <Property Name="USU_CODIGO" Type="Int32" />
-          <Property Name="PER_DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="SOL_APROBADO" Type="Boolean" />
-          <Property Name="SOL_BANDEJA" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_ASIGNACION_PARQUEADERO" />
-          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_OBSERVACION_SOLICITUD" />
-          <NavigationProperty Name="TBL_REQUISITOS" Relationship="Self.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_REQUISITOS" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_SOLICITUD" ToRole="TBL_USUARIO" />
+          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
+          <Property Name="SOL_FECHA_INICIO" Type="datetime" />
+          <Property Name="SOL_FECHA_APROBACION" Type="datetime" />
+          <Property Name="USU_CODIGO" Type="int" />
+          <Property Name="PER_DESCRIPCION" Type="varchar" MaxLength="50" />
+          <Property Name="SOL_APROBADO" Type="bit" />
+          <Property Name="SOL_BANDEJA" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="TBL_TIPO_USUARIO">
           <Key>
             <PropertyRef Name="TIPU_CODIGO" />
           </Key>
-          <Property Name="TIPU_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="TIPU_DESCRIPCION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_TIPO_USUARIO" ToRole="TBL_USUARIO" />
+          <Property Name="TIPU_CODIGO" Type="int" Nullable="false" />
+          <Property Name="TIPU_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIO">
+          <Key>
+            <PropertyRef Name="USU_CODIGO" />
+          </Key>
+          <Property Name="USU_CODIGO" Type="int" Nullable="false" />
+          <Property Name="USU_NOMBRES" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_APELLIDOS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_ESTADO" Type="bit" Nullable="false" />
+          <Property Name="TIPU_CODIGO" Type="int" Nullable="false" />
+          <Property Name="USU_CEDULA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_CORREO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_CONTACTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_VEHICULO">
           <Key>
             <PropertyRef Name="VEH_CODIGO" />
           </Key>
-          <Property Name="VEH_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="VEH_OBSERVACION" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="VEH_PLACA" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="VEH_FOTO" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="MOD_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="DIM_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="USU_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="VEH_ESTADO" Nullable="false" Type="Boolean" />
-          <NavigationProperty Name="TBL_MODELO" Relationship="Self.FK_TBL_VEHICULO_TBL_MODELO" FromRole="TBL_VEHICULO" ToRole="TBL_MODELO" />
-          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO" FromRole="TBL_VEHICULO" ToRole="TBL_USUARIO" />
-          <NavigationProperty Name="TBL_DIMENSION" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_DIMENSION" FromRole="TBL_VEHICULO" ToRole="TBL_DIMENSION" />
+          <Property Name="VEH_CODIGO" Type="int" Nullable="false" />
+          <Property Name="VEH_OBSERVACION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VEH_PLACA" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MOD_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DIM_CODIGO" Type="int" Nullable="false" />
+          <Property Name="USU_CODIGO" Type="int" Nullable="false" />
+          <Property Name="VEH_ESTADO" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
-          <End Type="Self.TBL_JORNADA" Multiplicity="1" Role="TBL_JORNADA" />
-          <End Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" Role="TBL_ASIGNACION_PARQUEADERO" />
+          <End Role="TBL_JORNADA" Type="Self.TBL_JORNADA" Multiplicity="1" />
+          <End Role="TBL_ASIGNACION_PARQUEADERO" Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_JORNADA">
               <PropertyRef Name="JOR_CODIGO" />
@@ -643,8 +198,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
-          <End Type="Self.TBL_PUESTOS" Multiplicity="1" Role="TBL_PUESTOS" />
-          <End Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" Role="TBL_ASIGNACION_PARQUEADERO" />
+          <End Role="TBL_PUESTOS" Type="Self.TBL_PUESTOS" Multiplicity="1" />
+          <End Role="TBL_ASIGNACION_PARQUEADERO" Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PUESTOS">
               <PropertyRef Name="PUE_CODIGO" />
@@ -655,8 +210,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
-          <End Type="Self.TBL_SOLICITUD" Multiplicity="1" Role="TBL_SOLICITUD" />
-          <End Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" Role="TBL_ASIGNACION_PARQUEADERO" />
+          <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="1" />
+          <End Role="TBL_ASIGNACION_PARQUEADERO" Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_SOLICITUD">
               <PropertyRef Name="SOL_CODIGO" />
@@ -667,8 +222,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
-          <End Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="1" Role="TBL_ASIGNACION_PARQUEADERO" />
-          <End Type="Self.TBL_DIA_ASIGNACION" Multiplicity="*" Role="TBL_DIA_ASIGNACION" />
+          <End Role="TBL_ASIGNACION_PARQUEADERO" Type="Self.TBL_ASIGNACION_PARQUEADERO" Multiplicity="1" />
+          <End Role="TBL_DIA_ASIGNACION" Type="Self.TBL_DIA_ASIGNACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_ASIGNACION_PARQUEADERO">
               <PropertyRef Name="ASI_CODIGO" />
@@ -679,8 +234,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS">
-          <End Type="Self.TBL_DIAS" Multiplicity="1" Role="TBL_DIAS" />
-          <End Type="Self.TBL_DIA_ASIGNACION" Multiplicity="*" Role="TBL_DIA_ASIGNACION" />
+          <End Role="TBL_DIAS" Type="Self.TBL_DIAS" Multiplicity="1" />
+          <End Role="TBL_DIA_ASIGNACION" Type="Self.TBL_DIA_ASIGNACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_DIAS">
               <PropertyRef Name="DIA_CODIGO" />
@@ -691,8 +246,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_MODELO_TBL_MARCA">
-          <End Type="Self.TBL_MARCA" Multiplicity="1" Role="TBL_MARCA" />
-          <End Type="Self.TBL_MODELO" Multiplicity="*" Role="TBL_MODELO" />
+          <End Role="TBL_MARCA" Type="Self.TBL_MARCA" Multiplicity="1" />
+          <End Role="TBL_MODELO" Type="Self.TBL_MODELO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_MARCA">
               <PropertyRef Name="MAR_CODIGO" />
@@ -702,21 +257,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_VEHICULO_TBL_MODELO">
-          <End Type="Self.TBL_MODELO" Multiplicity="1" Role="TBL_MODELO" />
-          <End Type="Self.TBL_VEHICULO" Multiplicity="*" Role="TBL_VEHICULO" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_MODELO">
-              <PropertyRef Name="MOD_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_VEHICULO">
-              <PropertyRef Name="MOD_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-          <End Type="Self.TBL_OBSERVACIONES" Multiplicity="1" Role="TBL_OBSERVACIONES" />
-          <End Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" Role="TBL_OBSERVACION_SOLICITUD" />
+          <End Role="TBL_OBSERVACIONES" Type="Self.TBL_OBSERVACIONES" Multiplicity="1" />
+          <End Role="TBL_OBSERVACION_SOLICITUD" Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_OBSERVACIONES">
               <PropertyRef Name="OBS_CODIGO" />
@@ -727,8 +270,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
-          <End Type="Self.TBL_SOLICITUD" Multiplicity="1" Role="TBL_SOLICITUD" />
-          <End Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" Role="TBL_OBSERVACION_SOLICITUD" />
+          <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="1" />
+          <End Role="TBL_OBSERVACION_SOLICITUD" Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_SOLICITUD">
               <PropertyRef Name="SOL_CODIGO" />
@@ -738,9 +281,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TBL_PUESTOS_TBL_DIMENSION">
+          <End Role="TBL_DIMENSION" Type="Self.TBL_DIMENSION" Multiplicity="1" />
+          <End Role="TBL_PUESTOS" Type="Self.TBL_PUESTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DIMENSION">
+              <PropertyRef Name="DIM_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_PUESTOS">
+              <PropertyRef Name="DIM_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBL_PUESTOS_TBL_PARQUEADERO">
-          <End Type="Self.TBL_PARQUEADERO" Multiplicity="1" Role="TBL_PARQUEADERO" />
-          <End Type="Self.TBL_PUESTOS" Multiplicity="*" Role="TBL_PUESTOS" />
+          <End Role="TBL_PARQUEADERO" Type="Self.TBL_PARQUEADERO" Multiplicity="1" />
+          <End Role="TBL_PUESTOS" Type="Self.TBL_PUESTOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_PARQUEADERO">
               <PropertyRef Name="PAR_CODIGO" />
@@ -751,8 +306,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBL_REQUISITOS_TBL_SOLICITUD">
-          <End Type="Self.TBL_SOLICITUD" Multiplicity="1" Role="TBL_SOLICITUD" />
-          <End Type="Self.TBL_REQUISITOS" Multiplicity="*" Role="TBL_REQUISITOS" />
+          <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="1" />
+          <End Role="TBL_REQUISITOS" Type="Self.TBL_REQUISITOS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_SOLICITUD">
               <PropertyRef Name="SOL_CODIGO" />
@@ -762,85 +317,192 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DbParqueoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="Self.TBL_ASIGNACION_PARQUEADERO" />
-          <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="Self.TBL_DIA_ASIGNACION" />
-          <EntitySet Name="TBL_DIAS" EntityType="Self.TBL_DIAS" />
-          <EntitySet Name="TBL_JORNADA" EntityType="Self.TBL_JORNADA" />
-          <EntitySet Name="TBL_MARCA" EntityType="Self.TBL_MARCA" />
-          <EntitySet Name="TBL_MODELO" EntityType="Self.TBL_MODELO" />
-          <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="Self.TBL_OBSERVACION_SOLICITUD" />
-          <EntitySet Name="TBL_OBSERVACIONES" EntityType="Self.TBL_OBSERVACIONES" />
-          <EntitySet Name="TBL_PARQUEADERO" EntityType="Self.TBL_PARQUEADERO" />
-          <EntitySet Name="TBL_PUESTOS" EntityType="Self.TBL_PUESTOS" />
-          <EntitySet Name="TBL_REQUISITOS" EntityType="Self.TBL_REQUISITOS" />
-          <EntitySet Name="TBL_SOLICITUD" EntityType="Self.TBL_SOLICITUD" />
-          <EntitySet Name="TBL_TIPO_USUARIO" EntityType="Self.TBL_TIPO_USUARIO" />
-          <EntitySet Name="TBL_VEHICULO" EntityType="Self.TBL_VEHICULO" />
+        <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
+          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="0..1" />
+          <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_SOLICITUD">
+              <PropertyRef Name="USU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+          <End Role="TBL_TIPO_USUARIO" Type="Self.TBL_TIPO_USUARIO" Multiplicity="1" />
+          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_TIPO_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_VEHICULO_TBL_DIMENSION">
+          <End Role="TBL_DIMENSION" Type="Self.TBL_DIMENSION" Multiplicity="1" />
+          <End Role="TBL_VEHICULO" Type="Self.TBL_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DIMENSION">
+              <PropertyRef Name="DIM_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_VEHICULO">
+              <PropertyRef Name="DIM_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_VEHICULO_TBL_MODELO">
+          <End Role="TBL_MODELO" Type="Self.TBL_MODELO" Multiplicity="1" />
+          <End Role="TBL_VEHICULO" Type="Self.TBL_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_MODELO">
+              <PropertyRef Name="MOD_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_VEHICULO">
+              <PropertyRef Name="MOD_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_VEHICULO_TBL_USUARIO">
+          <End Role="TBL_USUARIO" Type="Self.TBL_USUARIO" Multiplicity="1" />
+          <End Role="TBL_VEHICULO" Type="Self.TBL_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_VEHICULO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DbParqueoModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="Self.TBL_ASIGNACION_PARQUEADERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="Self.TBL_DIA_ASIGNACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DIAS" EntityType="Self.TBL_DIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DIMENSION" EntityType="Self.TBL_DIMENSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_EMPRESA" EntityType="Self.TBL_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_JORNADA" EntityType="Self.TBL_JORNADA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_MARCA" EntityType="Self.TBL_MARCA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_MODELO" EntityType="Self.TBL_MODELO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="Self.TBL_OBSERVACION_SOLICITUD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_OBSERVACIONES" EntityType="Self.TBL_OBSERVACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PARQUEADERO" EntityType="Self.TBL_PARQUEADERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PUESTOS" EntityType="Self.TBL_PUESTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_REQUISITOS" EntityType="Self.TBL_REQUISITOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SOLICITUD" EntityType="Self.TBL_SOLICITUD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_TIPO_USUARIO" EntityType="Self.TBL_TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_VEHICULO" EntityType="Self.TBL_VEHICULO" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" Association="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
-            <End EntitySet="TBL_JORNADA" Role="TBL_JORNADA" />
-            <End EntitySet="TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" />
+            <End Role="TBL_JORNADA" EntitySet="TBL_JORNADA" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" Association="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
-            <End EntitySet="TBL_PUESTOS" Role="TBL_PUESTOS" />
-            <End EntitySet="TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" />
+            <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" Association="Self.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
-            <End EntitySet="TBL_SOLICITUD" Role="TBL_SOLICITUD" />
-            <End EntitySet="TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" />
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" Association="Self.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
-            <End EntitySet="TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" />
-            <End EntitySet="TBL_DIA_ASIGNACION" Role="TBL_DIA_ASIGNACION" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
+            <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS" Association="Self.FK_TBL_DIA_ASIGNACION_TBL_DIAS">
-            <End EntitySet="TBL_DIAS" Role="TBL_DIAS" />
-            <End EntitySet="TBL_DIA_ASIGNACION" Role="TBL_DIA_ASIGNACION" />
+            <End Role="TBL_DIAS" EntitySet="TBL_DIAS" />
+            <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_MODELO_TBL_MARCA" Association="Self.FK_TBL_MODELO_TBL_MARCA">
-            <End EntitySet="TBL_MARCA" Role="TBL_MARCA" />
-            <End EntitySet="TBL_MODELO" Role="TBL_MODELO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_VEHICULO_TBL_MODELO" Association="Self.FK_TBL_VEHICULO_TBL_MODELO">
-            <End EntitySet="TBL_MODELO" Role="TBL_MODELO" />
-            <End EntitySet="TBL_VEHICULO" Role="TBL_VEHICULO" />
+            <End Role="TBL_MARCA" EntitySet="TBL_MARCA" />
+            <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" Association="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-            <End EntitySet="TBL_OBSERVACIONES" Role="TBL_OBSERVACIONES" />
-            <End EntitySet="TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" />
+            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
+            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" Association="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
-            <End EntitySet="TBL_SOLICITUD" Role="TBL_SOLICITUD" />
-            <End EntitySet="TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" />
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PUESTOS_TBL_DIMENSION" Association="Self.FK_TBL_PUESTOS_TBL_DIMENSION">
+            <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
+            <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PUESTOS_TBL_PARQUEADERO" Association="Self.FK_TBL_PUESTOS_TBL_PARQUEADERO">
-            <End EntitySet="TBL_PARQUEADERO" Role="TBL_PARQUEADERO" />
-            <End EntitySet="TBL_PUESTOS" Role="TBL_PUESTOS" />
+            <End Role="TBL_PARQUEADERO" EntitySet="TBL_PARQUEADERO" />
+            <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_REQUISITOS_TBL_SOLICITUD" Association="Self.FK_TBL_REQUISITOS_TBL_SOLICITUD">
-            <End EntitySet="TBL_SOLICITUD" Role="TBL_SOLICITUD" />
-            <End EntitySet="TBL_REQUISITOS" Role="TBL_REQUISITOS" />
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_REQUISITOS" EntitySet="TBL_REQUISITOS" />
           </AssociationSet>
+          <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="Self.FK_TBL_SOLICITUD_TBL_USUARIO">
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="Self.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+            <End Role="TBL_TIPO_USUARIO" EntitySet="TBL_TIPO_USUARIO" />
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_VEHICULO_TBL_DIMENSION" Association="Self.FK_TBL_VEHICULO_TBL_DIMENSION">
+            <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
+            <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_VEHICULO_TBL_MODELO" Association="Self.FK_TBL_VEHICULO_TBL_MODELO">
+            <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
+            <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_VEHICULO_TBL_USUARIO" Association="Self.FK_TBL_VEHICULO_TBL_USUARIO">
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+            <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbParqueoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DbParqueoEntities" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="SP_DOCENTE" ReturnType="Collection(DbParqueoModel.SP_DOCENTE_Result)">
           <Parameter Name="PCEDULA" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_ESTUDIANTE" ReturnType="Collection(DbParqueoModel.SP_ESTUDIANTE_Result)">
           <Parameter Name="PCEDULA" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="TBL_USUARIO" EntityType="DbParqueoModel.TBL_USUARIO" />
-          <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO">
-            <End EntitySet="TBL_USUARIO" Role="TBL_USUARIO" />
-            <End EntitySet="TBL_SOLICITUD" Role="TBL_SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
-            <End EntitySet="TBL_TIPO_USUARIO" Role="TBL_TIPO_USUARIO" />
-            <End EntitySet="TBL_USUARIO" Role="TBL_USUARIO" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="DbParqueoModel.sysdiagram" />
-          <AssociationSet Name="FK_TBL_VEHICULO_TBL_USUARIO" Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO">
-            <End EntitySet="TBL_USUARIO" Role="TBL_USUARIO" />
-            <End EntitySet="TBL_VEHICULO" Role="TBL_VEHICULO" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -871,7 +533,44 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="sysdiagrams" EntityType="DbParqueoModel.sysdiagram" />
+          <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" />
+          <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="DbParqueoModel.TBL_DIA_ASIGNACION" />
+          <EntitySet Name="TBL_DIAS" EntityType="DbParqueoModel.TBL_DIAS" />
           <EntitySet Name="TBL_DIMENSION" EntityType="DbParqueoModel.TBL_DIMENSION" />
+          <EntitySet Name="TBL_EMPRESA" EntityType="DbParqueoModel.TBL_EMPRESA" />
+          <EntitySet Name="TBL_JORNADA" EntityType="DbParqueoModel.TBL_JORNADA" />
+          <EntitySet Name="TBL_MARCA" EntityType="DbParqueoModel.TBL_MARCA" />
+          <EntitySet Name="TBL_MODELO" EntityType="DbParqueoModel.TBL_MODELO" />
+          <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" />
+          <EntitySet Name="TBL_OBSERVACIONES" EntityType="DbParqueoModel.TBL_OBSERVACIONES" />
+          <EntitySet Name="TBL_PARQUEADERO" EntityType="DbParqueoModel.TBL_PARQUEADERO" />
+          <EntitySet Name="TBL_PUESTOS" EntityType="DbParqueoModel.TBL_PUESTOS" />
+          <EntitySet Name="TBL_REQUISITOS" EntityType="DbParqueoModel.TBL_REQUISITOS" />
+          <EntitySet Name="TBL_SOLICITUD" EntityType="DbParqueoModel.TBL_SOLICITUD" />
+          <EntitySet Name="TBL_TIPO_USUARIO" EntityType="DbParqueoModel.TBL_TIPO_USUARIO" />
+          <EntitySet Name="TBL_USUARIO" EntityType="DbParqueoModel.TBL_USUARIO" />
+          <EntitySet Name="TBL_VEHICULO" EntityType="DbParqueoModel.TBL_VEHICULO" />
+          <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" Association="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
+            <End Role="TBL_JORNADA" EntitySet="TBL_JORNADA" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" Association="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
+            <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" Association="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" Association="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
+            <End Role="TBL_ASIGNACION_PARQUEADERO" EntitySet="TBL_ASIGNACION_PARQUEADERO" />
+            <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS" Association="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_DIAS">
+            <End Role="TBL_DIAS" EntitySet="TBL_DIAS" />
+            <End Role="TBL_DIA_ASIGNACION" EntitySet="TBL_DIA_ASIGNACION" />
+          </AssociationSet>
           <AssociationSet Name="FK_TBL_PUESTOS_TBL_DIMENSION" Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_DIMENSION">
             <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
             <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
@@ -880,8 +579,73 @@
             <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
             <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
           </AssociationSet>
-          <EntitySet Name="TBL_EMPRESA" EntityType="DbParqueoModel.TBL_EMPRESA" />
-        </EntityContainer>
+          <AssociationSet Name="FK_TBL_MODELO_TBL_MARCA" Association="DbParqueoModel.FK_TBL_MODELO_TBL_MARCA">
+            <End Role="TBL_MARCA" EntitySet="TBL_MARCA" />
+            <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_VEHICULO_TBL_MODELO" Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_MODELO">
+            <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
+            <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
+            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
+            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_PUESTOS_TBL_PARQUEADERO" Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO">
+            <End Role="TBL_PARQUEADERO" EntitySet="TBL_PARQUEADERO" />
+            <End Role="TBL_PUESTOS" EntitySet="TBL_PUESTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_REQUISITOS_TBL_SOLICITUD" Association="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD">
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+            <End Role="TBL_REQUISITOS" EntitySet="TBL_REQUISITOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SOLICITUD_TBL_USUARIO" Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO">
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+            <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO" Association="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+            <End Role="TBL_TIPO_USUARIO" EntitySet="TBL_TIPO_USUARIO" />
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_VEHICULO_TBL_USUARIO" Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO">
+            <End Role="TBL_USUARIO" EntitySet="TBL_USUARIO" />
+            <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram1">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram1">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram1">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition1" ReturnType="Collection(DbParqueoModel.sp_helpdiagramdefinition1_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams1" ReturnType="Collection(DbParqueoModel.sp_helpdiagrams1_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram1">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams1" />
+          </EntityContainer>
         <ComplexType Name="SP_DOCENTE_Result">
           <Property Type="String" Name="DTPCEDULAC" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="DTPNOMBREC" Nullable="true" MaxLength="50" />
@@ -907,69 +671,6 @@
           <Property Type="String" Name="DTPTELEFOCELC" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="DTPTELEFOC" Nullable="true" MaxLength="10" />
         </ComplexType>
-        <EntityType Name="TBL_USUARIO">
-          <Key>
-            <PropertyRef Name="USU_CODIGO" />
-          </Key>
-          <Property Name="USU_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="USU_NOMBRES" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="USU_APELLIDOS" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="USU_ESTADO" Nullable="false" Type="Boolean" />
-          <Property Name="TIPU_CODIGO" Nullable="false" Type="Int32" />
-          <Property Name="USU_CEDULA" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="USU_CORREO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="USU_CONTACTO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="USU_PASSWORD" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_SOLICITUD" />
-          <NavigationProperty Name="TBL_TIPO_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_TIPO_USUARIO" />
-          <NavigationProperty Name="TBL_VEHICULO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_VEHICULO" />
-        </EntityType>
-        <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
-          <End Type="DbParqueoModel.TBL_USUARIO" Multiplicity="0..1" Role="TBL_USUARIO" />
-          <End Type="DbParqueoModel.TBL_SOLICITUD" Multiplicity="*" Role="TBL_SOLICITUD" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_USUARIO">
-              <PropertyRef Name="USU_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_SOLICITUD">
-              <PropertyRef Name="USU_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
-          <End Type="DbParqueoModel.TBL_TIPO_USUARIO" Multiplicity="1" Role="TBL_TIPO_USUARIO" />
-          <End Type="DbParqueoModel.TBL_USUARIO" Multiplicity="*" Role="TBL_USUARIO" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_TIPO_USUARIO">
-              <PropertyRef Name="TIPU_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_USUARIO">
-              <PropertyRef Name="TIPU_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="principal_id" Nullable="false" Type="Int32" />
-          <Property Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" MaxLength="Max" FixedLength="false" Type="Binary" />
-        </EntityType>
-        <Association Name="FK_TBL_VEHICULO_TBL_USUARIO">
-          <End Type="DbParqueoModel.TBL_USUARIO" Multiplicity="1" Role="TBL_USUARIO" />
-          <End Type="DbParqueoModel.TBL_VEHICULO" Multiplicity="*" Role="TBL_VEHICULO" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_USUARIO">
-              <PropertyRef Name="USU_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_VEHICULO">
-              <PropertyRef Name="USU_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -981,6 +682,48 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
+          <Key>
+            <PropertyRef Name="ASI_CODIGO" />
+          </Key>
+          <Property Name="ASI_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="ASI_DESCRIPCION" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="JOR_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="PUE_CODIGO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_JORNADA" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_JORNADA" />
+          <NavigationProperty Name="TBL_PUESTOS" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_PUESTOS" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_SOLICITUD" />
+          <NavigationProperty Name="TBL_DIA_ASIGNACION" Relationship="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" FromRole="TBL_ASIGNACION_PARQUEADERO" ToRole="TBL_DIA_ASIGNACION" />
+        </EntityType>
+        <EntityType Name="TBL_DIA_ASIGNACION">
+          <Key>
+            <PropertyRef Name="ADIA_CODIGO" />
+          </Key>
+          <Property Name="ADIA_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="DIA_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="ASI_CODIGO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO" FromRole="TBL_DIA_ASIGNACION" ToRole="TBL_ASIGNACION_PARQUEADERO" />
+          <NavigationProperty Name="TBL_DIAS" Relationship="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_DIAS" FromRole="TBL_DIA_ASIGNACION" ToRole="TBL_DIAS" />
+        </EntityType>
+        <EntityType Name="TBL_DIAS">
+          <Key>
+            <PropertyRef Name="DIA_CODIGO" />
+          </Key>
+          <Property Name="DIA_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="DIA_DESCRIPCION" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_DIA_ASIGNACION" Relationship="DbParqueoModel.FK_TBL_DIA_ASIGNACION_TBL_DIAS" FromRole="TBL_DIAS" ToRole="TBL_DIA_ASIGNACION" />
+        </EntityType>
         <EntityType Name="TBL_DIMENSION">
           <Key>
             <PropertyRef Name="DIM_CODIGO" />
@@ -992,6 +735,225 @@
           <NavigationProperty Name="TBL_PUESTOS" Relationship="DbParqueoModel.FK_TBL_PUESTOS_TBL_DIMENSION" FromRole="TBL_DIMENSION" ToRole="TBL_PUESTOS" />
           <NavigationProperty Name="TBL_VEHICULO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_DIMENSION" FromRole="TBL_DIMENSION" ToRole="TBL_VEHICULO" />
         </EntityType>
+        <EntityType Name="TBL_EMPRESA">
+          <Key>
+            <PropertyRef Name="EMP_CODIGO" />
+          </Key>
+          <Property Name="EMP_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="EMP_NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_SMTP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_PUERTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_JORNADA">
+          <Key>
+            <PropertyRef Name="JOR_CODIGO" />
+          </Key>
+          <Property Name="JOR_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="JOR_DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JOR_HORA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA" FromRole="TBL_JORNADA" ToRole="TBL_ASIGNACION_PARQUEADERO" />
+        </EntityType>
+        <EntityType Name="TBL_MARCA">
+          <Key>
+            <PropertyRef Name="MAR_CODIGO" />
+          </Key>
+          <Property Name="MAR_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="MAR_DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_MODELO" Relationship="DbParqueoModel.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MARCA" ToRole="TBL_MODELO" />
+        </EntityType>
+        <EntityType Name="TBL_MODELO">
+          <Key>
+            <PropertyRef Name="MOD_CODIGO" />
+          </Key>
+          <Property Name="MOD_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="MOD_DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAR_CODIGO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_MARCA" Relationship="DbParqueoModel.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MODELO" ToRole="TBL_MARCA" />
+          <NavigationProperty Name="TBL_VEHICULO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_MODELO" FromRole="TBL_MODELO" ToRole="TBL_VEHICULO" />
+        </EntityType>
+        <EntityType Name="TBL_OBSERVACION_SOLICITUD">
+          <Key>
+            <PropertyRef Name="OBDOL_CODIGI" />
+          </Key>
+          <Property Name="OBDOL_CODIGI" Type="Int32" Nullable="false" />
+          <Property Name="OBS_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TBL_OBSERVACIONES" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_OBSERVACIONES" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_SOLICITUD" />
+        </EntityType>
+        <EntityType Name="TBL_OBSERVACIONES">
+          <Key>
+            <PropertyRef Name="OBS_CODIGO" />
+          </Key>
+          <Property Name="OBS_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="OBS_DESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="OBS_USU" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACIONES" ToRole="TBL_OBSERVACION_SOLICITUD" />
+        </EntityType>
+        <EntityType Name="TBL_PARQUEADERO">
+          <Key>
+            <PropertyRef Name="PAR_CODIGO" />
+          </Key>
+          <Property Name="PAR_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="PAR_DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_DIRECCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_ENCARGADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_CONTACTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_PUESTOS" Type="Int32" Nullable="false" />
+          <Property Name="PAR_CONTACTO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_TELEFONO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_TELEFONO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAR_TELEFONO_ENCARGADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_PUESTOS" Relationship="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO" FromRole="TBL_PARQUEADERO" ToRole="TBL_PUESTOS" />
+        </EntityType>
+        <EntityType Name="TBL_PUESTOS">
+          <Key>
+            <PropertyRef Name="PUE_CODIGO" />
+          </Key>
+          <Property Name="PUE_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="PUE_NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIM_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="PAR_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="PUE_ESTADO_MATUTINA" Type="Boolean" Nullable="false" />
+          <Property Name="PUE_ESTADO_NOCTURNO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS" FromRole="TBL_PUESTOS" ToRole="TBL_ASIGNACION_PARQUEADERO" />
+          <NavigationProperty Name="TBL_DIMENSION" Relationship="DbParqueoModel.FK_TBL_PUESTOS_TBL_DIMENSION" FromRole="TBL_PUESTOS" ToRole="TBL_DIMENSION" />
+          <NavigationProperty Name="TBL_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO" FromRole="TBL_PUESTOS" ToRole="TBL_PARQUEADERO" />
+        </EntityType>
+        <EntityType Name="TBL_REQUISITOS">
+          <Key>
+            <PropertyRef Name="REQ_CODIGO" />
+          </Key>
+          <Property Name="REQ_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="REQ_FACTURA" Type="Boolean" Nullable="false" />
+          <Property Name="REQ_LICENCIA" Type="Boolean" Nullable="false" />
+          <Property Name="REQ_CARNET_CONADIS" Type="Boolean" Nullable="false" />
+          <Property Name="REQ_MATRICULA_VEHICULAR" Type="Boolean" Nullable="false" />
+          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="REQ_FACTURA_IMAGEN" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_LICENCIA_IMAGEN" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_CARNET_CONADIS_IMAGEN" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="REQ_MATRICULA_IMAGEN" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_REQUISITOS" ToRole="TBL_SOLICITUD" />
+        </EntityType>
+        <EntityType Name="TBL_SOLICITUD">
+          <Key>
+            <PropertyRef Name="SOL_CODIGO" />
+          </Key>
+          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="SOL_FECHA_INICIO" Type="DateTime" Precision="3" />
+          <Property Name="SOL_FECHA_APROBACION" Type="DateTime" Precision="3" />
+          <Property Name="USU_CODIGO" Type="Int32" />
+          <Property Name="PER_DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOL_APROBADO" Type="Boolean" />
+          <Property Name="SOL_BANDEJA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_ASIGNACION_PARQUEADERO" />
+          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_OBSERVACION_SOLICITUD" />
+          <NavigationProperty Name="TBL_REQUISITOS" Relationship="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_REQUISITOS" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_SOLICITUD" ToRole="TBL_USUARIO" />
+        </EntityType>
+        <EntityType Name="TBL_TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="TIPU_CODIGO" />
+          </Key>
+          <Property Name="TIPU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="TIPU_DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_TIPO_USUARIO" ToRole="TBL_USUARIO" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIO">
+          <Key>
+            <PropertyRef Name="USU_CODIGO" />
+          </Key>
+          <Property Name="USU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="USU_NOMBRES" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_APELLIDOS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_ESTADO" Type="Boolean" Nullable="false" />
+          <Property Name="TIPU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="USU_CEDULA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_CONTACTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USU_PASSWORD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_SOLICITUD" />
+          <NavigationProperty Name="TBL_TIPO_USUARIO" Relationship="DbParqueoModel.FK_TBL_USUARIO_TBL_TIPO_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_TIPO_USUARIO" />
+          <NavigationProperty Name="TBL_VEHICULO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO" FromRole="TBL_USUARIO" ToRole="TBL_VEHICULO" />
+        </EntityType>
+        <EntityType Name="TBL_VEHICULO">
+          <Key>
+            <PropertyRef Name="VEH_CODIGO" />
+          </Key>
+          <Property Name="VEH_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="VEH_OBSERVACION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VEH_PLACA" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MOD_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="DIM_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="USU_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="VEH_ESTADO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBL_DIMENSION" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_DIMENSION" FromRole="TBL_VEHICULO" ToRole="TBL_DIMENSION" />
+          <NavigationProperty Name="TBL_MODELO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_MODELO" FromRole="TBL_VEHICULO" ToRole="TBL_MODELO" />
+          <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_USUARIO" FromRole="TBL_VEHICULO" ToRole="TBL_USUARIO" />
+        </EntityType>
+        <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_JORNADA">
+          <End Type="DbParqueoModel.TBL_JORNADA" Role="TBL_JORNADA" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_JORNADA">
+              <PropertyRef Name="JOR_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
+              <PropertyRef Name="JOR_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_PUESTOS">
+          <End Type="DbParqueoModel.TBL_PUESTOS" Role="TBL_PUESTOS" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PUESTOS">
+              <PropertyRef Name="PUE_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
+              <PropertyRef Name="PUE_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD">
+          <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SOLICITUD">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_ASIGNACION_PARQUEADERO">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_DIA_ASIGNACION_TBL_ASIGNACION_PARQUEADERO">
+          <End Type="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Role="TBL_ASIGNACION_PARQUEADERO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_DIA_ASIGNACION" Role="TBL_DIA_ASIGNACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_ASIGNACION_PARQUEADERO">
+              <PropertyRef Name="ASI_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_DIA_ASIGNACION">
+              <PropertyRef Name="ASI_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_DIA_ASIGNACION_TBL_DIAS">
+          <End Type="DbParqueoModel.TBL_DIAS" Role="TBL_DIAS" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_DIA_ASIGNACION" Role="TBL_DIA_ASIGNACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DIAS">
+              <PropertyRef Name="DIA_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_DIA_ASIGNACION">
+              <PropertyRef Name="DIA_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBL_PUESTOS_TBL_DIMENSION">
           <End Type="DbParqueoModel.TBL_DIMENSION" Role="TBL_DIMENSION" Multiplicity="1" />
           <End Type="DbParqueoModel.TBL_PUESTOS" Role="TBL_PUESTOS" Multiplicity="*" />
@@ -1016,223 +978,354 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="TBL_EMPRESA">
-          <Key>
-            <PropertyRef Name="EMP_CODIGO" />
-          </Key>
-          <Property Name="EMP_CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="EMP_NOMBRE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMP_CORREO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMP_SMTP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMP_PUERTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EMP_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-      </Schema>
+        <Association Name="FK_TBL_MODELO_TBL_MARCA">
+          <End Type="DbParqueoModel.TBL_MARCA" Role="TBL_MARCA" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_MODELO" Role="TBL_MODELO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_MARCA">
+              <PropertyRef Name="MAR_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_MODELO">
+              <PropertyRef Name="MAR_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_VEHICULO_TBL_MODELO">
+          <End Type="DbParqueoModel.TBL_MODELO" Role="TBL_MODELO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_VEHICULO" Role="TBL_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_MODELO">
+              <PropertyRef Name="MOD_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_VEHICULO">
+              <PropertyRef Name="MOD_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
+          <End Type="DbParqueoModel.TBL_OBSERVACIONES" Role="TBL_OBSERVACIONES" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OBSERVACIONES">
+              <PropertyRef Name="OBS_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
+              <PropertyRef Name="OBS_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+          <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SOLICITUD">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_PUESTOS_TBL_PARQUEADERO">
+          <End Type="DbParqueoModel.TBL_PARQUEADERO" Role="TBL_PARQUEADERO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_PUESTOS" Role="TBL_PUESTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PARQUEADERO">
+              <PropertyRef Name="PAR_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_PUESTOS">
+              <PropertyRef Name="PAR_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_REQUISITOS_TBL_SOLICITUD">
+          <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_REQUISITOS" Role="TBL_REQUISITOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SOLICITUD">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_REQUISITOS">
+              <PropertyRef Name="SOL_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SOLICITUD_TBL_USUARIO">
+          <End Type="DbParqueoModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="0..1" />
+          <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_SOLICITUD">
+              <PropertyRef Name="USU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_USUARIO_TBL_TIPO_USUARIO">
+          <End Type="DbParqueoModel.TBL_TIPO_USUARIO" Role="TBL_TIPO_USUARIO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_TIPO_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_USUARIO">
+              <PropertyRef Name="TIPU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_VEHICULO_TBL_USUARIO">
+          <End Type="DbParqueoModel.TBL_USUARIO" Role="TBL_USUARIO" Multiplicity="1" />
+          <End Type="DbParqueoModel.TBL_VEHICULO" Role="TBL_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USUARIO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Principal>
+            <Dependent Role="TBL_VEHICULO">
+              <PropertyRef Name="USU_CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_helpdiagramdefinition1_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams1_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DbParqueoModelStoreContainer" CdmEntityContainer="DbParqueoEntities">
-    <EntitySetMapping Name="TBL_ASIGNACION_PARQUEADERO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_ASIGNACION_PARQUEADERO)">
-        <MappingFragment StoreEntitySet="TBL_ASIGNACION_PARQUEADERO">
-          <ScalarProperty Name="ASI_CODIGO" ColumnName="ASI_CODIGO" />
-          <ScalarProperty Name="ASI_DESCRIPCION" ColumnName="ASI_DESCRIPCION" />
-          <ScalarProperty Name="JOR_CODIGO" ColumnName="JOR_CODIGO" />
-          <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
-          <ScalarProperty Name="PUE_CODIGO" ColumnName="PUE_CODIGO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_DIA_ASIGNACION">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_DIA_ASIGNACION)">
-        <MappingFragment StoreEntitySet="TBL_DIA_ASIGNACION">
-          <ScalarProperty Name="ADIA_CODIGO" ColumnName="ADIA_CODIGO" />
-          <ScalarProperty Name="DIA_CODIGO" ColumnName="DIA_CODIGO" />
-          <ScalarProperty Name="ASI_CODIGO" ColumnName="ASI_CODIGO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_DIAS">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_DIAS)">
-        <MappingFragment StoreEntitySet="TBL_DIAS">
-          <ScalarProperty Name="DIA_CODIGO" ColumnName="DIA_CODIGO" />
-          <ScalarProperty Name="DIA_DESCRIPCION" ColumnName="DIA_DESCRIPCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_JORNADA">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_JORNADA)">
-        <MappingFragment StoreEntitySet="TBL_JORNADA">
-          <ScalarProperty Name="JOR_CODIGO" ColumnName="JOR_CODIGO" />
-          <ScalarProperty Name="JOR_DESCRIPCION" ColumnName="JOR_DESCRIPCION" />
-          <ScalarProperty Name="JOR_HORA" ColumnName="JOR_HORA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_MARCA">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_MARCA)">
-        <MappingFragment StoreEntitySet="TBL_MARCA">
-          <ScalarProperty Name="MAR_CODIGO" ColumnName="MAR_CODIGO" />
-          <ScalarProperty Name="MAR_DESCRIPCION" ColumnName="MAR_DESCRIPCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_MODELO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_MODELO)">
-        <MappingFragment StoreEntitySet="TBL_MODELO">
-          <ScalarProperty Name="MOD_CODIGO" ColumnName="MOD_CODIGO" />
-          <ScalarProperty Name="MOD_DESCRIPCION" ColumnName="MOD_DESCRIPCION" />
-          <ScalarProperty Name="MAR_CODIGO" ColumnName="MAR_CODIGO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_OBSERVACION_SOLICITUD">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_OBSERVACION_SOLICITUD)">
-        <MappingFragment StoreEntitySet="TBL_OBSERVACION_SOLICITUD">
-          <ScalarProperty Name="OBDOL_CODIGI" ColumnName="OBDOL_CODIGI" />
-          <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
-          <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_OBSERVACIONES">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_OBSERVACIONES)">
-        <MappingFragment StoreEntitySet="TBL_OBSERVACIONES">
-          <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
-          <ScalarProperty Name="OBS_DESCRIPCION" ColumnName="OBS_DESCRIPCION" />
-          <ScalarProperty Name="OBS_USU" ColumnName="OBS_USU" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_PARQUEADERO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_PARQUEADERO)">
-        <MappingFragment StoreEntitySet="TBL_PARQUEADERO">
-          <ScalarProperty Name="PAR_CODIGO" ColumnName="PAR_CODIGO" />
-          <ScalarProperty Name="PAR_DESCRIPCION" ColumnName="PAR_DESCRIPCION" />
-          <ScalarProperty Name="PAR_DIRECCION" ColumnName="PAR_DIRECCION" />
-          <ScalarProperty Name="PAR_ENCARGADO" ColumnName="PAR_ENCARGADO" />
-          <ScalarProperty Name="PAR_CONTACTO" ColumnName="PAR_CONTACTO" />
-          <ScalarProperty Name="PAR_PUESTOS" ColumnName="PAR_PUESTOS" />
-          <ScalarProperty Name="PAR_CONTACTO2" ColumnName="PAR_CONTACTO2" />
-          <ScalarProperty Name="PAR_TELEFONO" ColumnName="PAR_TELEFONO" />
-          <ScalarProperty Name="PAR_TELEFONO2" ColumnName="PAR_TELEFONO2" />
-          <ScalarProperty Name="PAR_TELEFONO_ENCARGADO" ColumnName="PAR_TELEFONO_ENCARGADO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_PUESTOS">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_PUESTOS)">
-        <MappingFragment StoreEntitySet="TBL_PUESTOS">
-          <ScalarProperty Name="PUE_CODIGO" ColumnName="PUE_CODIGO" />
-          <ScalarProperty Name="PUE_NOMBRE" ColumnName="PUE_NOMBRE" />
-          <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
-          <ScalarProperty Name="PAR_CODIGO" ColumnName="PAR_CODIGO" />
-          <ScalarProperty Name="PUE_ESTADO_MATUTINA" ColumnName="PUE_ESTADO_MATUTINA" />
-          <ScalarProperty Name="PUE_ESTADO_NOCTURNO" ColumnName="PUE_ESTADO_NOCTURNO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_REQUISITOS">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_REQUISITOS)">
-        <MappingFragment StoreEntitySet="TBL_REQUISITOS">
-          <ScalarProperty Name="REQ_CODIGO" ColumnName="REQ_CODIGO" />
-          <ScalarProperty Name="REQ_FACTURA" ColumnName="REQ_FACTURA" />
-          <ScalarProperty Name="REQ_LICENCIA" ColumnName="REQ_LICENCIA" />
-          <ScalarProperty Name="REQ_CARNET_CONADIS" ColumnName="REQ_CARNET_CONADIS" />
-          <ScalarProperty Name="REQ_MATRICULA_VEHICULAR" ColumnName="REQ_MATRICULA_VEHICULAR" />
-          <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
-          <ScalarProperty Name="REQ_FACTURA_IMAGEN" ColumnName="REQ_FACTURA_IMAGEN" />
-          <ScalarProperty Name="REQ_LICENCIA_IMAGEN" ColumnName="REQ_LICENCIA_IMAGEN" />
-          <ScalarProperty Name="REQ_CARNET_CONADIS_IMAGEN" ColumnName="REQ_CARNET_CONADIS_IMAGEN" />
-          <ScalarProperty Name="REQ_MATRICULA_IMAGEN" ColumnName="REQ_MATRICULA_IMAGEN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_SOLICITUD">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_SOLICITUD)">
-        <MappingFragment StoreEntitySet="TBL_SOLICITUD">
-          <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
-          <ScalarProperty Name="SOL_FECHA_INICIO" ColumnName="SOL_FECHA_INICIO" />
-          <ScalarProperty Name="SOL_FECHA_APROBACION" ColumnName="SOL_FECHA_APROBACION" />
-          <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
-          <ScalarProperty Name="PER_DESCRIPCION" ColumnName="PER_DESCRIPCION" />
-          <ScalarProperty Name="SOL_APROBADO" ColumnName="SOL_APROBADO" />
-          <ScalarProperty Name="SOL_BANDEJA" ColumnName="SOL_BANDEJA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_TIPO_USUARIO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_TIPO_USUARIO)">
-        <MappingFragment StoreEntitySet="TBL_TIPO_USUARIO">
-          <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
-          <ScalarProperty Name="TIPU_DESCRIPCION" ColumnName="TIPU_DESCRIPCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_VEHICULO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_VEHICULO)">
-        <MappingFragment StoreEntitySet="TBL_VEHICULO">
-          <ScalarProperty Name="VEH_CODIGO" ColumnName="VEH_CODIGO" />
-          <ScalarProperty Name="VEH_OBSERVACION" ColumnName="VEH_OBSERVACION" />
-          <ScalarProperty Name="VEH_PLACA" ColumnName="VEH_PLACA" />
-          <ScalarProperty Name="VEH_FOTO" ColumnName="VEH_FOTO" />
-          <ScalarProperty Name="MOD_CODIGO" ColumnName="MOD_CODIGO" />
-          <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
-          <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
-          <ScalarProperty Name="VEH_ESTADO" ColumnName="VEH_ESTADO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_USUARIO">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_USUARIO)">
-        <MappingFragment StoreEntitySet="TBL_USUARIO">
-          <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
-          <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
-          <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
-          <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
-          <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
-          <ScalarProperty Name="USU_CEDULA" ColumnName="USU_CEDULA" />
-          <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
-          <ScalarProperty Name="USU_CONTACTO" ColumnName="USU_CONTACTO" />
-          <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.sysdiagram)">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_DIMENSION">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_DIMENSION)">
-        <MappingFragment StoreEntitySet="TBL_DIMENSION">
-          <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
-          <ScalarProperty Name="DIM_DESCRIPCION" ColumnName="DIM_DESCRIPCION" />
-          <ScalarProperty Name="DIM_LARGO" ColumnName="DIM_LARGO" />
-          <ScalarProperty Name="DIM_ANCHO" ColumnName="DIM_ANCHO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBL_EMPRESA">
-      <EntityTypeMapping TypeName="IsTypeOf(DbParqueoModel.TBL_EMPRESA)">
-        <MappingFragment StoreEntitySet="TBL_EMPRESA">
-          <ScalarProperty Name="EMP_CODIGO" ColumnName="EMP_CODIGO" />
-          <ScalarProperty Name="EMP_NOMBRE" ColumnName="EMP_NOMBRE" />
-          <ScalarProperty Name="EMP_CORREO" ColumnName="EMP_CORREO" />
-          <ScalarProperty Name="EMP_SMTP" ColumnName="EMP_SMTP" />
-          <ScalarProperty Name="EMP_PUERTO" ColumnName="EMP_PUERTO" />
-          <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbParqueoModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ASIGNACION_PARQUEADERO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO">
+              <MappingFragment StoreEntitySet="TBL_ASIGNACION_PARQUEADERO">
+                <ScalarProperty Name="PUE_CODIGO" ColumnName="PUE_CODIGO" />
+                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
+                <ScalarProperty Name="JOR_CODIGO" ColumnName="JOR_CODIGO" />
+                <ScalarProperty Name="ASI_DESCRIPCION" ColumnName="ASI_DESCRIPCION" />
+                <ScalarProperty Name="ASI_CODIGO" ColumnName="ASI_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DIA_ASIGNACION">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_DIA_ASIGNACION">
+              <MappingFragment StoreEntitySet="TBL_DIA_ASIGNACION">
+                <ScalarProperty Name="ASI_CODIGO" ColumnName="ASI_CODIGO" />
+                <ScalarProperty Name="DIA_CODIGO" ColumnName="DIA_CODIGO" />
+                <ScalarProperty Name="ADIA_CODIGO" ColumnName="ADIA_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DIAS">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_DIAS">
+              <MappingFragment StoreEntitySet="TBL_DIAS">
+                <ScalarProperty Name="DIA_DESCRIPCION" ColumnName="DIA_DESCRIPCION" />
+                <ScalarProperty Name="DIA_CODIGO" ColumnName="DIA_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DIMENSION">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_DIMENSION">
+              <MappingFragment StoreEntitySet="TBL_DIMENSION">
+                <ScalarProperty Name="DIM_ANCHO" ColumnName="DIM_ANCHO" />
+                <ScalarProperty Name="DIM_LARGO" ColumnName="DIM_LARGO" />
+                <ScalarProperty Name="DIM_DESCRIPCION" ColumnName="DIM_DESCRIPCION" />
+                <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_EMPRESA">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_EMPRESA">
+              <MappingFragment StoreEntitySet="TBL_EMPRESA">
+                <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
+                <ScalarProperty Name="EMP_PUERTO" ColumnName="EMP_PUERTO" />
+                <ScalarProperty Name="EMP_SMTP" ColumnName="EMP_SMTP" />
+                <ScalarProperty Name="EMP_CORREO" ColumnName="EMP_CORREO" />
+                <ScalarProperty Name="EMP_NOMBRE" ColumnName="EMP_NOMBRE" />
+                <ScalarProperty Name="EMP_CODIGO" ColumnName="EMP_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_JORNADA">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_JORNADA">
+              <MappingFragment StoreEntitySet="TBL_JORNADA">
+                <ScalarProperty Name="JOR_HORA" ColumnName="JOR_HORA" />
+                <ScalarProperty Name="JOR_DESCRIPCION" ColumnName="JOR_DESCRIPCION" />
+                <ScalarProperty Name="JOR_CODIGO" ColumnName="JOR_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_MARCA">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_MARCA">
+              <MappingFragment StoreEntitySet="TBL_MARCA">
+                <ScalarProperty Name="MAR_DESCRIPCION" ColumnName="MAR_DESCRIPCION" />
+                <ScalarProperty Name="MAR_CODIGO" ColumnName="MAR_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_MODELO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_MODELO">
+              <MappingFragment StoreEntitySet="TBL_MODELO">
+                <ScalarProperty Name="MAR_CODIGO" ColumnName="MAR_CODIGO" />
+                <ScalarProperty Name="MOD_DESCRIPCION" ColumnName="MOD_DESCRIPCION" />
+                <ScalarProperty Name="MOD_CODIGO" ColumnName="MOD_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_OBSERVACION_SOLICITUD">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_OBSERVACION_SOLICITUD">
+              <MappingFragment StoreEntitySet="TBL_OBSERVACION_SOLICITUD">
+                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
+                <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
+                <ScalarProperty Name="OBDOL_CODIGI" ColumnName="OBDOL_CODIGI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_OBSERVACIONES">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_OBSERVACIONES">
+              <MappingFragment StoreEntitySet="TBL_OBSERVACIONES">
+                <ScalarProperty Name="OBS_USU" ColumnName="OBS_USU" />
+                <ScalarProperty Name="OBS_DESCRIPCION" ColumnName="OBS_DESCRIPCION" />
+                <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PARQUEADERO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_PARQUEADERO">
+              <MappingFragment StoreEntitySet="TBL_PARQUEADERO">
+                <ScalarProperty Name="PAR_TELEFONO_ENCARGADO" ColumnName="PAR_TELEFONO_ENCARGADO" />
+                <ScalarProperty Name="PAR_TELEFONO2" ColumnName="PAR_TELEFONO2" />
+                <ScalarProperty Name="PAR_TELEFONO" ColumnName="PAR_TELEFONO" />
+                <ScalarProperty Name="PAR_CONTACTO2" ColumnName="PAR_CONTACTO2" />
+                <ScalarProperty Name="PAR_PUESTOS" ColumnName="PAR_PUESTOS" />
+                <ScalarProperty Name="PAR_CONTACTO" ColumnName="PAR_CONTACTO" />
+                <ScalarProperty Name="PAR_ENCARGADO" ColumnName="PAR_ENCARGADO" />
+                <ScalarProperty Name="PAR_DIRECCION" ColumnName="PAR_DIRECCION" />
+                <ScalarProperty Name="PAR_DESCRIPCION" ColumnName="PAR_DESCRIPCION" />
+                <ScalarProperty Name="PAR_CODIGO" ColumnName="PAR_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PUESTOS">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_PUESTOS">
+              <MappingFragment StoreEntitySet="TBL_PUESTOS">
+                <ScalarProperty Name="PUE_ESTADO_NOCTURNO" ColumnName="PUE_ESTADO_NOCTURNO" />
+                <ScalarProperty Name="PUE_ESTADO_MATUTINA" ColumnName="PUE_ESTADO_MATUTINA" />
+                <ScalarProperty Name="PAR_CODIGO" ColumnName="PAR_CODIGO" />
+                <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
+                <ScalarProperty Name="PUE_NOMBRE" ColumnName="PUE_NOMBRE" />
+                <ScalarProperty Name="PUE_CODIGO" ColumnName="PUE_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_REQUISITOS">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_REQUISITOS">
+              <MappingFragment StoreEntitySet="TBL_REQUISITOS">
+                <ScalarProperty Name="REQ_MATRICULA_IMAGEN" ColumnName="REQ_MATRICULA_IMAGEN" />
+                <ScalarProperty Name="REQ_CARNET_CONADIS_IMAGEN" ColumnName="REQ_CARNET_CONADIS_IMAGEN" />
+                <ScalarProperty Name="REQ_LICENCIA_IMAGEN" ColumnName="REQ_LICENCIA_IMAGEN" />
+                <ScalarProperty Name="REQ_FACTURA_IMAGEN" ColumnName="REQ_FACTURA_IMAGEN" />
+                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
+                <ScalarProperty Name="REQ_MATRICULA_VEHICULAR" ColumnName="REQ_MATRICULA_VEHICULAR" />
+                <ScalarProperty Name="REQ_CARNET_CONADIS" ColumnName="REQ_CARNET_CONADIS" />
+                <ScalarProperty Name="REQ_LICENCIA" ColumnName="REQ_LICENCIA" />
+                <ScalarProperty Name="REQ_FACTURA" ColumnName="REQ_FACTURA" />
+                <ScalarProperty Name="REQ_CODIGO" ColumnName="REQ_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SOLICITUD">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_SOLICITUD">
+              <MappingFragment StoreEntitySet="TBL_SOLICITUD">
+                <ScalarProperty Name="SOL_BANDEJA" ColumnName="SOL_BANDEJA" />
+                <ScalarProperty Name="SOL_APROBADO" ColumnName="SOL_APROBADO" />
+                <ScalarProperty Name="PER_DESCRIPCION" ColumnName="PER_DESCRIPCION" />
+                <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
+                <ScalarProperty Name="SOL_FECHA_APROBACION" ColumnName="SOL_FECHA_APROBACION" />
+                <ScalarProperty Name="SOL_FECHA_INICIO" ColumnName="SOL_FECHA_INICIO" />
+                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_TIPO_USUARIO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_TIPO_USUARIO">
+              <MappingFragment StoreEntitySet="TBL_TIPO_USUARIO">
+                <ScalarProperty Name="TIPU_DESCRIPCION" ColumnName="TIPU_DESCRIPCION" />
+                <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USUARIO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_USUARIO">
+              <MappingFragment StoreEntitySet="TBL_USUARIO">
+                <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
+                <ScalarProperty Name="USU_CONTACTO" ColumnName="USU_CONTACTO" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="USU_CEDULA" ColumnName="USU_CEDULA" />
+                <ScalarProperty Name="TIPU_CODIGO" ColumnName="TIPU_CODIGO" />
+                <ScalarProperty Name="USU_ESTADO" ColumnName="USU_ESTADO" />
+                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+                <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
+                <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_VEHICULO">
+            <EntityTypeMapping TypeName="DbParqueoModel.TBL_VEHICULO">
+              <MappingFragment StoreEntitySet="TBL_VEHICULO">
+                <ScalarProperty Name="VEH_ESTADO" ColumnName="VEH_ESTADO" />
+                <ScalarProperty Name="USU_CODIGO" ColumnName="USU_CODIGO" />
+                <ScalarProperty Name="DIM_CODIGO" ColumnName="DIM_CODIGO" />
+                <ScalarProperty Name="MOD_CODIGO" ColumnName="MOD_CODIGO" />
+                <ScalarProperty Name="VEH_PLACA" ColumnName="VEH_PLACA" />
+                <ScalarProperty Name="VEH_OBSERVACION" ColumnName="VEH_OBSERVACION" />
+                <ScalarProperty Name="VEH_CODIGO" ColumnName="VEH_CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram1" FunctionName="DbParqueoModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram1" FunctionName="DbParqueoModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram1" FunctionName="DbParqueoModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition1" FunctionName="DbParqueoModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbParqueoModel.sp_helpdiagramdefinition1_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams1" FunctionName="DbParqueoModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbParqueoModel.sp_helpdiagrams1_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram1" FunctionName="DbParqueoModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams1" FunctionName="DbParqueoModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

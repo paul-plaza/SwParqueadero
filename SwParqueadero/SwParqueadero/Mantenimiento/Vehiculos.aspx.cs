@@ -46,7 +46,6 @@ namespace SwParqueadero.Mantenimiento
         {
             gvdatos.DataSource = logicaVehiculo.ListaPorUsuario(codigo);
             gvdatos.DataBind();
-
         }
 
         private void cargarDDLMarca()
@@ -82,7 +81,6 @@ namespace SwParqueadero.Mantenimiento
             item.MOD_CODIGO = Convert.ToInt32(ddlModelo.SelectedValue);
             item.USU_CODIGO = Convert.ToInt32(hfCodigoUsuario.Value);
             item.VEH_OBSERVACION = txtObservaciones.Text.Trim().ToUpper();
-
             return item;
         }
 
@@ -113,6 +111,7 @@ namespace SwParqueadero.Mantenimiento
                     txtNombres.Text = usuario.USU_APELLIDOS + " " + usuario.USU_NOMBRES;
                     hfCodigoUsuario.Value = usuario.USU_CODIGO.ToString();
                     txtObservaciones.Text = item.VEH_OBSERVACION;
+                    Session[CConstantes.ConstantesSesion.VEHICULO] = item;
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ELIMINAR))
                 {
@@ -143,10 +142,6 @@ namespace SwParqueadero.Mantenimiento
                         item = logicaVehiculo.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
                         item = cargaEntidad(item);
                         logicaVehiculo.Modificar(item);
-                    }
-                    if (fuImagen.HasFile)
-                    {
-                        CUtilitarios.cargarArchivos(fuImagen, MapPath("Vehiculos"), item.VEH_PLACA);
                     }
                     limpiarControles();
                     cargarGrid(item.USU_CODIGO);
@@ -194,6 +189,24 @@ namespace SwParqueadero.Mantenimiento
         protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargarDDLModelo(Convert.ToInt32(ddlMarca.SelectedValue));
+        }
+
+        protected void aFile_UploadComplete(object sender, AjaxControlToolkit.AjaxFileUploadEventArgs e)
+        {
+            if (Session[CConstantes.ConstantesSesion.VEHICULO] != null)
+            {
+                TBL_VEHICULO item = (TBL_VEHICULO)Session[CConstantes.ConstantesSesion.VEHICULO];
+                
+                aFile.SaveAs(Server.MapPath("~/Archivos/Vehiculos") +@"\"+ item.VEH_PLACA + e.ContentType);
+            }
+        }
+
+        protected void gvdatos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                
+            }
         }
     }
 }
