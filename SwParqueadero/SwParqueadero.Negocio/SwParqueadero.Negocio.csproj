@@ -52,9 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mantenimiento\LogicaDimensiones.cs" />
+    <Compile Include="Mantenimiento\LogicaEmpresa.cs" />
     <Compile Include="Mantenimiento\LogicaLogin.cs" />
     <Compile Include="Mantenimiento\LogicaMarca.cs" />
     <Compile Include="Mantenimiento\LogicaModelo.cs" />
+    <Compile Include="Mantenimiento\LogicaParqueadero.cs" />
     <Compile Include="Mantenimiento\LogicaTipoUsuario.cs" />
     <Compile Include="Mantenimiento\LogicaUsuario.cs" />
     <Compile Include="Mantenimiento\LogicaVehiculo.cs" />

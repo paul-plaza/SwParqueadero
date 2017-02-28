@@ -7,19 +7,20 @@ using SwParqueadero.AccesoDatos;
 
 namespace SwParqueadero.Negocio.Mantenimiento
 {
-    public class LogicaTipoUsuario
+    public class LogicaParqueadero
     {
         private DbParqueoEntities dc = new DbParqueoEntities();
-        public List<TBL_TIPO_USUARIO> ListaTipoUsuario()
+
+        public List<TBL_PARQUEADERO> ListaParqueadero()
         {
-            return dc.TBL_TIPO_USUARIO.ToList();
+            return dc.TBL_PARQUEADERO.ToList();
         }
 
         private int secuencial()
         {
             try
             {
-                return dc.TBL_TIPO_USUARIO.Max(aux => aux.TIPU_CODIGO + 1);
+                return dc.TBL_PARQUEADERO.Max(aux => aux.PAR_CODIGO + 1);
             }
             catch
             {
@@ -27,12 +28,12 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public void Guardar(TBL_TIPO_USUARIO item)
+        public void Guardar(TBL_PARQUEADERO item)
         {
             try
             {
-                item.TIPU_CODIGO = secuencial();
-                dc.TBL_TIPO_USUARIO.Add(item);
+                item.PAR_CODIGO = secuencial();
+                dc.TBL_PARQUEADERO.Add(item);
                 dc.SaveChanges();
             }
             catch (Exception ex)
@@ -41,7 +42,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public void Modificar(TBL_TIPO_USUARIO item)
+        public void Modificar(TBL_PARQUEADERO item)
         {
             try
             {
@@ -58,7 +59,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
             try
             {
 
-                dc.TBL_TIPO_USUARIO.Remove(dc.TBL_TIPO_USUARIO.First(aux => aux.TIPU_CODIGO.Equals(codigo)));
+                dc.TBL_PARQUEADERO.Remove(dc.TBL_PARQUEADERO.First(aux => aux.PAR_CODIGO.Equals(codigo)));
                 dc.SaveChanges();
             }
             catch (Exception ex)
@@ -67,11 +68,11 @@ namespace SwParqueadero.Negocio.Mantenimiento
             }
         }
 
-        public TBL_TIPO_USUARIO ItemPorCodigo(int codigo)
+        public TBL_PARQUEADERO ItemPorCodigo(int codigo)
         {
             try
             {
-                return dc.TBL_TIPO_USUARIO.FirstOrDefault(aux => aux.TIPU_CODIGO.Equals(codigo));
+                return dc.TBL_PARQUEADERO.FirstOrDefault(aux => aux.PAR_CODIGO.Equals(codigo));
             }
             catch (Exception ex)
             {

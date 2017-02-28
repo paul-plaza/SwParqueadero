@@ -8,6 +8,8 @@ using System.Web.UI.WebControls;
 using SwParqueadero.AccesoDatos;
 using SwParqueadero.Comun;
 using SwParqueadero.Negocio.Mantenimiento;
+using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace SwParqueadero.Mantenimiento
 {
@@ -16,7 +18,10 @@ namespace SwParqueadero.Mantenimiento
         #region Declaracion Clases
         LogicaUsuario logicaUsuario = new LogicaUsuario();
         LogicaTipoUsuario logicaTipoUsuario = new LogicaTipoUsuario();
+        LogicaEmpresa logicaEmpresa = new LogicaEmpresa();
         CUtilitarios cUtilitarios = new CUtilitarios();
+
+        List<string> correos = new List<string>();
         #endregion
 
 
@@ -64,7 +69,7 @@ namespace SwParqueadero.Mantenimiento
             item.USU_CORREO = txtCorreo.Text.Trim();
             item.USU_CONTACTO = txtContacto.Text.Trim().ToUpper();
             item.USU_ESTADO = true;
-            item.USU_PASSWORD = cUtilitarios.Encriptar(txtCedula.Text);
+            item.USU_PASSWORD = Membership.GeneratePassword(6, 1);
             item.TIPU_CODIGO = Convert.ToInt32(ddlTipoUsuario.SelectedValue);
             
             
@@ -80,8 +85,18 @@ namespace SwParqueadero.Mantenimiento
                     TBL_USUARIO item = new TBL_USUARIO();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                       
-                            logicaUsuario.Guardar(cargaEntidad(item)); 
+                        EEmail mail = new EEmail();
+                        item = cargaEntidad(item);
+                        mail.Mensaje = "Sus credenciales de acceso al sistema de parqueadero son: <br/><B>Usuario: </B>" + item.USU_CEDULA + "<br/><B>Password: </B>" + item.USU_PASSWORD;
+                        mail.IntroCabecera = logicaEmpresa.ItemDefault().EMP_NOMBRE;
+                        mail.Resumen = string.Empty;
+                        mail.Subtitulo = string.Empty;
+                        mail.TituloMensjae = "Credenciales";
+                        correos.Add(item.USU_CORREO);
+                        cUtilitarios.EnviarCorreoGenerico(logicaEmpresa.ItemDefault(), correos, mail, Server.MapPath(CConstantes.Constantes.PLANTILLA_MAIL));
+                        item.USU_PASSWORD = cUtilitarios.Encriptar(item.USU_PASSWORD);
+                        logicaUsuario.Guardar(item);
+                        
                     }
                     else
                     {
@@ -123,10 +138,33 @@ namespace SwParqueadero.Mantenimiento
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ENVIAR_CORREO))
                 {
+                    Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            #region Mail
+                            TBL_USUARIO item = logicaUsuario.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
+                            EEmail mail = new EEmail();
+                            item.USU_PASSWORD = Membership.GeneratePassword(6, 1);
+                            mail.Mensaje = "Se a generado para el siguiente <B>Usuario: </B>" + item.USU_CEDULA + " una contraseña temporal para el ingreso al sistema de parqueadero. <br/> <B>Password: </B>" + item.USU_PASSWORD;
+                            item.USU_PASSWORD = cUtilitarios.Encriptar(item.USU_PASSWORD);
+                            mail.IntroCabecera = logicaEmpresa.ItemDefault().EMP_NOMBRE;
+                            mail.Resumen = string.Empty;
+                            mail.Subtitulo = string.Empty;
+                            mail.TituloMensjae = "Credenciales";
+                            
+                            #endregion
+                            
+                            correos.Add(item.USU_CORREO);
+                            cUtilitarios.EnviarCorreoGenerico(logicaEmpresa.ItemDefault(), correos, mail, Server.MapPath(CConstantes.Constantes.PLANTILLA_MAIL));
+                        }
+                        catch { }
+                    });
+                }
+                else if (e.CommandName.Equals(CConstantes.Constantes.ASIGNACION_VEHICULO))
+                {
                     TBL_USUARIO item = logicaUsuario.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
-                    
-                    
-
+                    Response.Redirect("~/Vehiculos.aspx?id=" + item.USU_CODIGO);
                 }
             }
             catch (Exception ex)

@@ -43,7 +43,14 @@
   <ItemGroup>
     <Compile Include="CConstantes.cs" />
     <Compile Include="CUtilitarios.cs" />
+    <Compile Include="EEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SwParqueadero.AccesoDatos\SwParqueadero.AccesoDatos.csproj">
+      <Project>{47968c8a-deab-493e-9089-9284964920bf}</Project>
+      <Name>SwParqueadero.AccesoDatos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

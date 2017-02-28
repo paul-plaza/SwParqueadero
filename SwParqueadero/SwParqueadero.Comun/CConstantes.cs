@@ -24,16 +24,21 @@ namespace SwParqueadero.Comun
             /// <summary>
             /// <c>Valor:C</c>
             /// </summary>
-            public static string ENVIAR_CORREO = "c";
+            public static string ENVIAR_CORREO = "C";
 
             /// <summary>
-            /// <c>Valor: E</c>
+            /// <c>Valor:A</c>
+            /// </summary>
+            public static string ASIGNACION_VEHICULO = "A";
+
+            /// <summary>
+            /// <c>Valor: 0</c>
             /// </summary>
             public static string VALOR_POR_DEFECTO = "0";
 
             public static string MENSAJE_CORREO_NO_ENVIADO = "MENSAJE CORREO NO ENVIADO";
 
-            public static string PLANTILLA_MAIL = "~/Plantilla_Mail.html";
+            public static string PLANTILLA_MAIL = "~/Plantillas/Plantilla_Mail.html";
         }
 
     }

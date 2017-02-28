@@ -162,7 +162,13 @@
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("USU_CODIGO") %>' />
 
-                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reeviar Password"
+                                                <asp:LinkButton ID="btnEnviarCorreo" Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reenviar Password"
+                                                    CommandName="C" CausesValidation="false" CommandArgument='<%# Bind("USU_CODIGO") %>'
+                                                    Font-Size="10pt" Style="text-decoration: none; color: blue" />
+
+                                                
+                                                <asp:LinkButton ID="lnkAsignarVehiculo" Text="" runat="server" CssClass="glyphicon glyphicon-plus" ToolTip="Asignar Vehículo"
+                                                    CommandName="a" CausesValidation="false" CommandArgument='<%# Bind("USU_CODIGO") %>'
                                                     Font-Size="10pt" Style="text-decoration: none; color: blue" />
                                                 
                                             </ItemTemplate>
