@@ -131,7 +131,7 @@
                                         
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                Nombre
+                                                Direccion
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="lblDireccion" Text='<%# Bind("PAR_DIRECCION") %>' Font-Size="XX-Small"
@@ -140,7 +140,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                Nombre
+                                                Puesto
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="lblPuesto" Text='<%# Bind("PAR_PUESTOS") %>' Font-Size="XX-Small"
