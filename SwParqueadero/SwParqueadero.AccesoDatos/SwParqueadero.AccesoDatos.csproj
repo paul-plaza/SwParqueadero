@@ -86,9 +86,6 @@
     <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TBL_ASIGNACION_PARQUEADERO.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
@@ -114,9 +111,6 @@
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TBL_OBSERVACIONES.cs">
-      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TBL_OBSERVACION_SOLICITUD.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TBL_PARQUEADERO.cs">

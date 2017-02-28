@@ -27,7 +27,6 @@ namespace SwParqueadero.AccesoDatos
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TBL_ASIGNACION_PARQUEADERO> TBL_ASIGNACION_PARQUEADERO { get; set; }
         public virtual DbSet<TBL_DIA_ASIGNACION> TBL_DIA_ASIGNACION { get; set; }
         public virtual DbSet<TBL_DIAS> TBL_DIAS { get; set; }
@@ -36,7 +35,6 @@ namespace SwParqueadero.AccesoDatos
         public virtual DbSet<TBL_JORNADA> TBL_JORNADA { get; set; }
         public virtual DbSet<TBL_MARCA> TBL_MARCA { get; set; }
         public virtual DbSet<TBL_MODELO> TBL_MODELO { get; set; }
-        public virtual DbSet<TBL_OBSERVACION_SOLICITUD> TBL_OBSERVACION_SOLICITUD { get; set; }
         public virtual DbSet<TBL_OBSERVACIONES> TBL_OBSERVACIONES { get; set; }
         public virtual DbSet<TBL_PARQUEADERO> TBL_PARQUEADERO { get; set; }
         public virtual DbSet<TBL_PUESTOS> TBL_PUESTOS { get; set; }

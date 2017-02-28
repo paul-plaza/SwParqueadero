@@ -5,20 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bc1e3888e59040758f621a5544da4dc0" Name="Diagram1">
-        <EntityTypeShape EntityType="DbParqueoModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Width="1.5" PointX="7.5" PointY="10.375" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_DIA_ASIGNACION" Width="1.5" PointX="9.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_DIAS" Width="1.5" PointX="7.5" PointY="7.875" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" Width="1.5" PointX="7.5" PointY="8.375" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_DIA_ASIGNACION" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_DIAS" Width="1.5" PointX="7.5" PointY="5.875" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_DIMENSION" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_EMPRESA" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_EMPRESA" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_JORNADA" Width="1.5" PointX="5.25" PointY="2.875" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_MARCA" Width="1.5" PointX="0.75" PointY="10.625" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_MODELO" Width="1.5" PointX="3" PointY="10.5" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" Width="1.5" PointX="10.5" PointY="10.75" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_OBSERVACIONES" Width="1.5" PointX="8.25" PointY="4.75" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_OBSERVACIONES" Width="1.5" PointX="7.5" PointY="12.25" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_PARQUEADERO" Width="1.5" PointX="3" PointY="14.375" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_PUESTOS" Width="1.5" PointX="5.25" PointY="14.625" />
-        <EntityTypeShape EntityType="DbParqueoModel.TBL_REQUISITOS" Width="1.5" PointX="7.5" PointY="16.375" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_REQUISITOS" Width="1.5" PointX="7.5" PointY="15" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_SOLICITUD" Width="1.5" PointX="5.25" PointY="10.125" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="7.25" />
         <EntityTypeShape EntityType="DbParqueoModel.TBL_USUARIO" Width="1.5" PointX="3" PointY="6.375" />
@@ -32,8 +30,7 @@
         <AssociationConnector Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_DIMENSION" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_MODELO_TBL_MARCA" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_MODELO" />
-        <AssociationConnector Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" />
-        <AssociationConnector Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" />
+        <AssociationConnector Association="DbParqueoModel.FK_TBL_OBSERVACIONES_TBL_SOLICITUD" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" />
