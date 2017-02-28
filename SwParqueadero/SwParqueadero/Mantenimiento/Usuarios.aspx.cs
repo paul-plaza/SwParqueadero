@@ -121,6 +121,13 @@ namespace SwParqueadero.Mantenimiento
                     logicaUsuario.Eliminar(Convert.ToInt32(e.CommandArgument));
                     cargarGrid();
                 }
+                else if (e.CommandName.Equals(CConstantes.Constantes.ENVIAR_CORREO))
+                {
+                    TBL_USUARIO item = logicaUsuario.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
+                    
+                    item.USU_CORREO
+
+                }
             }
             catch (Exception ex)
             {
@@ -128,5 +135,7 @@ namespace SwParqueadero.Mantenimiento
                 throw;
             }
         }
+
+      
     }
 }

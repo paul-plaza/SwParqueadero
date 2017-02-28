@@ -166,8 +166,8 @@
                                                 <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove" ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration:none; color:red"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("USU_CODIGO") %>' ValidationGroup="gisad" />
-
-                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reeviar Password" Font-Size="10pt" Style="text-decoration:none; color:blue"/>
+                                                <asp:LinkButton ID="lnkEnviarCorrero" Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reenviar Password" Font-Size="10pt" Style="text-decoration:none; color:blue"
+                                                    CommandName="C" CommandArgument='<%Bind("USU_CODIGO") %>' CausesValidation="false"/>
                                                 
                                             </ItemTemplate>
                                             <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>

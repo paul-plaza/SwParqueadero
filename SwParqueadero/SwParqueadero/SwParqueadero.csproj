@@ -146,6 +146,7 @@
     <Content Include="Mantenimiento\TipoUsuarios.aspx" />
     <Content Include="Mantenimiento\Usuarios.aspx" />
     <Content Include="Mantenimiento\Vehiculos.aspx" />
+    <Content Include="Plantillas\Plantilla_Mail.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
