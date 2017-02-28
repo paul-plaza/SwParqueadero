@@ -14,17 +14,11 @@ namespace SwParqueadero.AccesoDatos
     
     public partial class TBL_OBSERVACIONES
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_OBSERVACIONES()
-        {
-            this.TBL_OBSERVACION_SOLICITUD = new HashSet<TBL_OBSERVACION_SOLICITUD>();
-        }
-    
         public int OBS_CODIGO { get; set; }
         public string OBS_DESCRIPCION { get; set; }
+        public int SOL_CODIGO { get; set; }
         public string OBS_USU { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_OBSERVACION_SOLICITUD> TBL_OBSERVACION_SOLICITUD { get; set; }
+        public virtual TBL_SOLICITUD TBL_SOLICITUD { get; set; }
     }
 }

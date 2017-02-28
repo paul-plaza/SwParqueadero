@@ -18,7 +18,7 @@ namespace SwParqueadero.AccesoDatos
         public TBL_SOLICITUD()
         {
             this.TBL_ASIGNACION_PARQUEADERO = new HashSet<TBL_ASIGNACION_PARQUEADERO>();
-            this.TBL_OBSERVACION_SOLICITUD = new HashSet<TBL_OBSERVACION_SOLICITUD>();
+            this.TBL_OBSERVACIONES = new HashSet<TBL_OBSERVACIONES>();
             this.TBL_REQUISITOS = new HashSet<TBL_REQUISITOS>();
         }
     
@@ -33,7 +33,7 @@ namespace SwParqueadero.AccesoDatos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_ASIGNACION_PARQUEADERO> TBL_ASIGNACION_PARQUEADERO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_OBSERVACION_SOLICITUD> TBL_OBSERVACION_SOLICITUD { get; set; }
+        public virtual ICollection<TBL_OBSERVACIONES> TBL_OBSERVACIONES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_REQUISITOS> TBL_REQUISITOS { get; set; }
         public virtual TBL_USUARIO TBL_USUARIO { get; set; }

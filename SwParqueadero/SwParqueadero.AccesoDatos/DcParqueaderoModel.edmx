@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DbParqueoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
           <Key>
             <PropertyRef Name="ASI_CODIGO" />
@@ -83,20 +73,13 @@
           <Property Name="MOD_DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MAR_CODIGO" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TBL_OBSERVACION_SOLICITUD">
-          <Key>
-            <PropertyRef Name="OBDOL_CODIGI" />
-          </Key>
-          <Property Name="OBDOL_CODIGI" Type="int" Nullable="false" />
-          <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
-          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="TBL_OBSERVACIONES">
           <Key>
             <PropertyRef Name="OBS_CODIGO" />
           </Key>
           <Property Name="OBS_CODIGO" Type="int" Nullable="false" />
           <Property Name="OBS_DESCRIPCION" Type="varchar" MaxLength="150" />
+          <Property Name="SOL_CODIGO" Type="int" Nullable="false" />
           <Property Name="OBS_USU" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="TBL_PARQUEADERO">
@@ -257,26 +240,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-          <End Role="TBL_OBSERVACIONES" Type="Self.TBL_OBSERVACIONES" Multiplicity="1" />
-          <End Role="TBL_OBSERVACION_SOLICITUD" Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_OBSERVACIONES">
-              <PropertyRef Name="OBS_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
-              <PropertyRef Name="OBS_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+        <Association Name="FK_TBL_OBSERVACIONES_TBL_SOLICITUD">
           <End Role="TBL_SOLICITUD" Type="Self.TBL_SOLICITUD" Multiplicity="1" />
-          <End Role="TBL_OBSERVACION_SOLICITUD" Type="Self.TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
+          <End Role="TBL_OBSERVACIONES" Type="Self.TBL_OBSERVACIONES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_SOLICITUD">
               <PropertyRef Name="SOL_CODIGO" />
             </Principal>
-            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
+            <Dependent Role="TBL_OBSERVACIONES">
               <PropertyRef Name="SOL_CODIGO" />
             </Dependent>
           </ReferentialConstraint>
@@ -409,7 +380,6 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbParqueoModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="Self.TBL_ASIGNACION_PARQUEADERO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="Self.TBL_DIA_ASIGNACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_DIAS" EntityType="Self.TBL_DIAS" Schema="dbo" store:Type="Tables" />
@@ -418,7 +388,6 @@
           <EntitySet Name="TBL_JORNADA" EntityType="Self.TBL_JORNADA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_MARCA" EntityType="Self.TBL_MARCA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_MODELO" EntityType="Self.TBL_MODELO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="Self.TBL_OBSERVACION_SOLICITUD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OBSERVACIONES" EntityType="Self.TBL_OBSERVACIONES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_PARQUEADERO" EntityType="Self.TBL_PARQUEADERO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_PUESTOS" EntityType="Self.TBL_PUESTOS" Schema="dbo" store:Type="Tables" />
@@ -451,13 +420,9 @@
             <End Role="TBL_MARCA" EntitySet="TBL_MARCA" />
             <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" Association="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
-            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" Association="Self.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+          <AssociationSet Name="FK_TBL_OBSERVACIONES_TBL_SOLICITUD" Association="Self.FK_TBL_OBSERVACIONES_TBL_SOLICITUD">
             <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
+            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PUESTOS_TBL_DIMENSION" Association="Self.FK_TBL_PUESTOS_TBL_DIMENSION">
             <End Role="TBL_DIMENSION" EntitySet="TBL_DIMENSION" />
@@ -563,7 +528,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams1" />
-          <EntitySet Name="sysdiagrams" EntityType="DbParqueoModel.sysdiagram" />
           <EntitySet Name="TBL_ASIGNACION_PARQUEADERO" EntityType="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO" />
           <EntitySet Name="TBL_DIA_ASIGNACION" EntityType="DbParqueoModel.TBL_DIA_ASIGNACION" />
           <EntitySet Name="TBL_DIAS" EntityType="DbParqueoModel.TBL_DIAS" />
@@ -572,7 +536,6 @@
           <EntitySet Name="TBL_JORNADA" EntityType="DbParqueoModel.TBL_JORNADA" />
           <EntitySet Name="TBL_MARCA" EntityType="DbParqueoModel.TBL_MARCA" />
           <EntitySet Name="TBL_MODELO" EntityType="DbParqueoModel.TBL_MODELO" />
-          <EntitySet Name="TBL_OBSERVACION_SOLICITUD" EntityType="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" />
           <EntitySet Name="TBL_OBSERVACIONES" EntityType="DbParqueoModel.TBL_OBSERVACIONES" />
           <EntitySet Name="TBL_PARQUEADERO" EntityType="DbParqueoModel.TBL_PARQUEADERO" />
           <EntitySet Name="TBL_PUESTOS" EntityType="DbParqueoModel.TBL_PUESTOS" />
@@ -617,13 +580,9 @@
             <End Role="TBL_MODELO" EntitySet="TBL_MODELO" />
             <End Role="TBL_VEHICULO" EntitySet="TBL_VEHICULO" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
-            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" Association="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+          <AssociationSet Name="FK_TBL_OBSERVACIONES_TBL_SOLICITUD" Association="DbParqueoModel.FK_TBL_OBSERVACIONES_TBL_SOLICITUD">
             <End Role="TBL_SOLICITUD" EntitySet="TBL_SOLICITUD" />
-            <End Role="TBL_OBSERVACION_SOLICITUD" EntitySet="TBL_OBSERVACION_SOLICITUD" />
+            <End Role="TBL_OBSERVACIONES" EntitySet="TBL_OBSERVACIONES" />
           </AssociationSet>
           <AssociationSet Name="FK_TBL_PUESTOS_TBL_PARQUEADERO" Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_PARQUEADERO">
             <End Role="TBL_PARQUEADERO" EntitySet="TBL_PARQUEADERO" />
@@ -693,16 +652,6 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TBL_ASIGNACION_PARQUEADERO">
           <Key>
             <PropertyRef Name="ASI_CODIGO" />
@@ -784,24 +733,15 @@
           <NavigationProperty Name="TBL_MARCA" Relationship="DbParqueoModel.FK_TBL_MODELO_TBL_MARCA" FromRole="TBL_MODELO" ToRole="TBL_MARCA" />
           <NavigationProperty Name="TBL_VEHICULO" Relationship="DbParqueoModel.FK_TBL_VEHICULO_TBL_MODELO" FromRole="TBL_MODELO" ToRole="TBL_VEHICULO" />
         </EntityType>
-        <EntityType Name="TBL_OBSERVACION_SOLICITUD">
-          <Key>
-            <PropertyRef Name="OBDOL_CODIGI" />
-          </Key>
-          <Property Name="OBDOL_CODIGI" Type="Int32" Nullable="false" />
-          <Property Name="OBS_CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TBL_OBSERVACIONES" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_OBSERVACIONES" />
-          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_OBSERVACION_SOLICITUD" ToRole="TBL_SOLICITUD" />
-        </EntityType>
         <EntityType Name="TBL_OBSERVACIONES">
           <Key>
             <PropertyRef Name="OBS_CODIGO" />
           </Key>
           <Property Name="OBS_CODIGO" Type="Int32" Nullable="false" />
           <Property Name="OBS_DESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SOL_CODIGO" Type="Int32" Nullable="false" />
           <Property Name="OBS_USU" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES" FromRole="TBL_OBSERVACIONES" ToRole="TBL_OBSERVACION_SOLICITUD" />
+          <NavigationProperty Name="TBL_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACIONES_TBL_SOLICITUD" FromRole="TBL_OBSERVACIONES" ToRole="TBL_SOLICITUD" />
         </EntityType>
         <EntityType Name="TBL_PARQUEADERO">
           <Key>
@@ -861,7 +801,7 @@
           <Property Name="SOL_APROBADO" Type="Boolean" />
           <Property Name="SOL_BANDEJA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="TBL_ASIGNACION_PARQUEADERO" Relationship="DbParqueoModel.FK_TBL_ASIGNACION_PARQUEADERO_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_ASIGNACION_PARQUEADERO" />
-          <NavigationProperty Name="TBL_OBSERVACION_SOLICITUD" Relationship="DbParqueoModel.FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_OBSERVACION_SOLICITUD" />
+          <NavigationProperty Name="TBL_OBSERVACIONES" Relationship="DbParqueoModel.FK_TBL_OBSERVACIONES_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_OBSERVACIONES" />
           <NavigationProperty Name="TBL_REQUISITOS" Relationship="DbParqueoModel.FK_TBL_REQUISITOS_TBL_SOLICITUD" FromRole="TBL_SOLICITUD" ToRole="TBL_REQUISITOS" />
           <NavigationProperty Name="TBL_USUARIO" Relationship="DbParqueoModel.FK_TBL_SOLICITUD_TBL_USUARIO" FromRole="TBL_SOLICITUD" ToRole="TBL_USUARIO" />
         </EntityType>
@@ -1013,26 +953,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_OBSERVACIONES">
-          <End Type="DbParqueoModel.TBL_OBSERVACIONES" Role="TBL_OBSERVACIONES" Multiplicity="1" />
-          <End Type="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_OBSERVACIONES">
-              <PropertyRef Name="OBS_CODIGO" />
-            </Principal>
-            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
-              <PropertyRef Name="OBS_CODIGO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_OBSERVACION_SOLICITUD_TBL_SOLICITUD">
+        <Association Name="FK_TBL_OBSERVACIONES_TBL_SOLICITUD">
           <End Type="DbParqueoModel.TBL_SOLICITUD" Role="TBL_SOLICITUD" Multiplicity="1" />
-          <End Type="DbParqueoModel.TBL_OBSERVACION_SOLICITUD" Role="TBL_OBSERVACION_SOLICITUD" Multiplicity="*" />
+          <End Type="DbParqueoModel.TBL_OBSERVACIONES" Role="TBL_OBSERVACIONES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBL_SOLICITUD">
               <PropertyRef Name="SOL_CODIGO" />
             </Principal>
-            <Dependent Role="TBL_OBSERVACION_SOLICITUD">
+            <Dependent Role="TBL_OBSERVACIONES">
               <PropertyRef Name="SOL_CODIGO" />
             </Dependent>
           </ReferentialConstraint>
@@ -1127,17 +1055,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram1" FunctionName="DbParqueoModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams1" FunctionName="DbParqueoModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DbParqueoModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_ASIGNACION_PARQUEADERO">
             <EntityTypeMapping TypeName="DbParqueoModel.TBL_ASIGNACION_PARQUEADERO">
               <MappingFragment StoreEntitySet="TBL_ASIGNACION_PARQUEADERO">
@@ -1214,19 +1131,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_OBSERVACION_SOLICITUD">
-            <EntityTypeMapping TypeName="DbParqueoModel.TBL_OBSERVACION_SOLICITUD">
-              <MappingFragment StoreEntitySet="TBL_OBSERVACION_SOLICITUD">
-                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
-                <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
-                <ScalarProperty Name="OBDOL_CODIGI" ColumnName="OBDOL_CODIGI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_OBSERVACIONES">
             <EntityTypeMapping TypeName="DbParqueoModel.TBL_OBSERVACIONES">
               <MappingFragment StoreEntitySet="TBL_OBSERVACIONES">
                 <ScalarProperty Name="OBS_USU" ColumnName="OBS_USU" />
+                <ScalarProperty Name="SOL_CODIGO" ColumnName="SOL_CODIGO" />
                 <ScalarProperty Name="OBS_DESCRIPCION" ColumnName="OBS_DESCRIPCION" />
                 <ScalarProperty Name="OBS_CODIGO" ColumnName="OBS_CODIGO" />
               </MappingFragment>
