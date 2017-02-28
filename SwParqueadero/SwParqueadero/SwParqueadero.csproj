@@ -145,6 +145,7 @@
     <Content Include="Login\RegistroUsuario.aspx" />
     <Content Include="Mantenimiento\Marcas.aspx" />
     <Content Include="Mantenimiento\Modelo.aspx" />
+    <Content Include="Mantenimiento\Parqueadero.aspx" />
     <Content Include="Mantenimiento\TipoUsuarios.aspx" />
     <Content Include="Mantenimiento\Usuarios.aspx" />
     <Content Include="Mantenimiento\Vehiculos.aspx" />
@@ -162,6 +163,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Utilidades\JsUtilidades.js" />
+    <Content Include="Scripts\Utilidades\ValidacionDocumentosElectronicos.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -242,6 +244,13 @@
     </Compile>
     <Compile Include="Mantenimiento\Modelo.aspx.designer.cs">
       <DependentUpon>Modelo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\Parqueadero.aspx.cs">
+      <DependentUpon>Parqueadero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\Parqueadero.aspx.designer.cs">
+      <DependentUpon>Parqueadero.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento\TipoUsuarios.aspx.cs">
       <DependentUpon>TipoUsuarios.aspx</DependentUpon>

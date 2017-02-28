@@ -16,6 +16,30 @@ namespace SwParqueadero.Negocio.Mantenimiento
             return dc.TBL_USUARIO.ToList();
         }
 
+        public List<TBL_USUARIO> ListaPorUsuario(int codigo)
+        {
+            try
+            {
+                return dc.TBL_USUARIO.Where(aux => aux.USU_CODIGO.Equals(codigo)).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message); ;
+            }
+        }
+        public List<TBL_USUARIO> ListaUsuarioPorCedula(string cedula)
+        {
+            try
+            {
+                return dc.TBL_USUARIO.Where(aux => aux.USU_CEDULA.Equals(cedula)).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message); ;
+            }
+        }
         private int secuencial()
         {
             try

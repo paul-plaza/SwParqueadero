@@ -90,12 +90,12 @@
                                 <div class="col-md-12 text-right">
                                     <asp:Panel ID="pnl_defbotonbuscar" runat="server" CssClass="form-inline col-md-12"
                                         DefaultButton="btnBuscar">
-                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"
+                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Ingrese Cédula)" runat="server"
                                             class="form-control"></asp:TextBox>
                                         <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success" 
-                                            CausesValidation="false" runat="server" />
+                                            CausesValidation="false" runat="server" OnClick="btnBuscar_Click" />
                                         <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
-                                            Text="Todos" ToolTip="Mostrar Todos" />
+                                            Text="Todos" ToolTip="Mostrar Todos" OnClick="btn_BuscarTodosActivo_Click" />
                                     </asp:Panel>
                                 </div>
                             </div>
@@ -103,8 +103,8 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
-                                    CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" OnRowCommand="gvdatos_RowCommand">
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos" AllowPaging="true" PageSize="5"
+                                    CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" OnRowCommand="gvdatos_RowCommand" OnPageIndexChanging="gvdatos_PageIndexChanging">
                                     <Columns>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
