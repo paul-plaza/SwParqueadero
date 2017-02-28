@@ -77,7 +77,7 @@
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("MAR_CODIGO") %>' />
                                             </ItemTemplate>
-                                            <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
+                                            <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>

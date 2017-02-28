@@ -105,10 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Archivos\Vehiculos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CssModal.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Styles\css_login\animate.css" />
     <Content Include="Content\Styles\css_login\blueimp-gallery.min.css" />

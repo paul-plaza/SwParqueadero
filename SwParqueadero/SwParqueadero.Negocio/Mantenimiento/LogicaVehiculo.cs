@@ -28,7 +28,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                return dc.TBL_VEHICULO.Max(aux => aux.MOD_CODIGO + 1);
+                return dc.TBL_VEHICULO.Max(aux => aux.VEH_CODIGO + 1);
             }
             catch
             {
@@ -40,7 +40,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                return dc.TBL_VEHICULO.FirstOrDefault(aux => aux.MOD_CODIGO.Equals(codigo));
+                return dc.TBL_VEHICULO.FirstOrDefault(aux => aux.VEH_CODIGO.Equals(codigo));
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                item.MOD_CODIGO = secuencial();
+                item.VEH_CODIGO = secuencial();
                 dc.TBL_VEHICULO.Add(item);
                 dc.SaveChanges();
             }
@@ -78,7 +78,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                dc.TBL_VEHICULO.Remove(dc.TBL_VEHICULO.First(aux => aux.MOD_CODIGO.Equals(codigo)));
+                dc.TBL_VEHICULO.Remove(dc.TBL_VEHICULO.First(aux => aux.VEH_CODIGO.Equals(codigo)));
                 dc.SaveChanges();
             }
             catch (Exception ex)

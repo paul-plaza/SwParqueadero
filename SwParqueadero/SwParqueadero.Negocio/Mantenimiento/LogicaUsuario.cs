@@ -79,5 +79,17 @@ namespace SwParqueadero.Negocio.Mantenimiento
                 throw new ArgumentException(ex.Message);
             }
         }
+
+        public TBL_USUARIO ItemPorCedula(string cedula)
+        {
+            try
+            {
+                return dc.TBL_USUARIO.FirstOrDefault(aux => aux.USU_CEDULA.Equals(cedula));
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+        }
     }
 }

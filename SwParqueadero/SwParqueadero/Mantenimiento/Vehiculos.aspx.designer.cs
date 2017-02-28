@@ -31,13 +31,13 @@ namespace SwParqueadero.Mantenimiento {
         protected global::System.Web.UI.WebControls.TextBox txtNombres;
         
         /// <summary>
-        /// Control RequiredFieldValidator3.
+        /// Control rfNombres.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfNombres;
         
         /// <summary>
         /// Control txtPlaca.
@@ -56,6 +56,24 @@ namespace SwParqueadero.Mantenimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfPlaca;
+        
+        /// <summary>
+        /// Control ddlMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
+        
+        /// <summary>
+        /// Control lkRefrescarMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkRefrescarMarca;
         
         /// <summary>
         /// Control ddlModelo.
@@ -112,15 +130,6 @@ namespace SwParqueadero.Mantenimiento {
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
         
         /// <summary>
-        /// Control RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
@@ -148,13 +157,13 @@ namespace SwParqueadero.Mantenimiento {
         protected global::System.Web.UI.WebControls.Panel pnUsuario;
         
         /// <summary>
-        /// Control txt_BuscarActivo.
+        /// Control txt_Buscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_BuscarActivo;
+        protected global::System.Web.UI.WebControls.TextBox txt_Buscar;
         
         /// <summary>
         /// Control btnBuscar.
@@ -164,15 +173,6 @@ namespace SwParqueadero.Mantenimiento {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
-        /// <summary>
-        /// Control btn_BuscarTodosActivo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_BuscarTodosActivo;
         
         /// <summary>
         /// Control gvdatos.

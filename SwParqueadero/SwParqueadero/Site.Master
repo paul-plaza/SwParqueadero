@@ -74,6 +74,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="../Mantenimiento/Marcas.aspx">Marcas</a></li>
                                 <li><a href="../Mantenimiento/Modelo.aspx">Modelos</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../Mantenimiento/Vehiculos.aspx">Vehiculos</a></li>
                             </ul>
                         </li>
                     </ul>

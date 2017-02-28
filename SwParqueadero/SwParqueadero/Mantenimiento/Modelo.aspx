@@ -83,8 +83,8 @@
                                                 Marca
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDescripcion" Text='<%# Bind("TBL_MARCA.MAR_DESCRIPCION") %>' Font-Size="XX-Small"
-                                                    ToolTip='<%# Bind("TBL_MARCA.MAR_DESCRIPCION") %>' runat="server" />
+                                                <asp:Label ID="lblDescripcion" Text='<%# Eval("TBL_MARCA.MAR_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Eval("TBL_MARCA.MAR_DESCRIPCION") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
@@ -98,7 +98,7 @@
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                             </ItemTemplate>
-                                            <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
+                                            <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>

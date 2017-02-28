@@ -14,8 +14,10 @@ namespace SwParqueadero.Mantenimiento
     {
         #region Declaracion Clases
         LogicaVehiculo logicaVehiculo = new LogicaVehiculo();
+        LogicaMarca logicaMarca = new LogicaMarca();
         LogicaModelo logicaModelo = new LogicaModelo();
         LogicaDimensiones logicaDimensiones = new LogicaDimensiones();
+        LogicaUsuario logicaUsuario = new LogicaUsuario();
         #endregion
 
         #region Declaracion Variables
@@ -27,22 +29,39 @@ namespace SwParqueadero.Mantenimiento
             if (!IsPostBack)
             {
                 limpiarControles();
-                cargarDDLModelo();
+                cargarDDLMarca();
                 cargarDDLTamanio();
-                cargarGrid();
+                if (Request.QueryString["id"] != null)
+                {
+                    cargarGrid(Convert.ToInt32(Request.QueryString["id"]));
+                    TBL_USUARIO usuario = logicaUsuario.ItemPorCodigo(Convert.ToInt32(Request.QueryString["id"]));
+                    txtIdentificacion.Text = usuario.USU_CEDULA;
+                    txtNombres.Text = usuario.USU_APELLIDOS + " " + usuario.USU_NOMBRES;
+                    hfCodigoUsuario.Value = usuario.USU_CODIGO.ToString();
+                }
             }
         }
 
-        private void cargarGrid()
+        private void cargarGrid(int codigo)
         {
-            gvdatos.DataSource = logicaVehiculo.Lista();
+            gvdatos.DataSource = logicaVehiculo.ListaPorUsuario(codigo);
             gvdatos.DataBind();
 
         }
 
-        private void cargarDDLModelo()
+        private void cargarDDLMarca()
         {
-            ddlModelo.DataSource = logicaModelo.Lista();
+            ddlMarca.DataSource = logicaMarca.Lista();
+            ddlMarca.DataTextField = "MAR_DESCRIPCION";
+            ddlMarca.DataValueField = "MAR_CODIGO";
+            ddlMarca.DataBind();
+            ddlMarca.SelectedIndex = 0;
+            cargarDDLModelo(Convert.ToInt32(ddlMarca.SelectedValue));
+        }
+
+        private void cargarDDLModelo(int codigoMarca)
+        {
+            ddlModelo.DataSource = logicaModelo.ListaPorMarca(codigoMarca);
             ddlModelo.DataTextField = "MOD_DESCRIPCION";
             ddlModelo.DataValueField = "MOD_CODIGO";
             ddlModelo.DataBind();
@@ -61,9 +80,9 @@ namespace SwParqueadero.Mantenimiento
             item.VEH_PLACA = txtPlaca.Text.Trim().ToUpper();
             item.DIM_CODIGO = Convert.ToInt32(ddlDimensiones.SelectedValue);
             item.MOD_CODIGO = Convert.ToInt32(ddlModelo.SelectedValue);
-            item.USU_CODIGO = Convert.ToInt32(hfCodigo.Value);
+            item.USU_CODIGO = Convert.ToInt32(hfCodigoUsuario.Value);
             item.VEH_OBSERVACION = txtObservaciones.Text.Trim().ToUpper();
-            
+
             return item;
         }
 
@@ -81,17 +100,24 @@ namespace SwParqueadero.Mantenimiento
             {
                 divMensaje.Attributes.Add("Style", "display:none");
                 lblMensaje.Text = string.Empty;
+                TBL_VEHICULO item = logicaVehiculo.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
                 if (e.CommandName.Equals(CConstantes.Constantes.MODIFICAR))
                 {
-                    TBL_MODELO item = logicaModelo.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
-                    hfCodigo.Value = item.MOD_CODIGO.ToString();
-                    txtPlaca.Text = item.MOD_DESCRIPCION;
-                    ddlModelo.SelectedValue = item.MAR_CODIGO.ToString();
+                    hfCodigo.Value = item.VEH_CODIGO.ToString();
+                    txtPlaca.Text = item.VEH_PLACA;
+                    ddlDimensiones.SelectedValue = item.DIM_CODIGO.ToString();
+                    ddlModelo.SelectedValue = item.MOD_CODIGO.ToString();
+                    ddlMarca.SelectedValue = item.TBL_MODELO.MAR_CODIGO.ToString();
+                    TBL_USUARIO usuario = logicaUsuario.ItemPorCodigo(item.USU_CODIGO);
+                    txtIdentificacion.Text = usuario.USU_CEDULA;
+                    txtNombres.Text = usuario.USU_APELLIDOS + " " + usuario.USU_NOMBRES;
+                    hfCodigoUsuario.Value = usuario.USU_CODIGO.ToString();
+                    txtObservaciones.Text = item.VEH_OBSERVACION;
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ELIMINAR))
                 {
-                    logicaModelo.Eliminar(Convert.ToInt32(e.CommandArgument));
-                    cargarGrid();
+                    logicaVehiculo.Eliminar(Convert.ToInt32(e.CommandArgument));
+                    cargarGrid(item.USU_CODIGO);
                 }
             }
             catch (Exception ex)
@@ -114,13 +140,16 @@ namespace SwParqueadero.Mantenimiento
                     }
                     else
                     {
-
                         item = logicaVehiculo.ItemPorCodigo(Convert.ToInt32(hfCodigo.Value));
                         item = cargaEntidad(item);
                         logicaVehiculo.Modificar(item);
                     }
+                    if (fuImagen.HasFile)
+                    {
+                        CUtilitarios.cargarArchivos(fuImagen, MapPath("Vehiculos"), item.VEH_PLACA);
+                    }
                     limpiarControles();
-                    cargarGrid();
+                    cargarGrid(item.USU_CODIGO);
                 }
                 catch (Exception ex)
                 {
@@ -133,29 +162,38 @@ namespace SwParqueadero.Mantenimiento
         protected void gvdatos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvdatos.PageIndex = e.NewPageIndex;
-            cargarGrid();
+            cargarGrid(Convert.ToInt32(hfCodigoUsuario.Value));
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            gvdatos.DataSource = logicaModelo.ListaPorDescripcion(txt_BuscarActivo.Text.Trim().ToUpper());
-            gvdatos.DataBind();
-
-        }
-
-        protected void btn_BuscarTodosActivo_Click(object sender, EventArgs e)
-        {
-            cargarGrid();
+            TBL_USUARIO item = new TBL_USUARIO();
+            item = logicaUsuario.ItemPorCedula(txt_Buscar.Text.Trim().ToUpper());
+            txtIdentificacion.Text = item.USU_CEDULA;
+            txtNombres.Text = item.USU_APELLIDOS + " " + item.USU_NOMBRES;
+            hfCodigoUsuario.Value = item.USU_CODIGO.ToString();
+            txtPlaca.Focus();
+            cargarGrid(item.USU_CODIGO);
         }
 
         protected void lkRefrescar_Click(object sender, EventArgs e)
         {
-            cargarDDLModelo();
+            cargarDDLModelo(Convert.ToInt32(ddlMarca.SelectedValue));
         }
 
         protected void lkRefrescarDimensiones_Click(object sender, EventArgs e)
         {
             cargarDDLTamanio();
+        }
+
+        protected void lkRefrescarMarca_Click(object sender, EventArgs e)
+        {
+            cargarDDLMarca();
+        }
+
+        protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarDDLModelo(Convert.ToInt32(ddlMarca.SelectedValue));
         }
     }
 }

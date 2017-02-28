@@ -6,56 +6,34 @@ using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace SwParqueadero.Comun
 {
     public class CUtilitarios
     {
-        string key = "mikey";
+        private const string KEY = "mikey";
         public string Encriptar(string texto)
         {
-            //arreglo de bytes donde guardaremos la llave
             byte[] keyArray;
-            //arreglo de bytes donde guardaremos el texto
-            //que vamos a encriptar
-            byte[] Arreglo_a_Cifrar =
-            UTF8Encoding.UTF8.GetBytes(texto);
+            byte[] Arreglo_a_Cifrar = UTF8Encoding.UTF8.GetBytes(texto);
 
-            //se utilizan las clases de encriptación
-            //provistas por el Framework
-            //Algoritmo MD5
-            MD5CryptoServiceProvider hashmd5 =
-            new MD5CryptoServiceProvider();
-            //se guarda la llave para que se le realice
-            //hashing
-            keyArray = hashmd5.ComputeHash(
-            UTF8Encoding.UTF8.GetBytes(key));
-
+            MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+            keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(KEY));
             hashmd5.Clear();
 
-            //Algoritmo 3DAS
-            TripleDESCryptoServiceProvider tdes =
-            new TripleDESCryptoServiceProvider();
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
 
             tdes.Key = keyArray;
             tdes.Mode = CipherMode.ECB;
             tdes.Padding = PaddingMode.PKCS7;
 
-            //se empieza con la transformación de la cadena
-            ICryptoTransform cTransform =
-            tdes.CreateEncryptor();
+            ICryptoTransform cTransform = tdes.CreateEncryptor();
 
-            //arreglo de bytes donde se guarda la
-            //cadena cifrada
-            byte[] ArrayResultado =
-            cTransform.TransformFinalBlock(Arreglo_a_Cifrar,
-            0, Arreglo_a_Cifrar.Length);
-
+            byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_Cifrar, 0, Arreglo_a_Cifrar.Length);
             tdes.Clear();
 
-            //se regresa el resultado en forma de una cadena
-            return Convert.ToBase64String(ArrayResultado,
-            0, ArrayResultado.Length);
+            return Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
         }
 
         public static string leerArchivo(string rutaArchivo)
@@ -72,7 +50,48 @@ namespace SwParqueadero.Comun
             return archivoLinea.ToString();
         }
 
-        public  bool EnviarCorreoGenerico(string _InfoCompania, List<string> correoDestinatario, string ruta)//, Tbl_Tipo_Transaccion _infoMail)
+        /// <summary>
+        /// Carga Imagen en servidor
+        /// </summary>
+        /// <param name="FileUpload1">Control FileUpload</param>
+        /// <param name="Directorio">String Ruta en donde se cargara la imagen</param>
+        public static string cargarArchivos(FileUpload FileUpload1, string path, string nombreArchivo = null)
+        {
+            Boolean fileOK = false;
+            if (FileUpload1.HasFile)
+            {
+                String fileExtension = Path.GetExtension(FileUpload1.FileName).ToLower();
+                String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        fileOK = true;
+                    }
+                }
+            }
+
+            if (fileOK)
+            {
+                try
+                {
+                    string texto = path + (nombreArchivo != null ? nombreArchivo : FileUpload1.FileName);
+                    FileUpload1.PostedFile.SaveAs(texto);
+                    return CConstantes.ConstantesMensajesValidaciones.MENSAJE_ARCHIVO_SUBIDO;
+                }
+                catch (Exception)
+                {
+                    throw new ArgumentException(CConstantes.ConstantesMensajesValidaciones.MENSAJE_ARCHIVO_NO_SUBIDO);
+                }
+            }
+            else
+            {
+                throw new ArgumentException(CConstantes.ConstantesMensajesValidaciones.MENSAJE_ARCHIVO_NO_VALIDO);
+            }
+
+        }
+
+        public bool EnviarCorreoGenerico(string _InfoCompania, List<string> correoDestinatario, string ruta)//, Tbl_Tipo_Transaccion _infoMail)
         {
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
             msg.From = new MailAddress("dgranizo.c@gmail.com", "UNIVERSIDAD TECNOLOGICA ISRAEL", System.Text.Encoding.UTF8);
@@ -80,9 +99,9 @@ namespace SwParqueadero.Comun
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             foreach (string item in correoDestinatario)
             {
-               // if (ComprobarFormatoEmail(item))
+                // if (ComprobarFormatoEmail(item))
                 //{
-                    msg.To.Add(item);
+                msg.To.Add(item);
                 //}
             }
             string mail = leerArchivo(ruta + CConstantes.Constantes.PLANTILLA_MAIL);
@@ -107,7 +126,7 @@ namespace SwParqueadero.Comun
             msg.BodyEncoding = System.Text.Encoding.UTF8;
             msg.IsBodyHtml = true;
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("bsdevelopers4@gmail.com","paul123plaza");
+            client.Credentials = new System.Net.NetworkCredential("bsdevelopers4@gmail.com", "paul123plaza");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

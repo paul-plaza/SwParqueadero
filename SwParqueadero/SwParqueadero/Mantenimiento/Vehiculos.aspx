@@ -2,6 +2,7 @@
     CodeBehind="Vehiculos.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Vehiculos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="../Content/CssModal.css" rel="stylesheet" />
     <hr />
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -24,9 +25,9 @@
                                     <span class="input-group-addon" id="basic-addon11">Nombres</span>
                                     <asp:TextBox runat="server" ID="txtNombres" CssClass="form-control" disabled aria-describedby="basic-addon11" />
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
-                                    ControlToValidate="txtPlaca" Display="None"
-                                    SetFocusOnError="true" ErrorMessage="Campo Placa Requerido">*</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="rfNombres" runat="server"
+                                    ControlToValidate="txtNombres" Display="None"
+                                    SetFocusOnError="true" ErrorMessage="Campo Nombre Requerido">*</asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -37,6 +38,20 @@
                                 <asp:RequiredFieldValidator ID="rfPlaca" runat="server"
                                     ControlToValidate="txtPlaca" Display="None"
                                     SetFocusOnError="true" ErrorMessage="Campo Placa Requerido">*</asp:RequiredFieldValidator>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon13">Marca</span>
+                                    <asp:DropDownList ID="ddlMarca"
+                                        CssClass="btn btn-default dropdown-toggle col-md-12" AutoPostBack="true"
+                                        aria-describedby="basic-addon13" runat="server"
+                                        OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                    <span class="input-group-addon" id="basic-addon14">
+                                        <asp:LinkButton ID="lkRefrescarMarca" class="glyphicon glyphicon-refresh" Style="text-decoration: none"
+                                            runat="server" CausesValidation="false"
+                                            OnClick="lkRefrescarMarca_Click" /></span>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -74,9 +89,6 @@
                                     <asp:TextBox runat="server" ID="txtObservaciones" TextMode="MultiLine" CssClass="form-control"
                                         MaxLength="50" aria-describedby="basic-addon1" />
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                                    ControlToValidate="txtPlaca" Display="None"
-                                    SetFocusOnError="true" ErrorMessage="Campo Placa Requerido">*</asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="panel-footer text-right">
@@ -96,14 +108,11 @@
                                         DefaultButton="btnBuscar">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon12"><em>Buscar Usuario</em></span>
-                                            <asp:TextBox ID="txt_BuscarActivo" placeholder="(Identificación)" runat="server"
+                                            <asp:TextBox ID="txt_Buscar" placeholder="(Identificación)" runat="server"
                                                 class="form-control"></asp:TextBox>
                                         </div>
                                         <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success"
                                             CausesValidation="false" runat="server" OnClick="btnBuscar_Click" />
-                                        <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
-                                            Text="Todos" ToolTip="Mostrar Todos"
-                                            OnClick="btn_BuscarTodosActivo_Click" />
                                     </asp:Panel>
                                 </div>
                             </div>
@@ -117,6 +126,12 @@
                                     OnPageIndexChanging="gvdatos_PageIndexChanging">
                                     <Columns>
                                         <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <img id="myImg" src="img_fjords.jpg" alt="Trolltunga, Norway" width="35" height="35">
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
                                             <HeaderTemplate>
                                                 Descripción
                                             </HeaderTemplate>
@@ -127,7 +142,26 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                Marca
+                                                Modelo
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblDescripcionModelo" Text='<%# Eval("TBL_MODELO.MOD_DESCRIPCION") %>'
+                                                    Font-Size="XX-Small"
+                                                    ToolTip='<%# Eval("TBL_MODELO.MOD_DESCRIPCION") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Tamaño
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblTamanio" Text='<%# Eval("TBL_DIMENSION.DIM_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Eval("TBL_DIMENSION.DIM_DESCRIPCION") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Observaciones
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:Label ID="lblDescripcion" Text='<%# Bind("VEH_OBSERVACION") %>' Font-Size="XX-Small"
@@ -142,10 +176,10 @@
                                                     CommandName="M" CommandArgument='<%# Bind("VEH_CODIGO") %>' />
                                                 <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
                                                     ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
                                                     CommandArgument='<%# Bind("VEH_CODIGO") %>' />
                                             </ItemTemplate>
-                                            <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
+                                            <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
@@ -169,6 +203,13 @@
     </div>
     <asp:HiddenField runat="server" ID="hfCodigo" Value="0" />
     <asp:HiddenField runat="server" ID="hfCodigoUsuario" Value="0" />
+
+    <div id="myModal" class="modal" style="z-index:999999">
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">
+            &times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
 </asp:Content>
 
 

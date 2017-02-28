@@ -18,6 +18,11 @@ namespace SwParqueadero.Negocio.Mantenimiento
             return dc.TBL_MODELO.ToList();
         }
 
+        public List<TBL_MODELO> ListaPorMarca(int codigoMarca)
+        {
+            return dc.TBL_MODELO.Where(aux=>aux.MAR_CODIGO.Equals(codigoMarca)).ToList();
+        }
+
         public List<TBL_MODELO> ListaPorDescripcion(string texto)
         {
             return dc.TBL_MODELO.Where(aux => aux.MOD_DESCRIPCION.Contains(texto)).ToList();
