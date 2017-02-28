@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Parqueadero.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Parqueadero" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <hr />
     <div class="panel panel-info">
         <div class="panel-heading">
             <h2 class="panel-title"><em>Parqueadero</em></h2>
@@ -42,8 +43,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon4">Telf. Encargado</span>
-                                    <asp:TextBox runat="server" ID="txtTelefonoEncargado" CssClass="form-control" placeholder="Ingrese Teléfono Encargado"
-                                        MaxLength="50" aria-describedby="basic-addon4" />
+                                    <asp:TextBox runat="server" ID="txtTelefonoEncargado" CssClass="form-control" placeholder="Ingrese Teléfono Encargado" TextMode="Number" min="0"
+                                        MaxLength="15" aria-describedby="basic-addon4" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
                                     ControlToValidate="txtTelefonoEncargado" Display="None"
@@ -62,8 +63,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon6">Telf. Contacto 1</span>
-                                    <asp:TextBox runat="server" ID="txtTelefonoContacto1" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 1"
-                                        MaxLength="50" aria-describedby="basic-addon6" />
+                                    <asp:TextBox runat="server" ID="txtTelefonoContacto1" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 1" TextMode="Number" min="0"
+                                        MaxLength="15" aria-describedby="basic-addon6" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
                                     ControlToValidate="txtTelefonoContacto1" Display="None"
@@ -82,8 +83,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon8">Telf. Contacto 2</span>
-                                    <asp:TextBox runat="server" ID="txtTelefonoContacto2" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 2"
-                                        MaxLength="50" aria-describedby="basic-addon8" />
+                                    <asp:TextBox runat="server" ID="txtTelefonoContacto2" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 2" TextMode="Number" min="0"
+                                        MaxLength="15" aria-describedby="basic-addon8" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server"
                                     ControlToValidate="txtTelefonoContacto2" Display="None"
@@ -110,22 +111,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-md-12 text-right">
-                                    <asp:Panel ID="pnUsuario" runat="server" CssClass="form-inline col-md-12"
-                                        DefaultButton="btnBuscar">
-                                        <div class="input-group">
-                                            <span class="input-group-addon" id="basic-addon12"><em>Buscar Usuario</em></span>
-                                            <asp:TextBox ID="txt_Buscar" placeholder="(Identificación)" runat="server"
-                                                class="form-control"></asp:TextBox>
-                                        </div>
-                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success"
-                                            CausesValidation="false" runat="server" OnClick="btnBuscar_Click"/>
-                                    </asp:Panel>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
@@ -138,7 +124,7 @@
                                                 Nombre
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblDescripcio" Text='<%# Bind("PAR_DESCRIPCION") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_DESCRIPCION") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -148,7 +134,7 @@
                                                 Nombre
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_DIRECCION") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblDireccion" Text='<%# Bind("PAR_DIRECCION") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_DIRECCION") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -157,7 +143,7 @@
                                                 Nombre
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_PUESTOS") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblPuesto" Text='<%# Bind("PAR_PUESTOS") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_PUESTOS") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -167,7 +153,7 @@
                                                 Contacto 1
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_TELEFONO") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblTelefono" Text='<%# Bind("PAR_TELEFONO") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_TELEFONO") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -176,7 +162,7 @@
                                                 Contacto 2
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_TELEFONO2") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblTelefono2" Text='<%# Bind("PAR_TELEFONO2") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_TELEFONO2") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -185,7 +171,7 @@
                                                 Contacto 3
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("PAR_TELEFONO_ENCARGADO") %>' Font-Size="XX-Small"
+                                                <asp:Label ID="lblTelefonoEncargado" Text='<%# Bind("PAR_TELEFONO_ENCARGADO") %>' Font-Size="XX-Small"
                                                     ToolTip='<%# Bind("PAR_TELEFONO_ENCARGADO") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>

@@ -11,7 +11,7 @@ namespace SwParqueadero.Negocio.Mantenimiento
     {
         private DbParqueoEntities dc = new DbParqueoEntities();
 
-        public List<TBL_PARQUEADERO> ListaParqueadero()
+        public List<TBL_PARQUEADERO> Lista()
         {
             return dc.TBL_PARQUEADERO.ToList();
         }
