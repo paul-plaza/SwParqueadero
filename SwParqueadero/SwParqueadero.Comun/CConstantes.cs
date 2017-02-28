@@ -27,7 +27,12 @@ namespace SwParqueadero.Comun
             public static string ENVIAR_CORREO = "C";
 
             /// <summary>
-            /// <c>Valor:C</c>
+            /// <c>Valor:A</c>
+            /// </summary>
+            public static string ASIGNACION_VEHICULO = "A";
+
+            /// <summary>
+            /// <c>Valor: 0</c>
             /// </summary>
             public static string VER_ITEM = "V";
 
@@ -38,7 +43,7 @@ namespace SwParqueadero.Comun
 
             public static string MENSAJE_CORREO_NO_ENVIADO = "MENSAJE CORREO NO ENVIADO";
 
-            public static string PLANTILLA_MAIL = "~/Plantilla_Mail.html";
+            public static string PLANTILLA_MAIL = "~/Plantillas/Plantilla_Mail.html";
         }
 
         public class ConstantesMensajesValidaciones

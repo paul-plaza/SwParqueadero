@@ -7,6 +7,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using SwParqueadero.AccesoDatos;
+
 
 namespace SwParqueadero.Comun
 {
@@ -93,42 +95,28 @@ namespace SwParqueadero.Comun
 
         public bool EnviarCorreoGenerico(string _InfoCompania, List<string> correoDestinatario, string ruta)//, Tbl_Tipo_Transaccion _infoMail)
         {
-            System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
-            msg.From = new MailAddress("dgranizo.c@gmail.com", "UNIVERSIDAD TECNOLOGICA ISRAEL", System.Text.Encoding.UTF8);
-            msg.Subject = "Saludos";//_infoMail.TIPT_SUBJET;
-            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(_InfoCompania.EMP_CORREO,_InfoCompania.EMP_NOMBRE, System.Text.Encoding.UTF8);
+            msg.Subject = "Credenciales";//_infoMail.TIPT_SUBJET;
+            msg.SubjectEncoding = Encoding.UTF8;
             foreach (string item in correoDestinatario)
             {
-                // if (ComprobarFormatoEmail(item))
-                //{
-                msg.To.Add(item);
-                //}
+                    msg.To.Add(item);
             }
-            string mail = leerArchivo(ruta + CConstantes.Constantes.PLANTILLA_MAIL);
-            //foreach (Tbl_Detalle_Mail item in _infoMail.Tbl_Detalle_Mail)
-            //{
-            //    if (item.Tbl_Catalogo_Datos.TCD_DESCRIPCION.Equals(CTransaccionesMail.MENSAJE_MOSTRAR))
-            //    {
-            //        mail = mail.Replace(CTransaccionesMail.MENSAJE_MOSTRAR, item.TMA_DESCRIPCION + " " + _infoMail.TIPT_OTRO);
-            //    }
-            //    else
-            //    {
-            //        mail = mail.Replace(item.Tbl_Catalogo_Datos.TCD_DESCRIPCION, item.TMA_DESCRIPCION);
-            //    }
-            //}
-            //mail = mail.Replace(CTransaccionesMail.INTRODUCCION, string.Empty);
-            mail = mail.Replace("@INTROCABECERA", string.Empty);
-            mail = mail.Replace("@SUBTITULO", string.Empty);
-            mail = mail.Replace("@RESUMEN", string.Empty);
-            //mail = mail.Replace(CTransaccionesMail.LINKEXPERTUS, string.Empty);
-            mail = mail.Replace("@TITULO_MENSAJE", string.Empty);
+            string mail = leerArchivo(Ruta);
+            
+            mail = mail.Replace("@INTROCABECERA", Mail.IntroCabecera);
+            mail = mail.Replace("@SUBTITULO", Mail.Subtitulo);
+            mail = mail.Replace("@RESUMEN", Mail.Resumen);
+            mail = mail.Replace("@TITULO_MENSAJE", Mail.TituloMensjae);
+            mail = mail.Replace("@MENSAJE_MOSTRAR", Mail.Mensaje);
             msg.Body = mail;
             msg.BodyEncoding = System.Text.Encoding.UTF8;
             msg.IsBodyHtml = true;
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("bsdevelopers4@gmail.com", "paul123plaza");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
+            client.Credentials = new System.Net.NetworkCredential(_InfoCompania.EMP_CORREO,_InfoCompania.EMP_PASSWORD);
+            client.Port = Convert.ToInt32(_InfoCompania.EMP_PUERTO);
+            client.Host = _InfoCompania.EMP_SMTP;
             client.EnableSsl = true;
             try
             {
