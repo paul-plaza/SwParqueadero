@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TipoUsuarios.aspx.cs" Inherits="SwParqueadero.Mantenimiento.TipoUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <hr />
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Ingreso Tipo Usuarios</h3>
         </div>

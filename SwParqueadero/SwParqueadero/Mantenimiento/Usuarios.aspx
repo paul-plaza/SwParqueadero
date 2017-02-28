@@ -5,7 +5,7 @@
 
     <script type="text/javascript" src="../Scripts/Utilidades/ValidacionDocumentosElectronicos.js"></script>
     <hr />
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">Ingreso Usuarios</h3>
         </div>
@@ -15,7 +15,7 @@
                     <div class="panel panel-default" data-toggle="validator">
                         <div class="panel-body ">
                             <asp:HiddenField runat="server" ID="hfCodigo" Value="0" />
-                            
+
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon1">Cédula</span>
@@ -46,12 +46,12 @@
                                     ControlToValidate="txtApellidos" Display="None"
                                     SetFocusOnError="true" ErrorMessage="Campo Apellido Requerido">*</asp:RequiredFieldValidator>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon4">Contacto</span> 
+                                    <span class="input-group-addon" id="basic-addon4">Contacto</span>
                                     <asp:TextBox runat="server" ID="txtContacto" CssClass="form-control" placeholder="Ingrese teléfono"
                                         TextMode="Number"
-                                        MaxLength="50" aria-describedby="basic-addon4" />
+                                        MaxLength="15" aria-describedby="basic-addon4" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
                                     ControlToValidate="txtContacto" Display="None"
@@ -68,8 +68,8 @@
                                     ControlToValidate="txtCorreo" Display="None"
                                     SetFocusOnError="true" ErrorMessage="Campo E-mail Requerido">*</asp:RequiredFieldValidator>
                             </div>
-                            
-                          
+
+
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon8">Tipo Usuario</span>
@@ -94,7 +94,7 @@
                                         DefaultButton="btnBuscar">
                                         <asp:TextBox ID="txt_BuscarActivo" placeholder="(Ingrese Cédula)" runat="server"
                                             class="form-control"></asp:TextBox>
-                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success" 
+                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success"
                                             CausesValidation="false" runat="server" OnClick="btnBuscar_Click" />
                                         <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
                                             Text="Todos" ToolTip="Mostrar Todos" OnClick="btn_BuscarTodosActivo_Click" />
@@ -168,11 +168,11 @@
                                                     CommandName="C" CausesValidation="false" CommandArgument='<%# Bind("USU_CODIGO") %>'
                                                     Font-Size="10pt" Style="text-decoration: none; color: blue" />
 
-                                                
+
                                                 <asp:LinkButton ID="lnkAsignarVehiculo" Text="" runat="server" CssClass="glyphicon glyphicon-plus" ToolTip="Asignar Vehículo"
                                                     CommandName="a" CausesValidation="false" CommandArgument='<%# Bind("USU_CODIGO") %>'
                                                     Font-Size="10pt" Style="text-decoration: none; color: blue" />
-                                                
+
                                             </ItemTemplate>
                                             <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>
