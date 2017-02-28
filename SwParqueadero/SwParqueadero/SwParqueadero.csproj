@@ -150,6 +150,7 @@
     <Content Include="Mantenimiento\Marcas.aspx" />
     <Content Include="Mantenimiento\Modelo.aspx" />
     <Content Include="Mantenimiento\Parqueadero.aspx" />
+    <Content Include="Mantenimiento\Puestos.aspx" />
     <Content Include="Mantenimiento\TipoUsuarios.aspx" />
     <Content Include="Mantenimiento\Usuarios.aspx" />
     <Content Include="Mantenimiento\Vehiculos.aspx" />
@@ -255,6 +256,13 @@
     </Compile>
     <Compile Include="Mantenimiento\Parqueadero.aspx.designer.cs">
       <DependentUpon>Parqueadero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\Puestos.aspx.cs">
+      <DependentUpon>Puestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\Puestos.aspx.designer.cs">
+      <DependentUpon>Puestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento\TipoUsuarios.aspx.cs">
       <DependentUpon>TipoUsuarios.aspx</DependentUpon>

@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mantenimiento\LogicaPuestos.cs" />
     <Compile Include="Mantenimiento\LogicaDimensiones.cs" />
     <Compile Include="Mantenimiento\LogicaEmpresa.cs" />
     <Compile Include="Mantenimiento\LogicaLogin.cs" />
