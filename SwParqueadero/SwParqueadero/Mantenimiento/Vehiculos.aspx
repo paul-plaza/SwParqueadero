@@ -111,7 +111,8 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
-                                    CssClass="table table-striped table-hover" AllowPaging="true" PageSize="5"
+                                    CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" AllowPaging="true"
+                                    PageSize="5"
                                     OnRowCommand="gvdatos_RowCommand"
                                     OnPageIndexChanging="gvdatos_PageIndexChanging">
                                     <Columns>
@@ -135,11 +136,13 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
-                                                    CssClass="btn btn-info btn-sm"
+                                                <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server"
+                                                    Font-Size="10pt" Style="text-decoration: none; color: yellowgreen"
+                                                    CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar"
                                                     CommandName="M" CommandArgument='<%# Bind("VEH_CODIGO") %>' />
-                                                <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
+                                                <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
+                                                    ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
                                                     CommandArgument='<%# Bind("VEH_CODIGO") %>' />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
