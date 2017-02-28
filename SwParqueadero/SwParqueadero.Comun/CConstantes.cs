@@ -55,6 +55,8 @@ namespace SwParqueadero.Comun
             public static string MENSAJE_ARCHIVO_NO_VALIDO = "Archivo con extension no valida";
 
             public static string MENSAJE_SELECCIONAR_ITEM = "Debe seleccionar un resgistro para subir el archivo!";
+
+            public static string MENSAJE_REGISTRO_NO_EXISTE = "Registro no existe!";
         }
 
         public class ConstantesSesion
