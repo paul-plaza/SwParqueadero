@@ -2,6 +2,8 @@
     CodeBehind="Usuarios.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <script type="text/javascript" src="../Scripts/Utilidades/ValidacionDocumentosElectronicos.js"></script>
     <hr />
     <div class="panel panel-default">
         <div class="panel-heading">

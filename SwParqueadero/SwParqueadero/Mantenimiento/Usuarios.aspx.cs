@@ -1,9 +1,6 @@
 ﻿using System;
 
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using SwParqueadero.AccesoDatos;
 using SwParqueadero.Comun;
@@ -39,6 +36,7 @@ namespace SwParqueadero.Mantenimiento
         {
             txtCedula.Attributes.Add("onkeydown", "onkeydown");
             txtCedula.Attributes.Add("onkeypress", "return funSoloNumeros(event)");
+            txtCedula.Attributes.Add("onblur", "return funValidarDocumento(this,this)");
         }
 
         private void cargar_ddlTipoUsuario()
@@ -109,7 +107,6 @@ namespace SwParqueadero.Mantenimiento
                         cUtilitarios.EnviarCorreoGenerico(logicaEmpresa.ItemDefault(), correos, mail, Server.MapPath(CConstantes.Constantes.PLANTILLA_MAIL));
                         item.USU_PASSWORD = cUtilitarios.Encriptar(item.USU_PASSWORD);
                         logicaUsuario.Guardar(item);
-                        
                     }
                     else
                     {
@@ -122,8 +119,8 @@ namespace SwParqueadero.Mantenimiento
                 }
                 catch (Exception ex)
                 {
-
-                    throw;
+                    divMensaje.Attributes.Add("Style", "display:block");
+                    lblMensaje.Text = ex.Message;
                 }
                 limpiarControles();
             }
@@ -171,7 +168,11 @@ namespace SwParqueadero.Mantenimiento
                             correos.Add(item.USU_CORREO);
                             cUtilitarios.EnviarCorreoGenerico(logicaEmpresa.ItemDefault(), correos, mail, Server.MapPath(CConstantes.Constantes.PLANTILLA_MAIL));
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            divMensaje.Attributes.Add("Style", "display:block");
+                            lblMensaje.Text = ex.Message;
+                        }
                     });
                 }
                 else if (e.CommandName.Equals(CConstantes.Constantes.ASIGNACION_VEHICULO))
@@ -182,8 +183,8 @@ namespace SwParqueadero.Mantenimiento
             }
             catch (Exception ex)
             {
-
-                throw;
+                divMensaje.Attributes.Add("Style", "display:block");
+                lblMensaje.Text = ex.Message;
             }
         }
 
@@ -195,6 +196,7 @@ namespace SwParqueadero.Mantenimiento
 
         protected void btn_BuscarTodosActivo_Click(object sender, EventArgs e)
         {
+            txt_BuscarActivo.Text = string.Empty;
             if (string.IsNullOrEmpty(txt_BuscarActivo.Text))
             {
                 cargarGrid();
