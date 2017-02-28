@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon4">Teléfono Encargado</span>
+                                    <span class="input-group-addon" id="basic-addon4">Telf. Encargado</span>
                                     <asp:TextBox runat="server" ID="txtTelefonoEncargado" CssClass="form-control" placeholder="Ingrese Teléfono Encargado"
                                         MaxLength="50" aria-describedby="basic-addon4" />
                                 </div>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon6">Teléfono Contacto 1</span>
+                                    <span class="input-group-addon" id="basic-addon6">Telf. Contacto 1</span>
                                     <asp:TextBox runat="server" ID="txtTelefonoContacto1" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 1"
                                         MaxLength="50" aria-describedby="basic-addon6" />
                                 </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="basic-addon8">Teléfono Contacto 2</span>
+                                    <span class="input-group-addon" id="basic-addon8">Telf. Contacto 2</span>
                                     <asp:TextBox runat="server" ID="txtTelefonoContacto2" CssClass="form-control" placeholder="Ingrese Teléfono Contacto 2"
                                         MaxLength="50" aria-describedby="basic-addon8" />
                                 </div>
