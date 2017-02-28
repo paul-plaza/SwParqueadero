@@ -125,7 +125,7 @@ namespace SwParqueadero.Mantenimiento
                 {
                     TBL_USUARIO item = logicaUsuario.ItemPorCodigo(Convert.ToInt32(e.CommandArgument));
                     
-                    item.USU_CORREO
+                    
 
                 }
             }

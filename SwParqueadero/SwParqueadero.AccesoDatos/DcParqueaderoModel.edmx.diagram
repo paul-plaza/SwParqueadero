@@ -38,6 +38,7 @@
         <EntityTypeShape EntityType="DbParqueoModel.TBL_DIMENSION" Width="1.5" PointX="7.375" PointY="0.625" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_PUESTOS_TBL_DIMENSION" />
         <AssociationConnector Association="DbParqueoModel.FK_TBL_VEHICULO_TBL_DIMENSION" />
+        <EntityTypeShape EntityType="DbParqueoModel.TBL_EMPRESA" Width="1.5" PointX="10.375" PointY="7.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
