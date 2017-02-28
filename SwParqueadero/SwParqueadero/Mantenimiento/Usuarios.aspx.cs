@@ -31,7 +31,14 @@ namespace SwParqueadero.Mantenimiento
             {
                 cargarGrid();
                 cargar_ddlTipoUsuario();
+                AgregarAtributosComponentes();
             }
+        }
+
+        public void AgregarAtributosComponentes()
+        {
+            txtCedula.Attributes.Add("onkeydown", "onkeydown");
+            txtCedula.Attributes.Add("onkeypress", "return funSoloNumeros(event)");
         }
 
         private void cargar_ddlTipoUsuario()
@@ -45,6 +52,12 @@ namespace SwParqueadero.Mantenimiento
         private void cargarGrid()
         {
             gvdatos.DataSource = logicaUsuario.Lista();
+            gvdatos.DataBind();
+
+        }
+        private void cargarGrid(string cedula)
+        {
+            gvdatos.DataSource = logicaUsuario.ListaUsuarioPorCedula(cedula);
             gvdatos.DataBind();
 
         }
@@ -174,6 +187,26 @@ namespace SwParqueadero.Mantenimiento
             }
         }
 
-      
+        protected void gvdatos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvdatos.PageIndex = e.NewPageIndex;
+            cargarGrid();
+        }
+
+        protected void btn_BuscarTodosActivo_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_BuscarActivo.Text))
+            {
+                cargarGrid();
+            }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_BuscarActivo.Text))
+            {
+                cargarGrid(txt_BuscarActivo.Text);
+            }
+        }
     }
 }
