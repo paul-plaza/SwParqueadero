@@ -87,17 +87,33 @@
                                                 Descripción
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblNombre" Text='<%# Bind("MOD_DESCRIPCION") %>' Font-Size="XX-Small"
-                                                    ToolTip='<%# Bind("MOD_DESCRIPCION") %>' runat="server" />
+                                                <asp:Label ID="lblNombre" Text='<%# Bind("PUE_NOMBRE") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Bind("PUE_NOMBRE") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                Marca
+                                                Tamaño
                                             </HeaderTemplate>
                                             <ItemTemplate>
-                                                <asp:Label ID="lblDescripcion" Text='<%# Eval("TBL_MARCA.MAR_DESCRIPCION") %>' Font-Size="XX-Small"
-                                                    ToolTip='<%# Eval("TBL_MARCA.MAR_DESCRIPCION") %>' runat="server" />
+                                                <asp:Label ID="lblDescripcion" Text='<%# Eval("TBL_DIMENSION.DIM_DESCRIPCION") %>' Font-Size="XX-Small"
+                                                    ToolTip='<%# Eval("TBL_DIMENSION.DIM_DESCRIPCION") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Ocupado Mat.
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="ckMatutina" Checked='<%# Eval("PUE_ESTADO_MATUTINA") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                Ocupado Noc.
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="ckNocturna" Checked='<%# Eval("PUE_ESTADO_NOCTURNO") %>' runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>
@@ -105,11 +121,11 @@
                                                 <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server"
                                                     Font-Size="10pt" Style="text-decoration: none; color: yellowgreen"
                                                     CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar"
-                                                    CommandName="M" CommandArgument='<%# Bind("MOD_CODIGO") %>' />
+                                                    CommandName="M" CommandArgument='<%# Bind("PUE_CODIGO") %>' />
                                                 <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
                                                     ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
-                                                    CommandArgument='<%# Bind("MOD_CODIGO") %>' />
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
+                                                    CommandArgument='<%# Bind("PUE_CODIGO") %>' />
                                             </ItemTemplate>
                                             <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>

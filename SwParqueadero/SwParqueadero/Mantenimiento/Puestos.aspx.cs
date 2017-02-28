@@ -59,7 +59,7 @@ namespace SwParqueadero.Mantenimiento
 
         private void cargarDDL()
         {
-            ddlParqueadero.DataSource = logicaParqueadero.ListaParqueadero();
+            ddlParqueadero.DataSource = logicaParqueadero.Lista();
             ddlParqueadero.DataTextField = "PAR_DESCRIPCION";
             ddlParqueadero.DataValueField = "PAR_CODIGO";
             ddlParqueadero.DataBind();
@@ -67,8 +67,8 @@ namespace SwParqueadero.Mantenimiento
 
         private TBL_PUESTOS cargaEntidad(TBL_PUESTOS item)
         {
-            item.DIM_CODIGO = 0;
-            item.PAR_CODIGO = 0;
+            item.DIM_CODIGO = Convert.ToInt32(ddlDimensiones.SelectedValue);
+            item.PAR_CODIGO = Convert.ToInt32(ddlParqueadero.SelectedValue);
             item.PUE_NOMBRE = txtDescripcion.Text.Trim().ToUpper();
             return item;
         }
@@ -116,7 +116,10 @@ namespace SwParqueadero.Mantenimiento
                     TBL_PUESTOS item = new TBL_PUESTOS();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                        logicaPuestos.Guardar(cargaEntidad(item));
+                        if (logicaParqueadero.ItemPorCodigo(Convert.ToInt32(ddlParqueadero.SelectedValue)).PAR_PUESTOS == 0)
+                        {
+                            logicaPuestos.Guardar(cargaEntidad(item));
+                        }
                     }
                     else
                     {

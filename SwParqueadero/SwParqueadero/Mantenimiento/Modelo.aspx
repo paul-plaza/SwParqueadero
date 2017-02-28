@@ -95,7 +95,7 @@
                                                     CommandName="M" CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                                 <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
                                                     ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
                                                     CommandArgument='<%# Bind("MOD_CODIGO") %>' />
                                             </ItemTemplate>
                                             <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>
