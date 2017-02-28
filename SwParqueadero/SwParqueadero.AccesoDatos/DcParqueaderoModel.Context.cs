@@ -44,6 +44,7 @@ namespace SwParqueadero.AccesoDatos
         public virtual DbSet<TBL_USUARIO> TBL_USUARIO { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TBL_DIMENSION> TBL_DIMENSION { get; set; }
+        public virtual DbSet<TBL_EMPRESA> TBL_EMPRESA { get; set; }
     
         public virtual ObjectResult<SP_DOCENTE_Result> SP_DOCENTE(string pCEDULA)
         {

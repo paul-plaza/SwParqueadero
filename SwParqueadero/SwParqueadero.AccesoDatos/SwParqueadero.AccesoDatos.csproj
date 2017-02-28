@@ -95,6 +95,9 @@
     <Compile Include="TBL_DIMENSION.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBL_EMPRESA.cs">
+      <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_JORNADA.cs">
       <DependentUpon>DcParqueaderoModel.tt</DependentUpon>
     </Compile>
