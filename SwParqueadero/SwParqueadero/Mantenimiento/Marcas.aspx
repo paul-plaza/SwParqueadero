@@ -38,11 +38,12 @@
                                 <div class="col-md-12 text-right">
                                     <asp:Panel ID="pnl_defbotonbuscar" runat="server" CssClass="form-inline col-md-12"
                                         DefaultButton="btnBuscar">
-                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"  class="form-control"></asp:TextBox>
-                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success" 
+                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"
+                                            class="form-control"></asp:TextBox>
+                                        <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success"
                                             CausesValidation="false" runat="server" OnClick="btnBuscar_Click" />
                                         <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
-                                            Text="Todos" ToolTip="Mostrar Todos" 
+                                            Text="Todos" ToolTip="Mostrar Todos"
                                             OnClick="btn_BuscarTodosActivo_Click" />
                                     </asp:Panel>
                                 </div>
@@ -51,7 +52,8 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
-                                    CssClass="table table-striped table-hover" AllowPaging="true" PageSize="5"
+                                    CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" AllowPaging="true"
+                                    PageSize="5"
                                     OnRowCommand="gvdatos_RowCommand"
                                     OnPageIndexChanging="gvdatos_PageIndexChanging">
                                     <Columns>
@@ -66,12 +68,14 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:Button ID="btnModificar" Text="Modificar" CausesValidation="false" runat="server"
-                                                    CssClass="btn btn-info btn-sm" ValidationGroup="gisad"
+                                                <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server"
+                                                    Font-Size="10pt" Style="text-decoration: none; color: yellowgreen"
+                                                    CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar"
                                                     CommandName="M" CommandArgument='<%# Bind("MAR_CODIGO") %>' />
-                                                <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger btn-sm"
-                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el registro?')"
-                                                    CommandArgument='<%# Bind("MAR_CODIGO") %>' ValidationGroup="gisad" />
+                                                <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
+                                                    ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
+                                                    CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
+                                                    CommandArgument='<%# Bind("MAR_CODIGO") %>' />
                                             </ItemTemplate>
                                             <ItemStyle Width="200px" HorizontalAlign="Center"></ItemStyle>
                                         </asp:TemplateField>

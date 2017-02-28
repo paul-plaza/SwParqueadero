@@ -1,14 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Usuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+    CodeBehind="Usuarios.aspx.cs" Inherits="SwParqueadero.Mantenimiento.Usuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <style type="text/css">
-        .GridView1 th
-        {
-            text-align: center !important;
-            background-color: #337AB7;
-            color: White;
-        }
-    </style>
     <hr />
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -54,7 +47,8 @@
                              <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon4">Contacto</span> 
-                                    <asp:TextBox runat="server" ID="txtContacto" CssClass="form-control" placeholder="Ingrese teléfono" TextMode="Number"
+                                    <asp:TextBox runat="server" ID="txtContacto" CssClass="form-control" placeholder="Ingrese teléfono"
+                                        TextMode="Number"
                                         MaxLength="50" aria-describedby="basic-addon4" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
@@ -64,7 +58,8 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon5">E-mail</span>
-                                    <asp:TextBox runat="server" ID="txtCorreo" CssClass="form-control" placeholder="Ingrese e-mail" TextMode="Email"
+                                    <asp:TextBox runat="server" ID="txtCorreo" CssClass="form-control" placeholder="Ingrese e-mail"
+                                        TextMode="Email"
                                         MaxLength="50" aria-describedby="basic-addon5" />
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
@@ -76,7 +71,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon8">Tipo Usuario</span>
-                                    <asp:DropDownList runat="server" CssClass="form-control"  ID="ddlTipoUsuario">
+                                    <asp:DropDownList runat="server" CssClass="form-control" ID="ddlTipoUsuario">
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -95,12 +90,12 @@
                                 <div class="col-md-12 text-right">
                                     <asp:Panel ID="pnl_defbotonbuscar" runat="server" CssClass="form-inline col-md-12"
                                         DefaultButton="btnBuscar">
-                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"  class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txt_BuscarActivo" placeholder="(Texto a buscar)" runat="server"
+                                            class="form-control"></asp:TextBox>
                                         <asp:Button Text="Buscar" ID="btnBuscar" CssClass="btn btn-outline-success" 
                                             CausesValidation="false" runat="server" />
                                         <asp:Button ID="btn_BuscarTodosActivo" runat="server" CausesValidation="False" class="btn btn-primary"
-                                            Text="Todos" ToolTip="Mostrar Todos" 
-                                             />
+                                            Text="Todos" ToolTip="Mostrar Todos" />
                                     </asp:Panel>
                                 </div>
                             </div>
@@ -108,10 +103,8 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                
-                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos" CellSpacing="-1"
-                                    CssClass="table table-condensed table-hover GridView1" OnRowCommand="gvdatos_RowCommand"
-                                    >
+                                <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
+                                    CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" OnRowCommand="gvdatos_RowCommand">
                                     <Columns>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
@@ -160,14 +153,17 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server" Font-Size="10pt" Style="text-decoration:none; color:yellowgreen"
-                                                    CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar" ValidationGroup="gisad"
+                                                <asp:LinkButton ID="btnModificar" Text="" CausesValidation="false" runat="server"
+                                                    Font-Size="10pt" Style="text-decoration: none; color: yellowgreen"
+                                                    CssClass="glyphicon glyphicon-pencil" ToolTip="Modificar"
                                                     CommandName="M" CommandArgument='<%# Bind("USU_CODIGO") %>' />
-                                                <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove" ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration:none; color:red"
+                                                <asp:LinkButton ID="btnEliminar" Text="" runat="server" CssClass="glyphicon glyphicon-remove"
+                                                    ToolTip="Eliminar" Font-Size="10pt" Style="text-decoration: none; color: red"
                                                     CommandName="E" CausesValidation="false" OnClientClick="return confirm('Esta Seguro de Eliminar el resgistro?')"
-                                                    CommandArgument='<%# Bind("USU_CODIGO") %>' ValidationGroup="gisad" />
-                                                <asp:LinkButton ID="lnkEnviarCorrero" Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reenviar Password" Font-Size="10pt" Style="text-decoration:none; color:blue"
-                                                    CommandName="C" CommandArgument='<%Bind("USU_CODIGO") %>' CausesValidation="false"/>
+                                                    CommandArgument='<%# Bind("USU_CODIGO") %>' />
+
+                                                <asp:LinkButton Text="" runat="server" CssClass="glyphicon glyphicon-envelope" ToolTip="Reeviar Password"
+                                                    Font-Size="10pt" Style="text-decoration: none; color: blue" />
                                                 
                                             </ItemTemplate>
                                             <ItemStyle Width="100px" HorizontalAlign="Center"></ItemStyle>

@@ -14,6 +14,13 @@
     </asp:PlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <style type="text/css">
+        .GridView1 th {
+            text-align: center !important;
+            background-color: #337AB7;
+            color: White;
+        }
+    </style>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -48,13 +55,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">Sistema Parqueadero UIsrael</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Administración<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Mantenimiento/TipoUsuarios.aspx">Tipo Usuario</a></li>
+                                <li><a href="../Mantenimiento/Usuarios.aspx">Usuarios</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Parámetros<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Mantenimiento/Marcas.aspx">Marcas</a></li>
+                                <li><a href="../Mantenimiento/Modelo.aspx">Modelos</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

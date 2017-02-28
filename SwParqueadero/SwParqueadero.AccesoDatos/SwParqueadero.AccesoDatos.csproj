@@ -157,6 +157,7 @@
       <DependentUpon>DcParqueaderoModel.edmx</DependentUpon>
       <LastGenOutput>DcParqueaderoModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="DcParqueaderoModel.edmx.sql" />
     <Content Include="DcParqueaderoModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DcParqueaderoModel.edmx</DependentUpon>
