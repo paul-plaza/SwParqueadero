@@ -97,7 +97,7 @@ namespace SwParqueadero.Comun
         {
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(_InfoCompania.EMP_CORREO, _InfoCompania.EMP_NOMBRE, System.Text.Encoding.UTF8);
-            msg.Subject = "Credenciales";//_infoMail.TIPT_SUBJET;
+            msg.Subject = "Credenciales";
             msg.SubjectEncoding = Encoding.UTF8;
             foreach (string item in correoDestinatario)
             {

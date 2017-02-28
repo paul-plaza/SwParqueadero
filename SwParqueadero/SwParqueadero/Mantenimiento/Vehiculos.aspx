@@ -77,12 +77,7 @@
                                             CausesValidation="false" /></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <asp:FileUpload ID="fuImagen" CssClass="btn btn-default" runat="server" />
-                                    <span class="input-group-addon" id="basic-addon7">.png</span>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="basic-addon8">Observaciones</span>
@@ -118,12 +113,34 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive"  style="height:270px">
+                                <script>
+                                    var modal = document.getElementById('myModal');
+
+                                    var img = document.getElementById('myImg');
+                                    var modalImg = document.getElementById("img01");
+                                    var captionText = document.getElementById("caption");
+
+                                    img.onclick = function () {
+                                        modal.style.display = "block";
+                                        modalImg.src = this.src;
+                                        captionText.innerHTML = this.alt;
+                                    }
+
+                                    var span = document.getElementsByClassName("close")[0];
+
+                                    span.onclick = function () {
+                                        modal.style.display = "none";
+                                    }
+
+                                </script>
+
                                 <asp:GridView AutoGenerateColumns="false" Font-Size="X-Small" runat="server" ID="gvdatos"
                                     CellSpacing="-1" CssClass="table table-condensed table-hover GridView1" AllowPaging="true"
                                     PageSize="5"
                                     OnRowCommand="gvdatos_RowCommand"
-                                    OnPageIndexChanging="gvdatos_PageIndexChanging">
+                                    OnPageIndexChanging="gvdatos_PageIndexChanging" 
+                                    OnRowDataBound="gvdatos_RowDataBound">
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
@@ -184,7 +201,27 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
+                            <div class="input-group">
+                                <script>
+                                    function myfunction() {
+                                        var codigo = parseInt($('#MainContent_hfCodigoUsuario').val());
+                                        if (codigo == 0) {
+                                            alert('Debe seleccionar un registro antes de subir!');
+                                            return false;
+                                        }
+                                    }
+                                    
+                                </script>
+                                <ajaxToolkit:AjaxFileUpload ID="aFile" runat="server"
+                                    ContextKeys="fred"
+                                    AllowedFileTypes="jpg,jpeg"
+                                    MaximumNumberOfFiles="1"
+                                    OnUploadComplete="aFile_UploadComplete" 
+                                    OnClientUploadStart="myfunction" />
+                                <span class="input-group-addon" id="basic-addon7">...</span>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -204,7 +241,7 @@
     <asp:HiddenField runat="server" ID="hfCodigo" Value="0" />
     <asp:HiddenField runat="server" ID="hfCodigoUsuario" Value="0" />
 
-    <div id="myModal" class="modal" style="z-index:999999">
+    <div id="myModal" class="modal" style="z-index: 999999">
         <span class="close" onclick="document.getElementById('myModal').style.display='none'">
             &times;</span>
         <img class="modal-content" id="img01">
