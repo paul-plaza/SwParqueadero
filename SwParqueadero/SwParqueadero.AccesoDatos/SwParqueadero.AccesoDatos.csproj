@@ -164,6 +164,7 @@
       <LastGenOutput>DcParqueaderoModel.cs</LastGenOutput>
     </Content>
     <Content Include="Repositorio\Dimensiones.sql" />
+    <Content Include="Repositorio\Procedimientos.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
