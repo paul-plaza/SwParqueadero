@@ -57,6 +57,8 @@ namespace SwParqueadero.Comun
             public static string MENSAJE_SELECCIONAR_ITEM = "Debe seleccionar un resgistro para subir el archivo!";
 
             public static string MENSAJE_REGISTRO_NO_EXISTE = "Registro no existe!";
+
+            public static string MENSAJE_NUMERO_MAXIMO = "Ha sobrepasado el número de items permitidos";
         }
 
         public class ConstantesSesion

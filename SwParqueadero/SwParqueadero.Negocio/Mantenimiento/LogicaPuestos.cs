@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SwParqueadero.AccesoDatos;
+using SwParqueadero.Comun;
 
 namespace SwParqueadero.Negocio.Mantenimiento
 {
@@ -13,10 +14,10 @@ namespace SwParqueadero.Negocio.Mantenimiento
 
         public List<TBL_PUESTOS> ListaPorCodigoParqueadero(int codigoParqueadero)
         {
-            return dc.TBL_PUESTOS.Where(aux=>aux.PAR_CODIGO.Equals(codigoParqueadero)).ToList();
+            return dc.TBL_PUESTOS.Where(aux => aux.PAR_CODIGO.Equals(codigoParqueadero)).ToList();
         }
 
-        public List<TBL_PUESTOS> ListaPorNombreParqueadero(int codigoParqueadero,string texto)
+        public List<TBL_PUESTOS> ListaPorNombreParqueadero(int codigoParqueadero, string texto)
         {
             return dc.TBL_PUESTOS.Where(aux => aux.PAR_CODIGO.Equals(codigoParqueadero) & aux.PUE_NOMBRE.Contains(texto)).ToList();
         }
@@ -49,9 +50,19 @@ namespace SwParqueadero.Negocio.Mantenimiento
         {
             try
             {
-                item.PUE_CODIGO = secuencial();
-                dc.TBL_PUESTOS.Add(item);
-                dc.SaveChanges();
+                LogicaParqueadero logicaParqueadero = new LogicaParqueadero();
+                int numeroPuestoParqueo = dc.TBL_PUESTOS.Where(aux => aux.PAR_CODIGO.Equals(item.PAR_CODIGO)).Count();
+                if (numeroPuestoParqueo <= logicaParqueadero.ItemPorCodigo(item.PAR_CODIGO).PAR_PUESTOS)
+                {
+                    item.PUE_CODIGO = secuencial();
+                    dc.TBL_PUESTOS.Add(item);
+                    dc.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException(CConstantes.ConstantesMensajesValidaciones.MENSAJE_NUMERO_MAXIMO);
+                }
+                
             }
             catch (Exception ex)
             {

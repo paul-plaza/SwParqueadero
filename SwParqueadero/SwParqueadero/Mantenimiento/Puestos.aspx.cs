@@ -116,10 +116,7 @@ namespace SwParqueadero.Mantenimiento
                     TBL_PUESTOS item = new TBL_PUESTOS();
                     if (hfCodigo.Value.Equals(CConstantes.Constantes.VALOR_POR_DEFECTO))
                     {
-                        if (logicaParqueadero.ItemPorCodigo(Convert.ToInt32(ddlParqueadero.SelectedValue)).PAR_PUESTOS == 0)
-                        {
-                            logicaPuestos.Guardar(cargaEntidad(item));
-                        }
+                        logicaPuestos.Guardar(cargaEntidad(item));
                     }
                     else
                     {
